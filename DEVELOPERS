@@ -1,0 +1,8 @@
+struct "point" is used to keep track of the x, y position and the height at that point.
+
+the main method calls stat1()
+
+stat1() takes in standard input witch is expected to be a set of 3 doubles, the first two are the x and y values of the center of a grid square, the third value is the height of that square.
+stat1() then takes the first value and sets it as the high point and low point, then it reads all the other points,
+if it finds a point higher then the current high point that new point becomes the new high point. the same thing happens with the low point if the new point is lower.
+

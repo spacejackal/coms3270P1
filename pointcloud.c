@@ -2,10 +2,7 @@
 #include "pointcloud.h"
 
 //this struct is used to keep track of points in a condensed and easy manner
-struct point{
-	double height;
-	double x, y;
-};
+
 
 //the main method calls stat1
 int main() {

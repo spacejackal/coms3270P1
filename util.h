@@ -1,0 +1,3 @@
+
+
+void* allocateArray(int, int);

@@ -12,9 +12,9 @@ int main() {
 
 //stat1() gets the highest and lowest point and also computes the average
 int stat1() {
-	struct point high; //defines the struct to keep track of the high point
-	struct point low;  //defines the struct to keep track of the low point
-	struct point temp; //defines the struct to keep a temp point to compare to the high and low points
+	struct pcd_t high; //defines the struct to keep track of the high point
+	struct pcd_t low;  //defines the struct to keep track of the low point
+	struct pcd_t temp; //defines the struct to keep a temp point to compare to the high and low points
 	double total;	   //defines the total to compute the average
 	int count = 1;		//defines a count to keep track of the total number of points assessed
 	

@@ -8,7 +8,7 @@ typedef struct pcd_t{		//this struct is used to keep track of points in a conden
 	double *north;
 	double *south;
 	double *east;
-	double *west;
-};
+	double *west;};
+
 #endif // !POINTCLOUD
 

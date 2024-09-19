@@ -5,3 +5,18 @@
 void *allocateArray(int rows, int columns) {
 	malloc(sizeOf(double) * (rows * columns));
 }
+
+int ListInit(List* l, int max_elmt_size){
+	List l;
+	l->max_size = 10;
+	l->size = 0;
+	return 0;
+}
+
+void listAddEnd(List* l, void* elmt){
+}
+
+void* listGet(List* l, int index){
+
+	return nullptr;
+}

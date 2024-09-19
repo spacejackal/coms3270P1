@@ -4,7 +4,7 @@
 //this struct is used to keep track of points in a condensed and easy manner
 struct point{
 	double height;
-	float x, y;
+	double x, y;
 };
 
 //the main method calls stat1
@@ -21,13 +21,13 @@ int stat1() {
 	double total;	   //defines the total to compute the average
 	int count = 1;		//defines a count to keep track of the total number of points assessed
 	
-	scanf("%f %f %lf", &high.x, &high.y, &high.height); //gets the first point and makes it the high point;
+	scanf("%lf %lf %lf", &high.x, &high.y, &high.height); //gets the first point and makes it the high point;
 	low.x = high.x;		//bellow assinments are used to make the low point the same as the high point
 	low.y = high.y;
 	low.height = high.height;
 	total += high.height;
 
-	while (scanf("%f %f %lf", &temp.x, &temp.y, &temp.height) != EOF) { //reads all set of 3  values and adding it to the temp point
+	while (scanf("%lf %lf %lf", &temp.x, &temp.y, &temp.height) != EOF) { //reads all set of 3  values and adding it to the temp point
 		if (temp.height > high.height) {  //if the temp point has more height the the high point, make it the high point
 			high.x = temp.x;
 			high.y = temp.y;

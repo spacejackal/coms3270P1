@@ -3,7 +3,8 @@
 #include "util.h"
 
 void *allocateArray(int rows, int columns) {
-	malloc(sizeOf(double) * (rows * columns));
+	double* arr;
+	arr =calloc(sizeOf(double) *(row * columns));
 }
 
 int ListInit(List* l, int max_elmt_size){

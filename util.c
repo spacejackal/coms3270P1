@@ -17,12 +17,13 @@ int ListInit(List* l, int max_elmt_size){
 }
 
 void listAddEnd(List* l, void* elmt){
-	if (l->size != l->max_size) {
-		l->data + (l->max_element_size * l->size) = elmt;
+	if (l->size <= l->max_size) {
+		l->data = *elmt;
 	}
 }
 
 void* listGet(List* l, int index){
 
-	return nullptr;
+
+	return 0;
 }

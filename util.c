@@ -26,7 +26,7 @@ void listAddEnd(List* l, void* elmt){
 void* listGet(List* l, int index){
 	int size = l->size;
 	void* p = l->data;
-	p += (index* l->max_element_size);
+	p += (index);
 
 	return p ;
 }
@@ -40,7 +40,7 @@ int main() {
 	printf("max elemnt size: %i\n", pLi->max_element_size);
 	int* px = (int*)listGet(pLi, 0);
 	printf("first thing in list: %d\n", *px);
-	printf("------------------------------------------");
+	printf("------------------------------------------\n");
 	int x = 5;
 	int* pxx = &x;
 	listAddEnd(pLi, pxx);
@@ -49,7 +49,7 @@ int main() {
 	printf("size of list: %i\n", pLi->size);
 	printf("first thing in list: %d\n", *px);
 
-	printf("------------------------------------------");
+	printf("------------------------------------------\n");
 	int y = 2;
 	int* py = &y;
 	listAddEnd(pLi, py);

@@ -45,7 +45,7 @@ int main() {
 	int x = 5;
 	int* pxx = &x;
 	listAddEnd(pLi, px);
-	int* px = (int*)listGet(pLi, 0);
+	px = (int*)listGet(pLi, 0);
 	printf("adding 5 to the list");
 	printf("size of list: %i\n", pLi->size);
 	printf("first thing in list: %d\n", *px);

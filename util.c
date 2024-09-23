@@ -21,6 +21,7 @@ void listAddEnd(List* l, void* elmt){
 	if (l->size <= l->max_size) {
 		int lis = l->size * l->max_element_size;
 		printf("the value of the index to be adding in %d -------------", lis);
+		l->data[lis] = *(int*)elmt;
 		l->size++;
 	}
 }

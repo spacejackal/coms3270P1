@@ -18,7 +18,7 @@ int ListInit(List* l, int max_elmt_size){
 
 void listAddEnd(List* l, void* elmt){
 	if (l->size <= l->max_size) {
-		l->data + size = elmt;
+		l->data + l->size = elmt;
 		l->size += 1;
 	}
 }
@@ -41,7 +41,7 @@ int main() {
 	int* px = (int*)listGet(pLi, 0);
 	printf("first thing in list %d\n", *px);
 	int x = 5;
-	int* px = x;
+	int* pxx = &x;
 	listAddEnd(pLi, px);
 	printf("size of list: %i\n", pLi->size);
 

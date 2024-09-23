@@ -28,7 +28,7 @@ void* listGet(List* l, int index){
 	void* p = l->data;
 	p += (size* l->max_element_size);
 
-	return ;
+	return p ;
 }
 
 int main() {

@@ -41,11 +41,14 @@ int main() {
 	printf("max size of list: %i\n", li.max_size);
 	printf("max elemnt size: %i\n", pLi->max_element_size);
 	int* px = (int*)listGet(pLi, 0);
-	printf("first thing in list %d\n", *px);
+	printf("first thing in list: %d\n", *px);
 	int x = 5;
 	int* pxx = &x;
 	listAddEnd(pLi, px);
+	int* px = (int*)listGet(pLi, 0);
+	printf("adding 5 to the list");
 	printf("size of list: %i\n", pLi->size);
+	printf("first thing in list: %d\n", *px);
 
 	
 	return 1;

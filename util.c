@@ -42,7 +42,7 @@ int main() {
 	printf("first thing in list %d\n", *px);
 	int x = 5;
 	int* px = x;
-	listAddEnd(pLi, px)
+	listAddEnd(pLi, px);
 	printf("size of list: %i\n", pLi->size);
 
 	

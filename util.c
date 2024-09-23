@@ -39,7 +39,7 @@ int main() {
 	printf("max size of list: %i\n", li.max_size);
 	printf("max elemnt size: %i\n", pLi->max_element_size);
 	int* px = (int*)listGet(pLi, 0);
-	printf("first thing in list %p\n", *px);
+	printf("first thing in list %d\n", *px);
 	
 	return 1;
 }

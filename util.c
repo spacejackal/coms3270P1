@@ -20,11 +20,10 @@ int ListInit(List* l, int max_elmt_size){
 
 void listAddEnd(List* l, void* elmt){
 	if (l->size <= l->max_size) {
-		int lis = l->size * l->max_element_size;
-		printf("the value of the index to be adding in %d -------------", lis);
-		l->data = *(char*)elmt;
+		memcpy((char*)l->data + (l->size * l->max_element_size), elmt, l->max_element_size);
 		l->size++;
 	}
+
 }
 
 void* listGet(List* l, int index){

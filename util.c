@@ -10,7 +10,8 @@ void *allocateArray(int rows, int columns) {
 
 int ListInit(List* l, int max_elmt_size){
 
-	l->data[10] = calloc(10, max_elmt_size);
+	l->data = calloc(10, max_elmt_size);
+	printf("the adress of data is ---------", &l->data);
 	l->max_element_size = max_elmt_size;
 	l->max_size = 10;
 	l->size = 0;
@@ -20,8 +21,10 @@ int ListInit(List* l, int max_elmt_size){
 void listAddEnd(List* l, void* elmt){
 	if (l->size <= l->max_size) {
 		int lis = l->size * l->max_element_size;
+		int arr[10];
+		&arr = (int*)l->data;
 		printf("the value of the index to be adding in %d -------------", lis);
-		(char*)l->data[lis] = *(char*)elmt;
+		l->data = *(char*)elmt;
 		l->size++;
 	}
 }

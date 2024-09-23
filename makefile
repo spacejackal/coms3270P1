@@ -11,4 +11,4 @@ util.o: util.c util.h
 	gcc -c util.c
 	
 clean:
-	rm -f *.o stat
+	rm -f *.o stat list a.out

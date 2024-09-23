@@ -4,6 +4,6 @@
 
 int main() {
 	List li;
-	Listinit(*li, 5);
+	ListInit(li, 5);
 	return 1;
 }

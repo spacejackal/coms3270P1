@@ -50,6 +50,6 @@ int stat1() {
 	return 0;
 }
 
-read PointCloudData(FILE* stream){
+void readPointCloudData(FILE* stream){
 	return read();
 }

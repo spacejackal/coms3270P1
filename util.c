@@ -37,6 +37,6 @@ int main() {
 	int x = 5;
 	int* px = &x;
 	listAddEnd(pLi, px);
-	printf("first element : " + li.data);
+	printf(li.data);
 	return 1;
 }

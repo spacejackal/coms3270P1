@@ -28,10 +28,8 @@ void listAddEnd(List* l, void* elmt){
 }
 
 void* listGet(List* l, int index){
-	void* p = &l->data[index * l->max_element_size];
-	printf("the value of the index to be adding in %d -------------", (index* l->max_element_size));
 	
-	return p;
+	return (char*)l->data + (index *l->max_element_size);
 }
 
 int main() {

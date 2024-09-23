@@ -26,7 +26,7 @@ void listAddEnd(List* l, void* elmt){
 void* listGet(List* l, int index){
 	int size = l->size;
 	void* p = l->data;
-	p += (index);
+	p += 4;
 
 	return p ;
 }

@@ -19,11 +19,12 @@ int ListInit(List* l, int max_elmt_size){
 }
 
 void listAddEnd(List* l, void* elmt){
-	if (l->size <= l->max_size) {
-		memcpy((char*)l->data + (l->size * l->max_element_size), elmt, l->max_element_size);
-		l->size++;
+	if (l->size >= l->max_size) {
+		l->data = realloc(l->data, (l->max_size * 2) * l->max_element_size);
+		l->max_size = l->max_size * 2;
 	}
-
+	memcpy((char*)l->data + (l->size * l->max_element_size), elmt, l->max_element_size);
+	l->size++;
 }
 
 void* listGet(List* l, int index){

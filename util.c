@@ -32,7 +32,7 @@ int main() {
 	List li;
 	List* pLi = &li;
 	ListInit(pLi, 5);
-	printf("size of list: %i", li.size);
+	printf("size of list: %i", pLi->size);
 	printf("max size of list: %i", li.max_size);
 	return 1;
 }

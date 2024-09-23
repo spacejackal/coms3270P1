@@ -27,3 +27,7 @@ void* listGet(List* l, int index){
 
 	return 0;
 }
+
+int main() {
+	return 1;
+}

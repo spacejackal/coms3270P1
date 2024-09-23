@@ -54,7 +54,28 @@ int stat1() {
 void readPointCloudData(FILE* stream){
 	List l;
 	List* pL =&p;
-	listInit(pL, sizeof(p);
-	
+	int size;
+	listInit(pL, sizeof(pcd_t));
+	fscanf(stdin, "%d", size);
+	pcd_t high; 
+	pcd_t low;  
+	pcd_t temp;
+	double total;
+	while (scanf("%lf %lf %lf", &temp.x, &temp.y, &temp.height) != EOF) { 
+		listAddEnd(pL, temp);
+		if (temp.height > high.height) {  
+			high.x = temp.x;
+			high.y = temp.y;
+			high.height = temp.height;
+		}
+		else if (temp.height < low.height) { 
+			low.x = temp.x;
+			low.y = temp.y;
+			low.height = temp.height;
+		}	
+		total += temp.height;
+	}
+
+
 	return read();
 }

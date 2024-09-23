@@ -11,7 +11,7 @@ void *allocateArray(int rows, int columns) {
 int ListInit(List* l, int max_elmt_size){
 
 	l->data = calloc(10, max_elmt_size);
-	printf("the adress of data is ---------", &l->data);
+	printf("the adress of data is: %p ---------", &l->data);
 	l->max_element_size = max_elmt_size;
 	l->max_size = 10;
 	l->size = 0;

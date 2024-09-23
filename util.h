@@ -3,6 +3,8 @@
 #ifndef UTIL
 #define UTIL
 void* allocateArray(int, int);
+#define TDOD(row,colom,width) row * width +  colom
+
 
 typedef struct {
 	int max_size;

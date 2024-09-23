@@ -10,6 +10,8 @@ int main() {
 	return 1;
 }
 
+
+
 //stat1() gets the highest and lowest point and also computes the average
 int stat1() {
 	pcd_t high; //defines the struct to keep track of the high point
@@ -46,4 +48,8 @@ int stat1() {
 	printf("Average %.15f , number of points %d \n", total, count); //prints out the average of the points looked at and the total number of points looked at
 
 	return 0;
+}
+
+read PointCloudData(FILE* stream){
+	return read();
 }

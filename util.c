@@ -36,7 +36,7 @@ int main() {
 	printf("max size of list: %i", li.max_size);
 	int x = 5;
 	int* px = &x;
-	listAddEnd(li, px);
-	printf("first element %i", li.data[0]);
+	listAddEnd(pLi, px);
+	printf("first element : " + li.data);
 	return 1;
 }

@@ -18,7 +18,7 @@ int ListInit(List* l, int max_elmt_size){
 
 void listAddEnd(List* l, void* elmt){
 	if (l->size <= l->max_size) {
-		l->data = &elmt;
+		l->data = elmt;
 		l->size++;
 	}
 }
@@ -26,7 +26,7 @@ void listAddEnd(List* l, void* elmt){
 void* listGet(List* l, int index){
 	int size = l->size;
 	void* p = l->data;
-	p += (size* l->max_element_size);
+	p += (index* l->max_element_size);
 
 	return p ;
 }

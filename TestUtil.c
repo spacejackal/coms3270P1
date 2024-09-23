@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "util.h"
-#include "util.h"
+#include "util.c"
 
 int main() {
 	List li;

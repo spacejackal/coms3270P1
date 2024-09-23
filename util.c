@@ -4,12 +4,13 @@
 
 void *allocateArray(int rows, int columns) {
 	double* arr;
-	arr = malloc((rows * columns) * sizeof(double));
+	arr = calloc((rows * columns) , sizeof(double));
+	return arr;
 }
 
 int ListInit(List* l, int max_elmt_size){
 
-	l->data = malloc(10 * max_elmt_size);
+	l->data = calloc(10 , max_elmt_size);
 	l->max_element_size = max_elmt_size;
 	l->max_size = 10;
 	l->size = 0;
@@ -26,6 +27,7 @@ void listAddEnd(List* l, void* elmt){
 
 void* listGet(List* l, int index){
 	void* p = &l->data[index * l->max_element_size];
+	printf("the value of the index to be adding in %d -------------", (index* l->max_element_size));
 	
 	return p;
 }

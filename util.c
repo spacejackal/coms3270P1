@@ -25,10 +25,10 @@ void listAddEnd(List* l, void* elmt){
 
 void* listGet(List* l, int index){
 	int size = l->size;
-	void* p = l->data;
-	p += 4;
+	char* p = (char*)l->data;
+	
 
-	return p ;
+	return p;
 }
 
 int main() {

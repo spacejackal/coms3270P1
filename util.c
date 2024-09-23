@@ -9,7 +9,7 @@ void *allocateArray(int rows, int columns) {
 
 int ListInit(List* l, int max_elmt_size){
 
-	l->data = calloc(10 , max_elmt_size);
+	l->data = (int*)calloc(10 , max_elmt_size);
 	l->max_element_size = max_elmt_size;
 	l->max_size = 10;
 	l->size = 0;
@@ -19,6 +19,7 @@ int ListInit(List* l, int max_elmt_size){
 void listAddEnd(List* l, void* elmt){
 	if (l->size <= l->max_size) {
 		l->data = elmt;
+		l->size += 1;
 	}
 }
 
@@ -31,11 +32,11 @@ void* listGet(List* l, int index){
 int main() {
 	List li;
 	List* pLi = &li;
-	ListInit(pLi, 5);
-	printf("size of list: %i", pLi->size);
-	printf("max size of list: %i", li.max_size);
+	ListInit(pLi, sizeof(int));
+	printf("size of list: %i\n", pLi->size);
+	printf("max size of list: %i\n", li.max_size);
 	int x = 5;
-	int* px = &x;
+	int* px = x;
 	listAddEnd(pLi, px);
 	printf(li.data);
 	return 1;

@@ -18,13 +18,14 @@ int ListInit(List* l, int max_elmt_size){
 
 void listAddEnd(List* l, void* elmt){
 	if (l->size <= l->max_size) {
-		l->data[l->size*l->max_element_size] = elmt;
+		int lis = l->size * l->max_element_size;
+		printf("the value of the index to be adding in -------------");
 		l->size++;
 	}
 }
 
 void* listGet(List* l, int index){
-	int* p = (int*)l->data[index];
+	void* p = l->data[index * l->max_element_size];
 	
 	return p;
 }

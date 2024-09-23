@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "util.h"
+#include <string.h>
 
 void *allocateArray(int rows, int columns) {
 	double* arr;

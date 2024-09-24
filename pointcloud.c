@@ -7,7 +7,8 @@
 
 //the main method calls stat1
 int main() {
-	stat1();
+	readPointCloudData();
+	//stat1();
 	return 1;
 }
 
@@ -75,5 +76,7 @@ void readPointCloudData(FILE* stream){
 		}	
 		total += temp.height;
 	}
-
+	printf("High point: x = %.1f, y = %.1f, height = %.15f \n", high.x, high.y, high.height); 
+	printf("Low point: x = %.1f, y = %.1f, height = %.15f \n", low.x, low.y, low.height);
+	printf("Average %.15f , number of points %d \n", total, count); 
 }

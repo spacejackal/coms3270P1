@@ -58,14 +58,14 @@ void readPointCloudData(FILE* stream){
 	List* pL =&l;
 	int size;
 	ListInit(pL, sizeof(pcd_t));
-	fscanf(stream, "%d", &size);
+	fscanf(stdin, "%d", &size);
 	printf("%ls   ----------------", &size);
 	pcd_t high; 
 	pcd_t low;  
 	pcd_t temp;
 	pcd_t* pTemp = &temp;
 	double total;
-	while (scanf(stdin,"%lf %lf %lf", &temp.x, &temp.y, &temp.height) != EOF) { 
+	while (fscanf(stdin,"%lf %lf %lf", &temp.x, &temp.y, &temp.height) != EOF) { 
 		listAddEnd(pL,  pTemp);
 		if (temp.height > high.height) {  
 			high.x = temp.x;

@@ -57,7 +57,7 @@ void readPointCloudData(FILE* stream){
 	List* pL =&p;
 	int size;
 	listInit(pL, sizeof(pcd_t));
-	fscanf(stdin, "%d", size);
+	fscanf(stdin, "%i", size);
 	pcd_t high; 
 	pcd_t low;  
 	pcd_t temp;

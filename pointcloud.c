@@ -59,7 +59,7 @@ void readPointCloudData(FILE* stream){
 	int size;
 	ListInit(pL, sizeof(pcd_t));
 	fscanf(stdin, "%d", &size);
-	printf("%ls   ----------------", &size);
+	//printf("%ls   ----------------", &size);
 	pcd_t high; 
 	pcd_t low;  
 	pcd_t temp;
@@ -81,5 +81,5 @@ void readPointCloudData(FILE* stream){
 	}
 	printf("High point: x = %.1f, y = %.1f, height = %.15f \n", high.x, high.y, high.height); 
 	printf("Low point: x = %.1f, y = %.1f, height = %.15f \n", low.x, low.y, low.height);
-	printf("Average %.15f  \n", total); 
+	printf("Average %.15f  \n", total/l.size); 
 }

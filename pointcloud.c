@@ -7,7 +7,7 @@
 
 //the main method calls stat1
 int main() {
-	readPointCloudData();
+	readPointCloudData(stdin);
 	//stat1();
 	return 1;
 }
@@ -54,16 +54,16 @@ int stat1() {
 
 void readPointCloudData(FILE* stream){
 	List l;
-	List* pL =&p;
+	List* pL =&l;
 	int size;
-	listInit(pL, sizeof(pcd_t));
+	ListInit(pL, sizeof(pcd_t));
 	fscanf(stdin, "%i", size);
 	pcd_t high; 
 	pcd_t low;  
 	pcd_t temp;
 	double total;
-	while (scanf("%lf %lf %lf", &temp.x, &temp.y, &temp.height) != EOF) { 
-		listAddEnd(pL, temp);
+	while (scanf(stdin,"%lf %lf %lf", &temp.x, &temp.y, &temp.height) != EOF) { 
+		listAddEnd(pL, (pcd_t*) temp);
 		if (temp.height > high.height) {  
 			high.x = temp.x;
 			high.y = temp.y;

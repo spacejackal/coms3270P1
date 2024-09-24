@@ -65,7 +65,7 @@ void readPointCloudData(FILE* stream){
 	pcd_t temp;
 	pcd_t* pTemp = &temp;
 	double total;
-	while (scanf((File*)stdin,"%lf %lf %lf", &temp.x, &temp.y, &temp.height) != EOF) { 
+	while (scanf(stdin,"%lf %lf %lf", &temp.x, &temp.y, &temp.height) != EOF) { 
 		listAddEnd(pL,  pTemp);
 		if (temp.height > high.height) {  
 			high.x = temp.x;

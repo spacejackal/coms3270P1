@@ -76,6 +76,4 @@ void readPointCloudData(FILE* stream){
 		total += temp.height;
 	}
 
-
-	return read();
 }

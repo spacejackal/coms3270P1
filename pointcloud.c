@@ -53,6 +53,14 @@ int stat1() {
 	return 0;
 }
 
+void startingHighLow(pcd_t * high,pcd_t *low,) {
+
+}
+
+void imagePointCloud(List* l, char* filename) {
+
+}
+
 void readPointCloudData(FILE* stream){
 	List l;
 	List* pL =&l;

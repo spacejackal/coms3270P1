@@ -59,12 +59,6 @@ int stat1() {
 	return 0;
 }
 
-void startingHighLow(pcd_t high,pcd_t low,) {
-	low.x = high.x;		
-	low.y = high.y;
-	low.height = high.height;
-
-}
 
 void imagePointCloud(List* l,int width, char* filename) {
 

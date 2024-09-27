@@ -12,3 +12,7 @@ util.o: util.c util.h
 	
 clean:
 	rm -f *.o stat list a.out
+
+remakeStat:
+	make clean
+	make stat

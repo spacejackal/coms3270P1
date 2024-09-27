@@ -10,8 +10,11 @@
 int main() {
 	List l;
 	List* pL = &l;
-	readPointCloudData(stdin, 100, pL);
+	int width = 0;
+	int* pWidth = &width;
+	readPointCloudData(stdin, pWidth, pL);
 	//stat1();
+	printf("the width: %d", pWidth);
 	return 1;
 }
 
@@ -55,7 +58,10 @@ int stat1() {
 	return 0;
 }
 
-void startingHighLow(pcd_t * high,pcd_t *low,) {
+void startingHighLow(pcd_t high,pcd_t low,) {
+	low.x = high.x;		
+	low.y = high.y;
+	low.height = high.height;
 
 }
 
@@ -64,15 +70,22 @@ void imagePointCloud(List* l,int width, char* filename) {
 }
 
 void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
-	int size;
 	ListInit(pL, sizeof(pcd_t));
-	fscanf(stdin, "%d", &size);
+	fscanf(stream, "%d", rasterWidth);
 	pcd_t high; 
 	pcd_t low;  
 	pcd_t temp;
 	pcd_t* pTemp = &temp;
 	double total;
-	while (fscanf(stdin,"%lf %lf %lf", &temp.x, &temp.y, &temp.height) != EOF) { 
+
+	fscanf(stream, "%lf %lf %lf", &high.x, &high.y, &high.height); 
+	low.x = high.x;		
+	low.y = high.y;
+	low.height = high.height;
+	total += high.height;
+
+
+	while (fscanf(stream,"%lf %lf %lf", &temp.x, &temp.y, &temp.height) != EOF) { 
 		listAddEnd(pL,  pTemp);
 		if (temp.height > high.height) {  
 			high.x = temp.x;
@@ -88,5 +101,5 @@ void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
 	}
 	printf("High point: x = %.1f, y = %.1f, height = %.15f \n", high.x, high.y, high.height); 
 	printf("Low point: x = %.1f, y = %.1f, height = %.15f \n", low.x, low.y, low.height);
-	printf("Average %.15f  \n", total/l.size); 
+	printf("Average %.15f  \n", total/pL->size); 
 }

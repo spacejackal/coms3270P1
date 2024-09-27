@@ -15,7 +15,7 @@ int main() {
 	int* pWidth = &width;
 	readPointCloudData(stdin, pWidth, pL);
 	//stat1();
-	printf("the width: %ls", width);
+	printf("the width: %d", width);
 	return 1;
 }
 

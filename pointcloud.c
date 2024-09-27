@@ -1,7 +1,8 @@
 #include <stdio.h>
-#include "pointcloud.h"
 #include "util.h"
 #include "util.c"
+#include "pointcloud.h"
+
 
 //this struct is used to keep track of points in a condensed and easy manner
 

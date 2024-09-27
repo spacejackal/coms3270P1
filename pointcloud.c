@@ -8,7 +8,9 @@
 
 //the main method calls stat1
 int main() {
-	readPointCloudData(stdin);
+	List l;
+	List* pL = &l;
+	readPointCloudData(stdin, 100, pL);
 	//stat1();
 	return 1;
 }
@@ -57,17 +59,14 @@ void startingHighLow(pcd_t * high,pcd_t *low,) {
 
 }
 
-void imagePointCloud(List* l, char* filename) {
+void imagePointCloud(List* l,int width, char* filename) {
 
 }
 
-void readPointCloudData(FILE* stream){
-	List l;
-	List* pL =&l;
+void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
 	int size;
 	ListInit(pL, sizeof(pcd_t));
 	fscanf(stdin, "%d", &size);
-	//printf("%ls   ----------------", &size);
 	pcd_t high; 
 	pcd_t low;  
 	pcd_t temp;

@@ -11,8 +11,8 @@ typedef struct pcd_t{		//this struct is used to keep track of points in a conden
 	double *west;
 }pcd_t;
 
-void imagePointCloud(List* l, char* filename);
+void imagePointCloud(List* l,int width, char* filename);
 
-void readPointCloudData(FILE* stream);
+void readPointCloudData(FILE* stream,int* rasterWidth, List* pc);
 #endif // !POINTCLOUD
 

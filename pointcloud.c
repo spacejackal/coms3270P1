@@ -63,11 +63,38 @@ int stat1() {
 
 void imagePointCloud(List* l,int width, char* filename) {
 	int* pWidth = &width;
+	double high;
+	double low;
+	double* pHigh = &high;
+	double* pLow = &low;
+
 	FILE* file = fopen(filename, "r");
 	readPointCloudData(file, pWidth, l);
 	int height = l->size / width;
 	void* arr = allocateArray(height, width);
+	getHighLow(l,pHigh, pLow);
 	
+}
+
+/*
+* getHighLow takes a list and two pointers, one for low and one for high
+* this function then looks at the list to find if any point that was is that list that is either higher or lower
+* this continues untill it goes through alll the points to find the highest and lowest points
+*/
+void getHighLow(List* l,double* high, double* low) { 
+	pcd_t temp = listGet(l, 0);
+	high = temp->height;
+	low = high;
+	
+	for (int i = 1; i < l->size; i++) {
+		temp = listGet(l, i);
+		if (temp.height > high) {
+			high = temp.height;
+		}
+		else if (temp.height < low) {
+			low = temp.height;
+		}
+	}
 }
 
 void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){

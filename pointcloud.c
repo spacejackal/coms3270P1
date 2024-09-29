@@ -2,6 +2,7 @@
 #include "util.h"
 #include "util.c"
 #include "pointcloud.h"
+#include "bmp.h"
 
 
 //this struct is used to keep track of points in a condensed and easy manner

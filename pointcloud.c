@@ -99,7 +99,7 @@ void imagePointCloud(List* l,int width, char* filename) {
 		section += ((unsigned int)temp << 8);
 		section += ((unsigned int)temp << 4);
 		bm_set_color(b, section);
-		bm_putpixel(b, , writeRow, writeCol);
+		bm_putpixel(b, writeRow, writeCol);
 		if (writeRow == width) {
 			writeCol++;
 			writeRow = 0;

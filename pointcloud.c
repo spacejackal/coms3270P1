@@ -81,9 +81,11 @@ void imagePointCloud(List* l,int width, char* filename) {
 	pcd_t* pListTemp = &listTemp;
 	double temp;
 	double* pTemp = &temp;
-	int section;
+	unsighed int section;
 	int height = l->size / width;
 	Bitmap* b = bm_create(width, height);
+	int writeRow = 0;
+	int writeCol = 0;
 
 	void* arr = allocateArray(height, width);
 	for (int i = 0; i < l->size; i++) {
@@ -95,6 +97,10 @@ void imagePointCloud(List* l,int width, char* filename) {
 		section = (int)temp;
 		
 	}
+	bm_set_color(b, bm_atoi("white"));
+	bm_puts(b, 20, 20, "Hello World");
+	bm_save(b, "out.gif");
+
 	
 
 

@@ -15,6 +15,7 @@ util.o: util.c util.h
 	
 clean:
 	rm -f *.o stat list a.out
+	rm -f *.gif
 
 remakeStat:
 	make clean

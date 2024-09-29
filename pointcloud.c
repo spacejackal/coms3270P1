@@ -72,8 +72,6 @@ void imagePointCloud(List* l,int width, char* filename) {
 	readPointCloudData(file, pWidth, l);
 	int height = l->size / width;
 	void* arr = allocateArray(height, width);
-	getHighLow(l,pHigh, pLow);
-	
 }
 
 
@@ -109,7 +107,7 @@ void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
 	}
 	printf("High point: x = %.1f, y = %.1f, height = %.15f \n", high.x, high.y, high.height); 
 	printf("Low point: x = %.1f, y = %.1f, height = %.15f \n", low.x, low.y, low.height);
-	printf("Average %.15f  \n", rasterWidth);
+	printf("Average %.15ls  \n", rasterWidth);
 	
 	pL->stats->high = high.height;
 	pL->stats->low = low.height;

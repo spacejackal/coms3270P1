@@ -1,11 +1,12 @@
 stat: pointcloud.o bmp.o
-	sudo gcc pointcloud.o -o stat -ljpeg
+	gcc bmp.o 
+	gcc pointcloud.o -o stat 
 
 pointcloud.o: pointcloud.c pointcloud.h
 	gcc -c pointcloud.c
 
 bmp.o: bmp.c bmp.h
-	sudo gcc -c bmp.c -DUSEJPG
+	gcc -c bmp.c 
 
 list: util.o
 	gcc util.o -o list

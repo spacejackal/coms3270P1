@@ -95,11 +95,10 @@ void imagePointCloud(List* l,int width, char* filename) {
 		temp /= diff;
 		temp *= 256;
 		section = (unsigned int)temp;
-		printf("the unsighed int is %d", section);
 		
 	}
 	bm_set_color(b, bm_atoi("white"));
-	bm_puts(b, 20, 20, "Hello World");
+	bm_putpixel(b, 0, 0);
 	bm_save(b, "out.gif");
 
 	

@@ -11,6 +11,9 @@
 int main() {
 	List l;
 	List* pL = &l;
+	Stats s;
+	Stats* pS = &s;
+	pL->stats = pS;
 	ListInit(pL, sizeof(pcd_t));
 	int width = 0;
 	int* pWidth = &width;

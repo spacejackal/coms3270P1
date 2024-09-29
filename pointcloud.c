@@ -24,7 +24,7 @@ int main() {
 	printf("the width: %d", width);
 	printf("the high point %lf  ", s.high);
 	printf("the low point %lf   ", s.low);
-	imagePointCloud(pL, width,)
+	imagePointCloud(pL, width, filename);
 	return 1;
 }
 
@@ -83,10 +83,11 @@ void imagePointCloud(List* l,int width, char* filename) {
 	void* arr = allocateArray(height, width);
 	for (int i = 0; i < l->size; i++) {
 		pTemp = listGet(l, i);
-		pTemp -= min;
-		pTemp /= diff;
-		pTemp *= 256;
+		temp -= min;
+		temp /= diff;
+		temp *= 256;
 		section = (int)temp;
+		printf("the temp value is %d    ", pTemp);
 	}
 
 

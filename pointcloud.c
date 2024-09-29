@@ -68,9 +68,6 @@ int stat1() {
 
 void imagePointCloud(List* l,int width, char* filename) {
 	int* pWidth = &width;
-	double* pHigh = &high;
-	double* pLow = &low;
-
 	FILE* file = fopen(filename, "r");
 	readPointCloudData(file, pWidth, l);
 	int height = l->size / width;

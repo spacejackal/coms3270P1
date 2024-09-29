@@ -5,7 +5,7 @@ pointcloud.o: pointcloud.c pointcloud.h
 	gcc -c pointcloud.c
 
 bmp.o: bmp.c bmp.h
-	gcc -c bmp.c 
+	gcc -c bmp.c -lm
 
 list: util.o
 	gcc util.o -o list

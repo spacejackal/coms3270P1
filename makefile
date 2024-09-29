@@ -1,5 +1,4 @@
 stat: pointcloud.o bmp.o
-	gcc bmp.o 
 	gcc pointcloud.o -o stat 
 
 pointcloud.o: pointcloud.c pointcloud.h

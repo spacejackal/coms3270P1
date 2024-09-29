@@ -68,12 +68,12 @@ int stat1() {
 
 void imagePointCloud(List* l,int width, char* filename) {
 	int* pWidth = &width;
-	FILE* file = fopen(filename, "r");
+	FILE* file = fopen(filename, "w");
 	double min = l->stats->low;
 	double max = l->stats->high;
 	double diff = max - min;
 	double temp;
-	readPointCloudData(file, pWidth, l);
+	readPointCloudData(stdin, pWidth, l);
 	int height = l->size / width;
 	void* arr = allocateArray(height, width);
 	for (int i = 0; i < l->size; i++) {

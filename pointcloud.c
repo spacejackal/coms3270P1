@@ -11,7 +11,7 @@
 int main() {
 	List l;
 	List* pL = &l;
-	ListInit(pl, sizeof(pcd_t));
+	ListInit(pL, sizeof(pcd_t));
 	int width = 0;
 	int* pWidth = &width;
 	readPointCloudData(stdin, pWidth, pL);

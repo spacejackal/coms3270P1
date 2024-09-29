@@ -7,10 +7,16 @@ void* allocateArray(int, int);
 
 
 typedef struct {
+	double high;
+	double low;
+}Stats;
+
+typedef struct {
 	int max_size;
 	int max_element_size;
 	void* data;
 	int size;
+	Stats* stats;
 } List;
 
 int ListInit(List* l, int max_elmt_size);

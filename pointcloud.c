@@ -17,6 +17,8 @@ int main() {
 	readPointCloudData(stdin, pWidth, pL);
 	//stat1();
 	printf("the width: %d", width);
+	printf("the high point %lf  ", s.high);
+	printf("the low point %lf   ", s.low);
 	return 1;
 }
 
@@ -63,8 +65,6 @@ int stat1() {
 
 void imagePointCloud(List* l,int width, char* filename) {
 	int* pWidth = &width;
-	double high;
-	double low;
 	double* pHigh = &high;
 	double* pLow = &low;
 
@@ -76,26 +76,6 @@ void imagePointCloud(List* l,int width, char* filename) {
 	
 }
 
-/*
-* getHighLow takes a list and two pointers, one for low and one for high
-* this function then looks at the list to find if any point that was is that list that is either higher or lower
-* this continues untill it goes through alll the points to find the highest and lowest points
-*/
-void getHighLow(List* l,double* high, double* low) { 
-	pcd_t temp = listGet(l, 0);
-	high = temp->height;
-	low = high;
-	
-	for (int i = 1; i < l->size; i++) {
-		temp = listGet(l, i);
-		if (temp.height > high) {
-			high = temp.height;
-		}
-		else if (temp.height < low) {
-			low = temp.height;
-		}
-	}
-}
 
 void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
 	ListInit(pL, sizeof(pcd_t));
@@ -129,5 +109,9 @@ void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
 	}
 	printf("High point: x = %.1f, y = %.1f, height = %.15f \n", high.x, high.y, high.height); 
 	printf("Low point: x = %.1f, y = %.1f, height = %.15f \n", low.x, low.y, low.height);
-	printf("Average %.15f  \n", rasterWidth); 
+	printf("Average %.15f  \n", rasterWidth);
+	
+	pL->stats->high = high.height;
+	pL->stats->low = low.height;
+
 }

@@ -69,9 +69,20 @@ int stat1() {
 void imagePointCloud(List* l,int width, char* filename) {
 	int* pWidth = &width;
 	FILE* file = fopen(filename, "r");
+	double min = l->stats->low;
+	double max = l->stats->high;
+	double diff = max - min;
+	double temp;
 	readPointCloudData(file, pWidth, l);
 	int height = l->size / width;
 	void* arr = allocateArray(height, width);
+	for (int i = 0; i < l->size; i++) {
+		temp = listGet(l, i);
+		temp -= min;
+		temp *= diff;
+	}
+
+
 }
 
 

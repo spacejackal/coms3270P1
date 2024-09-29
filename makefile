@@ -3,7 +3,6 @@ stat: pointcloud.o
 
 pointcloud.o: pointcloud.c pointcloud.h
 	gcc -c pointcloud.c
-	make util.o
 	
 
 list: util.o

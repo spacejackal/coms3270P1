@@ -87,7 +87,7 @@ void imagePointCloud(List* l,int width, char* filename) {
 	int writeRow = 0;
 	int writeCol = 0;
 
-	void* arr = allocateArray(height, width);
+	void* arr = allocateArray(width, height);
 	for (int i = 0; i < l->size; i++) {
 		pListTemp = (pcd_t*)listGet(l, i);
 		temp = pListTemp->height;
@@ -95,10 +95,19 @@ void imagePointCloud(List* l,int width, char* filename) {
 		temp /= diff;
 		temp *= 256;
 		section = (unsigned int)temp;
-		
+		section += ((unsigned int)temp << 12);
+		section += ((unsigned int)temp << 8);
+		section += ((unsigned int)temp << 4);
+		bm_set_color(b, section);
+		bm_putpixel(b, , writeRow, writeCol);
+		if (writeRow == width) {
+			writeCol++;
+			writeRow = 0;
+		}
+		else {
+			writeRow++;
+		}
 	}
-	bm_set_color(b, bm_atoi("white"));
-	bm_putpixel(b, 0, 0);
 	bm_save(b, "out.gif");
 
 	

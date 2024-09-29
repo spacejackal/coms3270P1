@@ -81,8 +81,9 @@ void imagePointCloud(List* l,int width, char* filename) {
 	double temp;
 	double* pTemp = &temp;
 	int section;
-
 	int height = l->size / width;
+	Bitmap* b = bm_create(width, height);
+
 	void* arr = allocateArray(height, width);
 	for (int i = 0; i < l->size; i++) {
 		pListTemp = (pcd_t*)listGet(l, i);
@@ -93,6 +94,7 @@ void imagePointCloud(List* l,int width, char* filename) {
 		section = (int)temp;
 		
 	}
+	
 
 
 }

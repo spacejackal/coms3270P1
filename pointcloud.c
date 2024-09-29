@@ -81,7 +81,7 @@ void imagePointCloud(List* l,int width, char* filename) {
 	pcd_t* pListTemp = &listTemp;
 	double temp;
 	double* pTemp = &temp;
-	unsighed int section;
+	unsigned int section;
 	int height = l->size / width;
 	Bitmap* b = bm_create(width, height);
 	int writeRow = 0;
@@ -94,7 +94,8 @@ void imagePointCloud(List* l,int width, char* filename) {
 		temp -= min;
 		temp /= diff;
 		temp *= 256;
-		section = (int)temp;
+		section = (unsigned int)temp;
+		printf("the unsighed int is %d", section);
 		
 	}
 	bm_set_color(b, bm_atoi("white"));

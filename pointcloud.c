@@ -87,7 +87,7 @@ void imagePointCloud(List* l,int width, char* filename) {
 		temp /= diff;
 		temp *= 256;
 		section = (int)temp;
-		printf("the temp value is %d    ", pTemp);
+		printf("the temp value is %d    ", section);
 	}
 
 

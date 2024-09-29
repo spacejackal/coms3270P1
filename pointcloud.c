@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include "util.h"
 #include "util.c"
+#include "bmp.h"
+#include "bmp.c"
 #include "pointcloud.h"
 
 
@@ -90,7 +92,7 @@ void imagePointCloud(List* l,int width, char* filename) {
 		temp /= diff;
 		temp *= 256;
 		section = (int)temp;
-		printf("the temp value is %d    ", section);
+		
 	}
 
 

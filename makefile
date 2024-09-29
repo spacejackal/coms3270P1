@@ -1,9 +1,11 @@
-stat: pointcloud.o
+stat: pointcloud.o bmp.o
 	gcc pointcloud.o -o stat
 
 pointcloud.o: pointcloud.c pointcloud.h
 	gcc -c pointcloud.c
-	
+
+bmp.o: bmp.c bmp.h
+	gcc -c bmp.c
 
 list: util.o
 	gcc util.o -o list

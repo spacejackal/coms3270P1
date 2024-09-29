@@ -1,11 +1,11 @@
 stat: pointcloud.o bmp.o
-	sudo gcc pointcloud.o -o stat `libpng-config --ldflags` -lz
+	sudo gcc pointcloud.o -o stat -ljpeg
 
 pointcloud.o: pointcloud.c pointcloud.h
 	gcc -c pointcloud.c
 
 bmp.o: bmp.c bmp.h
-	sudo gcc -c bmp.c -DUSEPNG `libpng-config --cflags`
+	sudo gcc -c bmp.c -DUSEJPG
 
 list: util.o
 	gcc util.o -o list

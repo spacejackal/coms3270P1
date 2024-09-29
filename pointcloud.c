@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include "util.h"
 #include "util.c"
-#include "bmp.h"
-#include "bmp.c"
 #include "pointcloud.h"
 
 

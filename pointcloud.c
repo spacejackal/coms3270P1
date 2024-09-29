@@ -84,12 +84,12 @@ void imagePointCloud(List* l,int width, char* filename) {
 	int height = l->size / width;
 	void* arr = allocateArray(height, width);
 	for (int i = 0; i < l->size; i++) {
-		pListTemp = listGet(l, i);
-		temp = listTemp.height;
-		temp -= min;
-		temp /= diff;
-		temp *= 256;
-		section = (int)temp;
+		pListTemp = (pcd_t*)listGet(l, i);
+		temp = pListTemp->height;
+		//temp -= min;
+		//temp /= diff;
+		//temp *= 256;
+		//section = (int)temp;
 		printf("the temp value is %lf    ", temp);
 	}
 

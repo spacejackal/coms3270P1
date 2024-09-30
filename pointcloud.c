@@ -23,9 +23,6 @@ int main() {
 	int* pWidth = &width;
 	readPointCloudData(stdin, pWidth, pL);
 	//stat1();
-	printf("the width: %d", width);
-	printf("the high point %lf  ", s.high);
-	printf("the low point %lf   ", s.low);
 	imagePointCloud(pL, width, filename);
 	return 1;
 }

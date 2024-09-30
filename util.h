@@ -5,13 +5,17 @@
 void* allocateArray(int, int);
 #define TDOD(row,colom,width) ((row * width) +  colom)
 
-
+/*
+* Stats is mainly used to keep track of the high point and low point
+*/
 typedef struct {
 	double high;
 	double low;
-	double minx, miny;
 }Stats;
 
+/* 
+* List works similerly to ArrayList in java ie, it is a expanding list structue
+*/
 typedef struct {
 	int max_size;
 	int max_element_size;
@@ -20,10 +24,19 @@ typedef struct {
 	Stats* stats;
 } List;
 
+/*
+* inichalized a list based on the size of element in the array
+*/
 int ListInit(List* l, int max_elmt_size);
 
+/*
+* added a new element to a list
+*/
 void listAddEnd(List* l, void* elmt);
 
+/*
+* gets the element at an index
+*/
 void* listGet(List* l, int index);
 
 #endif // !UTIL

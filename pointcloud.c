@@ -50,13 +50,16 @@ int stat1() {
 
 	printf("High point: x = %.1f, y = %.1f, height = %.15f \n", high.x, high.y, high.height); //prints out the x, y, and height value of the high point
 	printf("Low point: x = %.1f, y = %.1f, height = %.15f \n", low.x, low.y, low.height);
-	printf("Average %.15f , number of points %d \n", total, count); //prints out the average of the points looked at and the total number of points looked at
+	printf("Average %.15f ,\n number of points %d \n", total, count); //prints out the average of the points looked at and the total number of points looked at
 
 	return 0;
 }
 
-/* 
-* this function reads input from standerd in, from there it reads the points, stores them in a list 
+/*
+* this function takes a list of pcd_t after it has already been read
+* the height of each point is then calulated and a color value is caludated based on the lowest and highest point
+* from there it then paints an image pixel by pixel
+* lastly it savees the image to "out.gif"
 */
 void imagePointCloud(List* l,int width, char* filename) {
 	FILE* file = fopen(filename, "w");
@@ -103,6 +106,9 @@ void imagePointCloud(List* l,int width, char* filename) {
 }
 
 
+/*
+* this function reads input from a file, from there it reads the points, stores them in a list so they can be read later
+*/
 void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
 	ListInit(pL, sizeof(pcd_t));
 	fscanf(stream, "%d", rasterWidth);

@@ -1,11 +1,8 @@
-stat: pointcloud.o bmp.o
-	gcc pointcloud.o -o stat -lm
+stat: pointcloud.o
+	gcc pointcloud.o -o stat 
 
 pointcloud.o: pointcloud.c pointcloud.h
 	gcc -c pointcloud.c
-
-bmp.o: bmp.c bmp.h
-	gcc -c bmp.c -lm
 
 list: util.o
 	gcc util.o -o list
@@ -17,6 +14,11 @@ clean:
 	rm -f *.o stat list a.out
 	rm -f *.gif
 
-remakeStat:
-	make clean
-	make stat
+imageGen: pointcloud.o bmp.o display.o util.o
+	gcc display.o -o -lm
+
+display.o:
+	gcc display.c -o -lm
+
+bmp.o: bmp.c bmp.h
+	gcc -c bmp.c -lm

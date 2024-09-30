@@ -98,7 +98,7 @@ void imagePointCloud(List* l,int width, char* filename) {
 
 		
 		bm_set_color(b, section);
-		bm_putpixel(b, ((int)pListTemp->x - minx), ((int)pListTemp->y - miny);
+		bm_putpixel(b, ((int)(pListTemp->x - minx)), ((int)(pListTemp->y - miny)));
 		if (writeRow == width) {
 			writeCol++;
 			writeRow = 0;

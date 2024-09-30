@@ -78,10 +78,12 @@ void imagePointCloud(List* l,int width, char* filename) {
 	double temp;
 	unsigned int section;
 	int height = l->size / width;
-	Bitmap* b = bm_create(height, width);
+	Bitmap* b = bm_create(width, height);
 	int writeRow = 0;
 	int writeCol = 0;
 	printf("the width of the reported image is: %d and height of: %d      ", width,height);
+	double minx = l->stats->minx;
+	double miny = l->stats->miny;
 
 	for (int i = 0; i < l->size; i++) {
 		pListTemp = (pcd_t*)listGet(l, i);
@@ -93,8 +95,10 @@ void imagePointCloud(List* l,int width, char* filename) {
 		section += ((unsigned int)temp << 24);
 		section += ((unsigned int)temp << 16);
 		section += ((unsigned int)temp << 8);
+
+		
 		bm_set_color(b, section);
-		bm_putpixel(b, writeCol, writeRow);
+		bm_putpixel(b, ((int)pListTemp->x - minx), ((int)pListTemp->y - miny);
 		if (writeRow == width) {
 			writeCol++;
 			writeRow = 0;
@@ -138,6 +142,8 @@ void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
 			low.x = temp.x;
 			low.y = temp.y;
 			low.height = temp.height;
+			pL->stats->minx = temp.x;
+			pL->stats->miny = temp.y;
 		}	
 		total += temp.height;
 	}

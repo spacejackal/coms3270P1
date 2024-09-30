@@ -9,6 +9,7 @@ void* allocateArray(int, int);
 typedef struct {
 	double high;
 	double low;
+	double minx, miny;
 }Stats;
 
 typedef struct {

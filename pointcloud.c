@@ -87,10 +87,12 @@ void imagePointCloud(List* l,int width, char* filename) {
 
 	for (int i = 0; i < l->size; i++) {
 		pListTemp = (pcd_t*)listGet(l, i);
+
 		temp = pListTemp->height;
 		temp -= min;
 		temp /= diff;
 		temp *= 256;
+
 		section = (unsigned int)temp;
 		section += ((unsigned int)temp << 24);
 		section += ((unsigned int)temp << 16);

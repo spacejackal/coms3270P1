@@ -69,7 +69,6 @@ int stat1() {
 
 
 void imagePointCloud(List* l,int width, char* filename) {
-	int* pWidth = &width;
 	FILE* file = fopen(filename, "w");
 	double min = l->stats->low;
 	double max = l->stats->high;
@@ -77,13 +76,12 @@ void imagePointCloud(List* l,int width, char* filename) {
 	pcd_t listTemp;
 	pcd_t* pListTemp = &listTemp;
 	double temp;
-	double* pTemp = &temp;
 	unsigned int section;
 	int height = l->size / width;
-	Bitmap* b = bm_create(width, height);
+	Bitmap* b = bm_create(height, width);
 	int writeRow = 0;
 	int writeCol = 0;
-	printf("the width of the reported image is %d", width);
+	printf("the width of the reported image is: %d and height of:      ", width,height);
 
 	for (int i = 0; i < l->size; i++) {
 		pListTemp = (pcd_t*)listGet(l, i);
@@ -96,7 +94,7 @@ void imagePointCloud(List* l,int width, char* filename) {
 		section += ((unsigned int)temp << 16);
 		section += ((unsigned int)temp << 8);
 		bm_set_color(b, section);
-		bm_putpixel(b, writeRow, writeCol);
+		bm_putpixel(b, writeCol, writeRow);
 		if (writeRow == width) {
 			writeCol++;
 			writeRow = 0;

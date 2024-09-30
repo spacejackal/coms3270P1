@@ -86,8 +86,8 @@ void imagePointCloud(List* l,int width, char* filename) {
 	Bitmap* b = bm_create(width, height);
 	int writeRow = 0;
 	int writeCol = 0;
+	printf("the width of the reported image is %d",width)
 
-	void* arr = allocateArray(width, height);
 	for (int i = 0; i < l->size; i++) {
 		pListTemp = (pcd_t*)listGet(l, i);
 		temp = pListTemp->height;
@@ -100,7 +100,6 @@ void imagePointCloud(List* l,int width, char* filename) {
 		section += ((unsigned int)temp << 8);
 		bm_set_color(b, section);
 		bm_putpixel(b, writeRow, writeCol);
-		printf("the Hex for the value is :%x", section);
 		if (writeRow == width) {
 			writeCol++;
 			writeRow = 0;

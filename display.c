@@ -12,13 +12,12 @@ int main() {
 	Stats s;
 	Stats* pS = &s;
 	pL->stats = pS;
-	char filename[] = "imagePointCloud.out";
+	char filename[] = "out.gif";
 
 	ListInit(pL, sizeof(pcd_t));
 	int width = 0;
 	int* pWidth = &width;
 	readPointCloudData(stdin, pWidth, pL);
-	//stat1();
 	imagePointCloud(pL, width, filename);
 	return 1;
 }

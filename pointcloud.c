@@ -11,19 +11,7 @@
 
 //the main method calls stat1
 int main() {
-	List l;
-	List* pL = &l;
-	Stats s;
-	Stats* pS = &s;
-	pL->stats = pS;
-	char filename[] = "imagePointCloud.out";
-
-	ListInit(pL, sizeof(pcd_t));
-	int width = 0;
-	int* pWidth = &width;
-	readPointCloudData(stdin, pWidth, pL);
-	//stat1();
-	imagePointCloud(pL, width, filename);
+	stat1();
 	return 1;
 }
 
@@ -67,7 +55,9 @@ int stat1() {
 	return 0;
 }
 
-
+/* 
+* this function reads input from standerd in, from there it reads the points, stores them in a list 
+*/
 void imagePointCloud(List* l,int width, char* filename) {
 	FILE* file = fopen(filename, "w");
 	double min = l->stats->low;
@@ -81,9 +71,6 @@ void imagePointCloud(List* l,int width, char* filename) {
 	Bitmap* b = bm_create(width, height);
 	int writeRow = 0;
 	int writeCol = 0;
-	printf("the width of the reported image is: %d and height of: %d      ", width,height);
-	double minx = l->stats->minx;
-	double miny = l->stats->miny;
 
 	for (int i = 0; i < l->size; i++) {
 		pListTemp = (pcd_t*)listGet(l, i);
@@ -101,6 +88,7 @@ void imagePointCloud(List* l,int width, char* filename) {
 		
 		bm_set_color(b, section);
 		bm_putpixel(b, writeCol, writeRow);
+
 		if (writeRow == width-1) {
 			writeCol++;
 			writeRow = 0;
@@ -109,10 +97,8 @@ void imagePointCloud(List* l,int width, char* filename) {
 			writeRow++;
 		}
 	}
+
 	bm_save(b, "out.gif");
-
-	
-
 
 }
 

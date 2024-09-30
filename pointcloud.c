@@ -81,7 +81,7 @@ void imagePointCloud(List* l,int width, char* filename) {
 	Bitmap* b = bm_create(height, width);
 	int writeRow = 0;
 	int writeCol = 0;
-	printf("the width of the reported image is: %d and height of:      ", width,height);
+	printf("the width of the reported image is: %d and height of: %d      ", width,height);
 
 	for (int i = 0; i < l->size; i++) {
 		pListTemp = (pcd_t*)listGet(l, i);

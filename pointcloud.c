@@ -95,7 +95,7 @@ void imagePointCloud(List* l,int width, char* filename) {
 		temp /= diff;
 		temp *= 256;
 		section = (unsigned int)temp;
-		section = ((unsigned int)temp<< 24)
+		section = ((unsigned int)temp << 24);
 		section += ((unsigned int)temp << 16);
 		section += ((unsigned int)temp << 8);
 		bm_set_color(b, section);

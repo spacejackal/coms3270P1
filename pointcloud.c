@@ -136,8 +136,6 @@ void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
 			low.x = temp.x;
 			low.y = temp.y;
 			low.height = temp.height;
-			pL->stats->minx = temp.x;
-			pL->stats->miny = temp.y;
 		}	
 		total += temp.height;
 	}

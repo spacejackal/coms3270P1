@@ -4,6 +4,7 @@
 #include "util.c"
 #include "pointcloud.c"
 #include "bmp.h"
+#include "bmp.c"
 
 
 int main() {

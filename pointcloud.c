@@ -6,14 +6,7 @@
 #include "bmp.c"
 
 
-//this struct is used to keep track of points in a condensed and easy manner
 
-
-//the main method calls stat1
-int main() {
-	stat1();
-	return 1;
-}
 
 
 

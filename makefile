@@ -1,7 +1,7 @@
 stat: pointcloud.o
 	gcc pointcloud.o -o stat -lm
 
-pointcloud.o: pointcloud.c pointcloud.h
+pointcloud.o: pointcloud.c pointcloud.h util.h bmp.h
 	gcc -c pointcloud.c -lm
 
 
@@ -15,7 +15,7 @@ clean:
 display:  display.o
 	gcc display.o -o display -lm
 
-display.o: display.c pointcloud.o util.o bmp.o
+display.o: display.c pointcloud.h util.h bmp.h
 	gcc display.c -o -lm
 
 bmp.o: bmp.c bmp.h

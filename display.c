@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "util.h"
+#include "pointcloud.h"
 
 int main() {
 	List l;

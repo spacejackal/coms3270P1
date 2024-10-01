@@ -1,10 +1,5 @@
 #include <stdio.h>
 
-#include "pointcloud.h"
-#include "pointcloud.c"
-#include "bmp.h"
-#include "bmp.c"
-
 int main() {
 	List l;
 	List* pL = &l;

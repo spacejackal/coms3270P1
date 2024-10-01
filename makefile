@@ -13,7 +13,7 @@ clean:
 	rm -f *.gif
 
 display:  display.o pointcloud.o util.o bmp.o
-	gcc display.o -o -lm
+	gcc display.o -o display -lm
 
 display.o:
 	gcc display.c -o -lm

@@ -16,7 +16,7 @@ display:  display.o
 	gcc display.o -o display -lm
 
 display.o: display.c pointcloud.h util.h bmp.h
-	gcc display.c -o -lm
+	gcc -c display.c -o -lm
 
 bmp.o: bmp.c bmp.h
 	gcc -c bmp.c -lm

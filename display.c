@@ -3,6 +3,8 @@
 #include "pointcloud.h"
 #include "util.c"
 #include "pointcloud.c"
+#include "bmp.h"
+
 
 int main() {
 	List l;

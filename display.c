@@ -1,10 +1,7 @@
 #include <stdio.h>
 #include "util.h"
-#include "util.c"
 #include "pointcloud.h"
-#include "pointcloud.c"
 #include "bmp.h"
-#include "bmp.c"
 
 
 int main() {

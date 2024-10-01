@@ -12,8 +12,8 @@ clean:
 	rm -f *.o stat list a.out
 	rm -f *.gif
 
-display:  display.o pointcloud.o util.o
-	gcc display.o -o display -lm
+display:  display.o pointcloud.o util.o bmp.o
+	gcc pointcloud.o util.o bmp.o display.o -o display -lm 
 
 display.o: display.c pointcloud.h util.h bmp.h
 	gcc -c display.c -lm

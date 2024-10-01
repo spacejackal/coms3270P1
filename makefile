@@ -4,11 +4,9 @@ stat: pointcloud.o
 pointcloud.o: pointcloud.c pointcloud.h
 	gcc -c pointcloud.c -lm
 
-list: util.o
-	gcc util.o -o list
 
 util.o: util.c util.h
-	gcc -c util.c
+	gcc -c util.c -lm
 	
 clean:
 	rm -f *.o stat list a.out

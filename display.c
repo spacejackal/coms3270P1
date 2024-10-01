@@ -2,6 +2,7 @@
 #include "util.h"
 #include "pointcloud.h"
 #include "util.c"
+#include "pointcloud.c"
 
 int main() {
 	List l;

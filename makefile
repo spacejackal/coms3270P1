@@ -14,7 +14,7 @@ clean:
 	rm -f *.o stat list a.out
 	rm -f *.gif
 
-imageGen: pointcloud.o bmp.o display.o util.o
+display: pointcloud.o bmp.o display.o util.o
 	gcc display.o -o -lm
 
 display.o:

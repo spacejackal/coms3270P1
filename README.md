@@ -15,4 +15,4 @@ Given that the set of points are formated in the way of "double double double" e
 
 Known Errors/ issues:
 if the input is not a set of points there is will be an error and it will hang.
-the points in the file need to be formated correctly inorder to print the immage correctly
+the points in the file need to be formated correctly in order to print the immage correctly

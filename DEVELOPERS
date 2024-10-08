@@ -6,3 +6,19 @@ stat1() takes in standard input witch is expected to be a set of 3 doubles, the 
 stat1() then takes the first value and sets it as the high point and low point, then it reads all the other points,
 if it finds a point higher then the current high point that new point becomes the new high point. the same thing happens with the low point if the new point is lower.
 
+pointcloud.c
+	readPointCloudData(FILE* stream, int* rasterWidth, List* pL) works similer to stat1 but all the points are saved into a List struct
+
+	imagePointCloud(List* l,int width, char* filename) reads a list of points then prints out a gif file according to the height of the points
+
+Util.h
+	Stats struct: keeps tract of the height of the highest point and the height of the lowest point, works similer to java ArrayList
+	List struct: ceates an array of some arbitrary data, of some Maximum data size. 
+
+Util.c
+	allocateArray(int rows, int columns) crates and then points to a 2D array of doubles.
+	ListInit(List* l, int max_elmt_size) inichalizes a new list with some Max_elmt_size
+	listAddEnd(List* l, void* elmt) adds a new element to the end of a List and if the List runs out of size, the size doubles.
+	listGet(List* l, int index) returns a pointer to the data at some arbitrary point
+
+

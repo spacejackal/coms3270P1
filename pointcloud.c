@@ -5,7 +5,11 @@
 
 
 
+int main() {
+	stat1();
 
+	return 1;
+}
 
 
 //stat1() gets the highest and lowest point and also computes the average

@@ -9,8 +9,8 @@ util.o: util.c util.h
 	gcc -c util.c -lm
 	
 clean:
-	rm -f *.o stat list a.out
-	rm -f *.gif
+	rm -f *.o stat display list a.out
+	rm -f *.gif impagePointCloud.out
 
 display:  display.o pointcloud.o util.o bmp.o
 	gcc pointcloud.o util.o bmp.o display.o -o display -lm 

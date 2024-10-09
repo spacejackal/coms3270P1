@@ -10,7 +10,7 @@ util.o: util.c util.h
 	
 clean:
 	rm -f *.o stat display list a.out
-	rm -f *.gif impagePointCloud.out
+	rm -f *.gif imagePointCloud.out
 
 display:  display.o pointcloud.o util.o bmp.o
 	gcc pointcloud.o util.o bmp.o display.o -o display -lm 

@@ -168,5 +168,6 @@ int initializeWatershed(pointcloud_t* pc) {
 		}
 
 	}
+	return 0;
 
 }

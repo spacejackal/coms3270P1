@@ -5,7 +5,7 @@ pointcloud.o: pointcloud.c pointcloud.h util.h bmp.h
 	gcc -c pointcloud.c  -lm
 
 parta.o: parta.c
-	gcc -c parta.o
+	gcc -c parta.c
 
 util.o: util.c util.h
 	gcc -c util.c -lm

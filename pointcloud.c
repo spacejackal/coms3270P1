@@ -4,7 +4,12 @@
 #include "bmp.h"
 
 
+typedef struct {
+	List points;
+	int rows;
+	int cols;
 
+}pointcloud_t;
 
 
 
@@ -133,5 +138,35 @@ void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
 	
 	pL->stats->high = high.height;
 	pL->stats->low = low.height;
+
+}
+
+
+int initializeWatershed(pointcloud_t* pc) {
+	List* points = pc->points;
+	for (int i = 0; i < points->size; i++) {
+		pcd_t* p =  (pcd_t*) listGet(points, i);
+		p->wd = 0;
+		p->north = NULL;
+		p->east = NULL;
+		p->west = NULL;
+		p->south = NULL;
+		for (int z = 0; i < points->size; i++) {
+			pcd_t* temp = (pcd_t*)listGet(points, z);
+			if (temp->x == p->x && temp->y == p->y + 1) {
+				p->north = temp;
+			}
+			else if (temp->x == p->x && temp->y == p->y - 1) {
+				p->south = temp;
+			}
+			else if (temp->y == p->y && temp->x == p->x + 1) {
+				p->east = temp;
+			}
+			else if (temp->y == p->y && temp->x == p->x - 1) {
+				p->west = temp;
+			}
+		}
+
+	}
 
 }

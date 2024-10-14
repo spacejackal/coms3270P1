@@ -15,6 +15,8 @@ typedef struct pcd_t{		//this struct is used to keep track of points in a conden
 */
 void imagePointCloud(List* l,int width, char* filename);
 
+int initializeWatershed(pointcloud_t);
+
 
 /*
 * function to read points and store them

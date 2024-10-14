@@ -3,7 +3,7 @@
 int stat1();
 
 typedef struct pcd_t{		//this struct is used to keep track of points in a condensed and easyilly manage
-	double height, x, y , water_level;
+	double height, x, y , wd;
 	void* north;
 	void* south;
 	void* east;

@@ -79,7 +79,7 @@ void imagePointCloud(List* l,int width, char* filename) {
 		section += ((unsigned int)temp << 16);
 		section += ((unsigned int)temp << 8);
 
-		
+		printf("the point during wirte");
 		bm_set_color(b, section);
 		bm_putpixel(b, writeCol, writeRow);
 

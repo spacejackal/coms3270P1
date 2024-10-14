@@ -65,6 +65,7 @@ void imagePointCloud(List* l,int width, char* filename) {
 	Bitmap* b = bm_create(width, height);
 	int writeRow = 0;
 	int writeCol = 0;
+	printf("the point during wirte");
 
 	for (int i = 0; i < l->size; i++) {
 		pListTemp = (pcd_t*)listGet(l, i);
@@ -79,7 +80,6 @@ void imagePointCloud(List* l,int width, char* filename) {
 		section += ((unsigned int)temp << 16);
 		section += ((unsigned int)temp << 8);
 
-		printf("the point during wirte");
 		bm_set_color(b, section);
 		bm_putpixel(b, writeCol, writeRow);
 

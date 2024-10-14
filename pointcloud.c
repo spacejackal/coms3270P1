@@ -61,6 +61,7 @@ void imagePointCloud(List* l,int width, char* filename) {
 	pcd_t* pListTemp = &listTemp;
 	double temp;
 	unsigned int section;
+	printf("the point during wirte");
 	int height = (l->size / width)+1;
 	Bitmap* b = bm_create(width, height);
 	int writeRow = 0;

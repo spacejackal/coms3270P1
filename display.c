@@ -14,6 +14,7 @@ int main() {
 	ListInit(pL, sizeof(pcd_t));
 	int width = 0;
 	int* pWidth = &width;
+	printf("the point during wirte");
 	readPointCloudData(stdin, pWidth, pL);
 	imagePointCloud(pL, width, filename);
 	return 1;

@@ -18,6 +18,8 @@ void imagePointCloud(List* l,int width, char* filename);
 int initializeWatershed(pointcloud_t);
 
 
+void watershedAddUniformWater(pointcloud_t* pc, double amount);
+
 /*
 * function to read points and store them
 */

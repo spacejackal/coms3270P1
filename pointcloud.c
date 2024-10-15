@@ -179,3 +179,28 @@ void watershedAddUniformWater(pointcloud_t* pc, double amount) {
 		p->wd = amount;
 	}
 }
+
+
+void watershedStep(pointcloud_t* pc) {
+	List* points = pc->points;
+	double temps[] = malloc(sizeof(double) * points->size);
+	for (int i = 0; i < points->size, i++) {
+
+		pcd_t* p = listGet(points, i);
+		pcd_t* east = p->east;
+		pcd_t* west = p->west;
+		pcd_t* north = p->north;
+		pcd_t* south = p->south;
+		double temp = (helper(p->height, west->height, p->wd, west->wd) + helper(p->height, east->height, p->wd, east->wd) + helper(p->height, north->height, p->wd, north->wd) + helper(p->height, south->height, p->wd, south->wd)) - p->wd * ecoef;
+		temps[i] = temp;
+	}
+
+	for (int i = 0; i < points->size, i++) {
+		pcd_t* p = listGet(points, i);
+		p->wd = temps[i];
+	}
+}
+
+double helper(double t1, double w1, double t2, double w2) {
+	return ((t2 + w2) - (t1 - w1) * wcoef);
+}

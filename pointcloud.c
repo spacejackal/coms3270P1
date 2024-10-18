@@ -50,8 +50,11 @@ int stat1() {
 * from there it then paints an image pixel by pixel
 * lastly it savees the image to "out.gif"
 */
-void imagePointCloud(List* l,int width, char* filename) {
+void imagePointCloud(pointcloud_t* pc, char* filename) {
 	FILE* file = fopen(filename, "w");
+
+	List* l = pc->points;
+	int width = pc->cols;
 	double min = l->stats->low;
 	double max = l->stats->high;
 	double diff = max - min;
@@ -78,27 +81,24 @@ void imagePointCloud(List* l,int width, char* filename) {
 
 		bm_set_color(b, section);
 		bm_putpixel(b, pListTemp->relitiveX, pListTemp->relitiveY);
-
-		/*if (writeRow == width-1) {
-			writeCol++;
-			writeRow = 0;
-		}
-		else {
-			writeRow++;
-		}*/
 	}
 
-	bm_save(b, "out.gif");
+	bm_save(b, filename);
 
 }
 
 
 /*
-* this function reads input from a file, from there it reads the points, stores them in a list so they can be read later
+* I have sunificantly refacterd this code, now it reads all the points into a temperary list, I then find the lowest x and y value.
+* and I find the relitive x and y value of each point and put them into a new list so they are in order
+* then that new list is returned
 */
-void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
+pointcloud_t* readPointCloudData(FILE* stream){
+	List l;
+	List* pL = &l;
 	//ListInit(pL, sizeof(pcd_t));
-	fscanf(stream, "%d", rasterWidth);
+	int width;
+	fscanf(stream, "%d", width);
 
 	List tempList;
 	List* pTempList = &tempList;
@@ -156,7 +156,7 @@ void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
 		temp->relitiveX = (int)(temp->x - pTempList->stats->minX);
 		temp->relitiveY = (int)(temp->y - pTempList->stats->minY);
 		int realIndex = temp->relitiveX;
-		realIndex *= *rasterWidth;
+		realIndex *= width;
 		realIndex += temp->relitiveY;
 		
 		listSet(pL, realIndex, temp);
@@ -171,7 +171,12 @@ void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
 	pL->stats->minY = pTempList->stats->minY;
 	pL->stats->high = high.height;
 	pL->stats->low = low.height;
-
+	
+	pointcloud_t pc;
+	pc.points = pL;
+	pc.cols = width;
+	pc.rows = (pL->size / width);
+	return &pc;
 }
 
 
@@ -205,35 +210,35 @@ int initializeWatershed(pointcloud_t* pc) {
 
 }
 
-//void watershedAddUniformWater(pointcloud_t* pc, double amount) {
-//	List points = pc->points;
-//	for (int i = 0; i < points->size; i++) {
-//		pcd_t* p = listGet(points, i);
-//		p->wd = amount;
-//	}
-//}
-//
-//
-//void watershedStep(pointcloud_t* pc) {
-//	List* points = pc->points;
-//	double temps[] = malloc(sizeof(double) * points->size);
-//	for (int i = 0; i < points->size, i++) {
-//
-//		pcd_t* p = listGet(points, i);
-//		pcd_t* east = p->east;
-//		pcd_t* west = p->west;
-//		pcd_t* north = p->north;
-//		pcd_t* south = p->south;
-//		double temp = (helper(p->height, west->height, p->wd, west->wd) + helper(p->height, east->height, p->wd, east->wd) + helper(p->height, north->height, p->wd, north->wd) + helper(p->height, south->height, p->wd, south->wd)) - p->wd * ecoef;
-//		temps[i] = temp;
-//	}
-//
-//	for (int i = 0; i < points->size, i++) {
-//		pcd_t* p = listGet(points, i);
-//		p->wd = temps[i];
-//	}
-//}
-//
-//double helper(double t1, double w1, double t2, double w2) {
-//	return ((t2 + w2) - (t1 - w1) * wcoef);
-//}
+void watershedAddUniformWater(pointcloud_t* pc, double amount) {
+	List points = pc->points;
+	for (int i = 0; i < points->size; i++) {
+		pcd_t* p = listGet(points, i);
+		p->wd = amount;
+	}
+}
+
+
+void watershedStep(pointcloud_t* pc) {
+	List* points = pc->points;
+	double temps[] = malloc(sizeof(double) * points->size);
+	for (int i = 0; i < points->size, i++) {
+
+		pcd_t* p = listGet(points, i);
+		pcd_t* east = p->east;
+		pcd_t* west = p->west;
+		pcd_t* north = p->north;
+		pcd_t* south = p->south;
+		double temp = (helper(p->height, west->height, p->wd, west->wd) + helper(p->height, east->height, p->wd, east->wd) + helper(p->height, north->height, p->wd, north->wd) + helper(p->height, south->height, p->wd, south->wd)) - p->wd * ecoef;
+		temps[i] = temp;
+	}
+
+	for (int i = 0; i < points->size, i++) {
+		pcd_t* p = listGet(points, i);
+		p->wd = temps[i];
+	}
+}
+
+double helper(double t1, double w1, double t2, double w2) {
+	return ((t2 + w2) - (t1 - w1) * wcoef);
+}

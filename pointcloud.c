@@ -115,7 +115,7 @@ void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
 	low.y = high.y;
 	low.height = high.height;
 
-	listaddEnd(pTempList, high);
+	listAddEnd(pTempList, high);
 	pTempList->stats->minX = low.x;
 	pTempList->stats->minY = low.y;
 
@@ -142,12 +142,12 @@ void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
 
 	listInitFull(List* pL, sizeof(pcd_t), pTempList->size);
 
-	for (int i = 0; i < pTempList->size; i++) {
+	for (int i = 0; i < pTempList->size; i++;) {
 		pcd_t* temp = listGet(pTempList, i);
 		temp->relitiveX = (int)(temp->x - pTempList->stats->minX);
 		temp->relitiveY = (int)(temp->y - pTempList->stats->minY);
 		
-		listSet(pL, TDOD(temp->relitiveY, temp->relitiveX, rasterWidth), temp;);
+		listSet(pL, ((temp->relitiveY * rasterWidth) +temp->relitiveY), temp;);
 	}
 
 	printf("High point: x = %.1f, y = %.1f, height = %.15f \n", high.x, high.y, high.height); 
@@ -164,7 +164,7 @@ void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
 
 
 int initializeWatershed(pointcloud_t* pc) {
-	List* points = pc->points;
+	List points = pc->points;
 	for (int i = 0; i < points->size; i++) {
 		pcd_t* p =  (pcd_t*) listGet(points, i);
 		p->wd = 0;
@@ -193,35 +193,35 @@ int initializeWatershed(pointcloud_t* pc) {
 
 }
 
-void watershedAddUniformWater(pointcloud_t* pc, double amount) {
-	List* points = pc->points;
-	for (int i = 0; i < points->size; i++) {
-		pcd_t* p = listGet(points, i);
-		p->wd = amount;
-	}
-}
-
-
-void watershedStep(pointcloud_t* pc) {
-	List* points = pc->points;
-	double temps[] = malloc(sizeof(double) * points->size);
-	for (int i = 0; i < points->size, i++) {
-
-		pcd_t* p = listGet(points, i);
-		pcd_t* east = p->east;
-		pcd_t* west = p->west;
-		pcd_t* north = p->north;
-		pcd_t* south = p->south;
-		double temp = (helper(p->height, west->height, p->wd, west->wd) + helper(p->height, east->height, p->wd, east->wd) + helper(p->height, north->height, p->wd, north->wd) + helper(p->height, south->height, p->wd, south->wd)) - p->wd * ecoef;
-		temps[i] = temp;
-	}
-
-	for (int i = 0; i < points->size, i++) {
-		pcd_t* p = listGet(points, i);
-		p->wd = temps[i];
-	}
-}
-
-double helper(double t1, double w1, double t2, double w2) {
-	return ((t2 + w2) - (t1 - w1) * wcoef);
-}
+//void watershedAddUniformWater(pointcloud_t* pc, double amount) {
+//	List points = pc->points;
+//	for (int i = 0; i < points->size; i++) {
+//		pcd_t* p = listGet(points, i);
+//		p->wd = amount;
+//	}
+//}
+//
+//
+//void watershedStep(pointcloud_t* pc) {
+//	List* points = pc->points;
+//	double temps[] = malloc(sizeof(double) * points->size);
+//	for (int i = 0; i < points->size, i++) {
+//
+//		pcd_t* p = listGet(points, i);
+//		pcd_t* east = p->east;
+//		pcd_t* west = p->west;
+//		pcd_t* north = p->north;
+//		pcd_t* south = p->south;
+//		double temp = (helper(p->height, west->height, p->wd, west->wd) + helper(p->height, east->height, p->wd, east->wd) + helper(p->height, north->height, p->wd, north->wd) + helper(p->height, south->height, p->wd, south->wd)) - p->wd * ecoef;
+//		temps[i] = temp;
+//	}
+//
+//	for (int i = 0; i < points->size, i++) {
+//		pcd_t* p = listGet(points, i);
+//		p->wd = temps[i];
+//	}
+//}
+//
+//double helper(double t1, double w1, double t2, double w2) {
+//	return ((t2 + w2) - (t1 - w1) * wcoef);
+//}

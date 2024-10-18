@@ -25,7 +25,7 @@ typedef struct {
 void imagePointCloud(List* l,int width, char* filename);
 
 
-int initializeWatershed(pointcloud_t);
+int initializeWatershed(pointcloud_t* pc);
 
 
 void watershedAddUniformWater(pointcloud_t* pc, double amount);

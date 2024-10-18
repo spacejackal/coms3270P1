@@ -146,11 +146,14 @@ void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
 		pcd_t* temp = listGet(pTempList, i);
 		temp->relitiveX = (int)(temp->x - pTempList->stats->minX);
 		temp->relitiveY = (int)(temp->y - pTempList->stats->minY);
-		listSet(pL, TDOD(temp->relitiveY, temp->relitiveX, rasterWidth), (void*)temp;);
+		
+		listSet(pL, TDOD(temp->relitiveY, temp->relitiveX, rasterWidth), temp;);
 	}
 
 	printf("High point: x = %.1f, y = %.1f, height = %.15f \n", high.x, high.y, high.height); 
 	printf("Low point: x = %.1f, y = %.1f, height = %.15f \n", low.x, low.y, low.height);
+	pcd_t* tempp = (pcd_t*)listGet(pL, 5);
+	printf("the relivtie points for data[0][5] is: %d and %d \n", tempp->relitiveX, tempp->relitiveY);
 	
 	pL->stats->minX = pTempList->stats->minX;
 	pL->stats->minY = pTempList->stats->minY;

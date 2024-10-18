@@ -54,6 +54,6 @@ void* listGet(List* l, int index){
 }
 
 void listSet(List* l, int index, void* emlt) {
-	(l->data[(index * l->max_element_size)]) = emlt;
+	*(l->data[(index * l->max_element_size)]) = emlt;
 }
 

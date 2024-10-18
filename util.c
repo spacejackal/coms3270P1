@@ -54,6 +54,6 @@ void* listGet(List* l, int index){
 }
 
 void listSet(List* l, int index, void* emlt) {
-	memcpy((char*)l->data + (index * l->max_element_size), elmt, l->max_element_size);
+	memcpy((char*)l->data + (index * l->max_element_size), emlt, l->max_element_size);
 }
 

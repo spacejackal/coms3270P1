@@ -4,13 +4,6 @@
 #include "bmp.h"
 
 
-typedef struct {
-	List points;
-	int rows;
-	int cols;
-
-}pointcloud_t;
-
 
 
 //stat1() gets the highest and lowest point and also computes the average

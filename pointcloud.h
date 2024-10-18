@@ -12,6 +12,13 @@ typedef struct pcd_t{		//this struct is used to keep track of points in a conden
 	int relitiveY;
 }pcd_t;
 
+typedef struct {
+	List points;
+	int rows;
+	int cols;
+
+}pointcloud_t;
+
 /*
 * function to create an image
 */
@@ -24,7 +31,7 @@ int initializeWatershed(pointcloud_t);
 void watershedAddUniformWater(pointcloud_t* pc, double amount);
 
 
-void watershedStep(pointcloud* pc);
+//void watershedStep(pointcloud* pc);
 
 /*
 * function to read points and store them

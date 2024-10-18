@@ -97,16 +97,21 @@ void imagePointCloud(List* l,int width, char* filename) {
 * this function reads input from a file, from there it reads the points, stores them in a list so they can be read later
 */
 void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
-	ListInit(pL, sizeof(pcd_t));
+	//ListInit(pL, sizeof(pcd_t));
 	fscanf(stream, "%d", rasterWidth);
 
 	List tempList;
 	List* pTempList = &tempList;
 	ListInit(pTempList, sizeof(pcd_t));
+	printf("got defined the tempList\n");
 
 	pcd_t high; 
 	pcd_t* pHigh = &high;
 	pcd_t low;  
+
+	Stats s;
+	Stats* pS = &s;
+	pTempList->stats = pS;
 
 	pcd_t temp;
 	pcd_t* pTemp = &temp;

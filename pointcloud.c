@@ -144,15 +144,15 @@ void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
 		}
 	}
 
-	int m = listInitFull(List* pL, sizeof(pcd_t), pTempList->size);
+	int m = listInitFull( pL, sizeof(pcd_t), pTempList->size);
 
 	for (int i = 0; i < pTempList->size; i++) {
 		pcd_t* temp = listGet(pTempList, i);
 		temp->relitiveX = (int)(temp->x - pTempList->stats->minX);
 		temp->relitiveY = (int)(temp->y - pTempList->stats->minY);
-		int realIndex = *temp->relitiveX;
-		realIndex *= rasterWidth;
-		realIndex += *temp->reitiveY;
+		int realIndex = temp->relitiveX;
+		realIndex *= *rasterWidth;
+		realIndex += temp->relitiveY;
 		
 		listSet(pL, realIndex, temp);
 	}

@@ -24,6 +24,15 @@ int ListInit(List* l, int max_elmt_size){
 	return 0;
 }
 
+int listInitFull(List* l, int max_elmt_size, int size) {
+
+	l->data = calloc(size, max_elmt_size);
+	l->max_element_size = max_elmt_size;
+	l->max_size = size;
+	l->size = size;
+	return 0;
+}
+
 /*
 * addes an element to the end of a list
 */
@@ -42,5 +51,9 @@ void listAddEnd(List* l, void* elmt){
 void* listGet(List* l, int index){
 	
 	return (char*)l->data + (index *l->max_element_size);
+}
+
+void listSet(List* l, int index, void* emlt) {
+	(char*)l->data[index * l->max_element_size] = emlt;
 }
 

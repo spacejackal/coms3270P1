@@ -8,6 +8,8 @@ typedef struct pcd_t{		//this struct is used to keep track of points in a conden
 	void* south;
 	void* east;
 	void* west;
+	int relitiveX;
+	int relitiveY;
 }pcd_t;
 
 /*

@@ -11,6 +11,8 @@ void* allocateArray(int, int);
 typedef struct {
 	double high;
 	double low;
+	double minX;
+	double minY;
 }Stats;
 
 /* 
@@ -38,6 +40,10 @@ void listAddEnd(List* l, void* elmt);
 * gets the element at an index
 */
 void* listGet(List* l, int index);
+
+void listSet(List* l, int index, void* data);
+
+int listInitFull(List* l, int max_elmt_size, int size);
 
 #endif // !UTIL
 

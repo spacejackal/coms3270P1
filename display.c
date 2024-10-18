@@ -11,7 +11,7 @@ int main() {
 	Stats* pS = &s;
 	pL->stats = pS;
 	char filename[] = "out.gif";
-	ListInit(pL, sizeof(pcd_t));
+	//ListInit(pL, sizeof(pcd_t));
 	int width = 0;
 	int* pWidth = &width;
 	readPointCloudData(stdin, pWidth, pL);

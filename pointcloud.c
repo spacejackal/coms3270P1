@@ -106,36 +106,61 @@ void imagePointCloud(List* l,int width, char* filename) {
 void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
 	ListInit(pL, sizeof(pcd_t));
 	fscanf(stream, "%d", rasterWidth);
+
+	List tempList;
+	List* pTempList = &tempList;
+	ListInit(pTempList, sizeof(pcd_t));
+
 	pcd_t high; 
 	pcd_t low;  
+
 	pcd_t temp;
 	pcd_t* pTemp = &temp;
-	double total;
 
 	fscanf(stream, "%lf %lf %lf", &high.x, &high.y, &high.height); 
 	low.x = high.x;		
 	low.y = high.y;
 	low.height = high.height;
-	total += high.height;
+
+	listaddEnd(pTempList, high);
+	pTempList->stats->minX = low.x;
+	pTempList->stats->minY = low.y;
 
 
 	while (fscanf(stream,"%lf %lf %lf", &temp.x, &temp.y, &temp.height) != EOF) { 
-		listAddEnd(pL,  pTemp);
+		listAddEnd(pTempList,  pTemp);
 		if (temp.height > high.height) {  
 			high.x = temp.x;
 			high.y = temp.y;
 			high.height = temp.height;
 		}
-		else if (temp.height < low.height) { 
+		else if (temp.height < low.height) {
 			low.x = temp.x;
 			low.y = temp.y;
 			low.height = temp.height;
-		}	
-		total += temp.height;
+		}
+		if (temp.x < pTempList->stats->minX) {
+			pTempList->stats->minX = temp.x;
+		}
+		if (temp.y < pTempList->stats->minY) {
+			pTempList->stats->minY = temp.y;
+		}
 	}
+
+	listInitFull(List* pL, sizeof(pcd_t), pTempList->size);
+
+	for (int i = 0; i < pTempList->size; i++) {
+		pcd_t* temp = listGet(pTempList, i);
+		temp->relitiveX = (int)(temp->x - pTempList->stats->minX);
+		temp->relitiveY = (int)(temp->y - pTempList->stats->minY);
+		listSet(pL, TDOD(temp->relitiveY, temp->relitiveX, rasterWidth), (void*)temp;);
+	}
+
 	printf("High point: x = %.1f, y = %.1f, height = %.15f \n", high.x, high.y, high.height); 
 	printf("Low point: x = %.1f, y = %.1f, height = %.15f \n", low.x, low.y, low.height);
 	
+	pL->stats->minX = pTempList->stats->minX;
+	pL->stats->minY = pTempList->stats->minY;
 	pL->stats->high = high.height;
 	pL->stats->low = low.height;
 

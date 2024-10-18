@@ -77,15 +77,15 @@ void imagePointCloud(List* l,int width, char* filename) {
 		section += ((unsigned int)temp << 8);
 
 		bm_set_color(b, section);
-		bm_putpixel(b, writeCol, writeRow);
+		bm_putpixel(b, pListTemp->relitiveX, pListTemp->relitiveY);
 
-		if (writeRow == width-1) {
+		/*if (writeRow == width-1) {
 			writeCol++;
 			writeRow = 0;
 		}
 		else {
 			writeRow++;
-		}
+		}*/
 	}
 
 	bm_save(b, "out.gif");

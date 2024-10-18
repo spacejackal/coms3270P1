@@ -13,7 +13,7 @@ typedef struct pcd_t{		//this struct is used to keep track of points in a conden
 }pcd_t;
 
 typedef struct {
-	List points;
+	List* points;
 	int rows;
 	int cols;
 

@@ -105,17 +105,21 @@ void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
 	ListInit(pTempList, sizeof(pcd_t));
 
 	pcd_t high; 
+	pcd_t* pHigh = &high;
 	pcd_t low;  
 
 	pcd_t temp;
 	pcd_t* pTemp = &temp;
+	
+	
 
 	fscanf(stream, "%lf %lf %lf", &high.x, &high.y, &high.height); 
 	low.x = high.x;		
 	low.y = high.y;
 	low.height = high.height;
 
-	listAddEnd(pTempList, high);
+
+	listAddEnd(pTempList, pHigh);
 	pTempList->stats->minX = low.x;
 	pTempList->stats->minY = low.y;
 
@@ -142,12 +146,12 @@ void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
 
 	listInitFull(List* pL, sizeof(pcd_t), pTempList->size);
 
-	for (int i = 0; i < pTempList->size; i++;) {
+	for (int i = 0; i < pTempList->size; i++) {
 		pcd_t* temp = listGet(pTempList, i);
 		temp->relitiveX = (int)(temp->x - pTempList->stats->minX);
 		temp->relitiveY = (int)(temp->y - pTempList->stats->minY);
 		
-		listSet(pL, ((temp->relitiveY * rasterWidth) +temp->relitiveY), temp;);
+		listSet(pL, ((temp->relitiveY * rasterWidth) +temp->relitiveY), temp);
 	}
 
 	printf("High point: x = %.1f, y = %.1f, height = %.15f \n", high.x, high.y, high.height); 
@@ -164,7 +168,7 @@ void readPointCloudData(FILE* stream, int* rasterWidth, List* pL){
 
 
 int initializeWatershed(pointcloud_t* pc) {
-	List points = pc->points;
+	List* points = pc->points;
 	for (int i = 0; i < points->size; i++) {
 		pcd_t* p =  (pcd_t*) listGet(points, i);
 		p->wd = 0;

@@ -182,6 +182,7 @@ pointcloud_t* readPointCloudData(FILE* stream){
 
 int initializeWatershed(pointcloud_t* pc) {
 	List* points = pc->points;
+	int width = pc->cols;
 	for (int i = 0; i < points->size; i++) {
 		pcd_t* p =  (pcd_t*) listGet(points, i);
 		p->wd = 0;
@@ -189,20 +190,18 @@ int initializeWatershed(pointcloud_t* pc) {
 		p->east = NULL;
 		p->west = NULL;
 		p->south = NULL;
-		for (int z = 0; i < points->size; i++) {
-			pcd_t* temp = (pcd_t*)listGet(points, z);
-			if (temp->x == p->x && temp->y == p->y + 1) {
-				p->north = temp;
-			}
-			else if (temp->x == p->x && temp->y == p->y - 1) {
-				p->south = temp;
-			}
-			else if (temp->y == p->y && temp->x == p->x + 1) {
-				p->east = temp;
-			}
-			else if (temp->y == p->y && temp->x == p->x - 1) {
-				p->west = temp;
-			}
+		if (p->relitiveX != 0) {
+			int tempx = p->relitiveX + (p->relitiveY*width);
+			p->west = listGet(points, tempx - 1);
+		}if (p->relitiveX != pc->cols - 1) {
+			int tempx = p->relitiveX + (p->relitiveY*width);
+			p->east = listGet(points, tempx + 1);
+		}if (p->relitiveY != 0) {
+			int tempy = p->relitiveY;
+			p->north = listGet(points, tempy - 1);
+		}if (p->relitiveY != pc->rows - 1) {
+			int tempy = p->relitiveX + (p->relitiveY * width);
+			p->south = listGet(points, tempy + 1);
 		}
 
 	}

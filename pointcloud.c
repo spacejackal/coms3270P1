@@ -197,10 +197,10 @@ int initializeWatershed(pointcloud_t* pc) {
 			int tempx = p->relitiveX + (p->relitiveY*width);
 			p->east = listGet(points, tempx + 1);
 		}if (p->relitiveY != 0) {
-			int tempy = p->relitiveY;
-			p->north = listGet(points, tempy - 1);
+			int tempy = p->relitiveX + ((p->relitiveY-1) * width);
+			p->north = listGet(points, tempy);
 		}if (p->relitiveY != pc->rows - 1) {
-			int tempy = p->relitiveX + (p->relitiveY * width);
+			int tempy = p->relitiveX + ((p->relitiveY + 1) * width);
 			p->south = listGet(points, tempy + 1);
 		}
 
@@ -228,7 +228,17 @@ void watershedStep(pointcloud_t* pc) {
 		pcd_t* west = p->west;
 		pcd_t* north = p->north;
 		pcd_t* south = p->south;
-		double temp = (helper(p->height, west->height, p->wd, west->wd) + helper(p->height, east->height, p->wd, east->wd) + helper(p->height, north->height, p->wd, north->wd) + helper(p->height, south->height, p->wd, south->wd)) - p->wd * ecoef;
+		double temp = 0;
+		if (east != NULL) {
+			temp += helper(pc, p->height, east->height, p->wd, east->wd);
+		} if (west != NULL) {
+			temp+= (helper(pc, p->height, west->height, p->wd, west->wd);
+		} if (north != NULL) {
+			temp += helper(pc, p->height, north->height, p->wd, north->wd);
+		} if (south != NULL) {
+			temp += helper(pc, p->height, south->height, p->wd, south->wd);
+		}
+		temp -=  (p->wd * pc->ecoef);
 		temps[i] = temp;
 	}
 
@@ -238,6 +248,12 @@ void watershedStep(pointcloud_t* pc) {
 	}
 }
 
-double helper(double t1, double w1, double t2, double w2) {
-	return ((t2 + w2) - (t1 - w1) * wcoef);
+double helper(pointcloud_t* pc,double t1, double w1, double t2, double w2) {
+	
+	return ((t2 + w2) - (t1 - w1) * pc->wcoef);
+}
+
+
+void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
+
 }

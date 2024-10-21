@@ -176,7 +176,7 @@ pointcloud_t* readPointCloudData(FILE* stream){
 	printf("trying to set stats for the pL 3 \n");
 	pL->stats->high = high.height;
 	printf("trying to set stats for the pL 4 \n");
-	//pL->stats->low = low.height;
+	pL->stats->low = low.height;
 	
 	printf("read all the points and defineing the returning pointcloud \n");
 	pointcloud_t pc;

@@ -1,3 +1,9 @@
+watershed:pointcloud.o util.o bmp.o watershed.o
+	gcc watershed.o util.o bmp.o pointcloud.o -o watershed
+
+watershed.o: watershed.c
+	gcc -c watershed.c
+
 stat: pointcloud.o util.o bmp.o parta.o
 	gcc parta.o util.o bmp.o pointcloud.o -o stat -lm
 

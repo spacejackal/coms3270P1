@@ -16,8 +16,8 @@ typedef struct {
 	List* points;
 	int rows;
 	int cols;
-	double wcoef;
-	double ecoef;
+	float wcoef;
+	float ecoef;
 
 }pointcloud_t;
 

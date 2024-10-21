@@ -14,8 +14,8 @@ int main(int argc, char* argv[]) {
 	
 pointcloud_t pc;
 pointcloud_t* pPC;
-//pPC->wcoef = (double*)wcoef;
-//pPC->ecoef = (double*)ecoef;
+pPC->wcoef = wcoef;
+pPC->ecoef = ecoef;
 FILE* pInFile = fopen(infile,"r");
 pPC = readPointCloudData(pInFile);
 

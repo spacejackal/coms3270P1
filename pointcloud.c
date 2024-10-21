@@ -97,7 +97,7 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 pointcloud_t* readPointCloudData(FILE* stream){
 	List l;
 	List* pL = &l;
-	//ListInit(pL, sizeof(pcd_t));
+	ListInit(pL, sizeof(pcd_t));
 	int width;
 	int* pWidth = &width;
 	fscanf(stream, "%d", pWidth);

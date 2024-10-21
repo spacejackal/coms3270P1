@@ -28,6 +28,8 @@ printf("stats are high %lf, and low %lf\n", pPC->points->stats->high, pPC->point
 pcd_t* temp = listGet(pPC->points, 50);
 printf("the temp points are at x %lf, and low %lf and height %lf\n", temp->x, temp->y,temp->height);
 
+initializeWatershed(pPC);
+
 return 1;
 
 }

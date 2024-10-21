@@ -16,11 +16,15 @@ int main(int argc, char* argv[]) {
 
 pointcloud_t pc;
 pointcloud_t* pPC;
-pPC->wcoef = wcoef;
-pPC->ecoef = ecoef;
+printf("we finished defineing the PC\n");
+
 FILE* pInFile = fopen(infile,"r");
 printf("opening the file\n");
+
 pPC = readPointCloudData(pInFile);
+
+pPC->wcoef = wcoef;
+pPC->ecoef = ecoef;
 
 
 	

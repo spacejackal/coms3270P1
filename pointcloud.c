@@ -223,7 +223,7 @@ void watershedAddUniformWater(pointcloud_t* pc, double amount) {
 
 void watershedStep(pointcloud_t* pc) {
 	List* points = pc->points;
-	double temps[] = malloc(sizeof(double) * points->size);
+	double* temps = malloc(sizeof(double) * points->size);
 	for (int i = 0; i < points->size; i++) {
 
 		pcd_t* p = listGet(points, i);

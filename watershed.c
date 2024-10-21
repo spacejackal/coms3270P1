@@ -4,6 +4,7 @@
 #include "pointcloud.h"
 
 int main(int argc, char* argv[]) {
+	printf("we got to main\n");
 	const char* __restrict infile = argv[1];
 	int iter = atoi(argv[2]);
 	float iwater = atof(argv[3]);

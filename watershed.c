@@ -1,15 +1,16 @@
 #include <stdio.h>
+#include <string.h>
 #include "util.h"
 #include "pointcloud.h"
 
 int main(int argc, char* argv[]) {
 	char infile = argv[1];
-	int iter = argv[2];
-	float iwater = argv[3];
-	float wcoef = argv[4];
-	float ecoef = argv[5];
-	char ofilebase = argv[6];
-	int seq = argv[7];
+	int iter = atoi(argv[2]);
+	float iwater = atof(argv[3]);
+	float wcoef = atof(argv[4]);
+	float ecoef = atof(argv[5]);
+	char ofilebase* = argv[6];
+	int seq = atoi(argv[7]);
 	
 pointcloud_t pc;
 pointcloud_t* pPC;

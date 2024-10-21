@@ -174,11 +174,12 @@ pointcloud_t* readPointCloudData(FILE* stream){
 	pL->stats->high = high.height;
 	pL->stats->low = low.height;
 	
+	printf("read all the points and defineing the returning pointcloud \n");
 	pointcloud_t pc;
-	pc.points = pL;
-	pc.cols = width;
-	pc.rows = (pL->size / width);
 	pointcloud_t* pPC = &pc;
+	pPC->points = pL;
+	pPC->cols = width;
+	pPC->rows = (pL->size / width);
 	return pPC;
 }
 

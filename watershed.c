@@ -11,7 +11,7 @@ int main(int argc, char* argv[]) {
 	float ecoef = atof(argv[5]);
 	const char* ofilebase = argv[6];
 	int seq = atoi(argv[7]);
-	
+	printf("we are defineing the PC\n");
 pointcloud_t pc;
 pointcloud_t* pPC;
 pPC->wcoef = wcoef;

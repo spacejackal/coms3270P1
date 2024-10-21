@@ -22,11 +22,13 @@ FILE* pInFile = fopen(infile,"r");
 printf("opening the file\n");
 
 pPC = readPointCloudData(pInFile);
+printf("read all the points\n");
+
 
 pPC->wcoef = wcoef;
 pPC->ecoef = ecoef;
 
 
-	
+return 1;
 
 }

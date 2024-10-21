@@ -24,6 +24,7 @@ printf("read all the points\n");
 
 pPC->wcoef = wcoef;
 pPC->ecoef = ecoef;
+printf("stats are high %lf, and low %lf\n", pPC->points->stats->high, pPC->points->stats->low);
 
 
 return 1;

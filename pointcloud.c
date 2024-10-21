@@ -172,9 +172,9 @@ pointcloud_t* readPointCloudData(FILE* stream){
 	printf("trying to set stats for the pL 1 \n");
 	pL->stats = pTempList->stats;
 	printf("trying to set stats for the pL 2 \n");
-	//pL->stats->minY = pTempList->stats->minY;
+	pL->stats->minY = pTempList->stats->minY;
 	printf("trying to set stats for the pL 3 \n");
-	//pL->stats->high = high.height;
+	pL->stats->high = high.height;
 	printf("trying to set stats for the pL 4 \n");
 	//pL->stats->low = low.height;
 	

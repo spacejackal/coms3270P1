@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
+
 #include "util.h"
 #include "pointcloud.h"
 #include "bmp.h"
@@ -100,7 +100,7 @@ pointcloud_t* readPointCloudData(FILE* stream){
 	//ListInit(pL, sizeof(pcd_t));
 	int width;
 	int* pWidth = &width;
-	fscanf(stream, "%d", width);
+	fscanf(stream, "%d", pWidth);
 
 	List tempList;
 	List* pTempList = &tempList;
@@ -233,13 +233,13 @@ void watershedStep(pointcloud_t* pc) {
 		pcd_t* south = p->south;
 		double temp = 0;
 		if (east != NULL) {
-			temp += helper(pc, p->height, east->height, p->wd, east->wd);
+			temp += helper(pc, p->height, east->height, p->wd, east->wd));
 		} if (west != NULL) {
-			temp+= (helper(pc, p->height, west->height, p->wd, west->wd);
+			temp+= (helper(pc, p->height, west->height, p->wd, west->wd));
 		} if (north != NULL) {
-			temp += helper(pc, p->height, north->height, p->wd, north->wd);
+			temp += helper(pc, p->height, north->height, p->wd, north->wd));
 		} if (south != NULL) {
-			temp += helper(pc, p->height, south->height, p->wd, south->wd);
+			temp += helper(pc, p->height, south->height, p->wd, south->wd));
 		}
 		temp -=  (p->wd * pc->ecoef);
 		temps[i] = temp;

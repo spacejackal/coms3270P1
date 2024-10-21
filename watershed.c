@@ -9,14 +9,14 @@ int main(int argc, char* argv[]) {
 	float iwater = atof(argv[3]);
 	float wcoef = atof(argv[4]);
 	float ecoef = atof(argv[5]);
-	char ofilebase* = argv[6];
+	char* ofilebase = argv[6];
 	int seq = atoi(argv[7]);
 	
 pointcloud_t pc;
 pointcloud_t* pPC;
 //pPC->wcoef = (double*)wcoef;
 //pPC->ecoef = (double*)ecoef;
-FILE* pInFile = fopen(infile,r);
+FILE* pInFile = fopen(infile,"r");
 pPC = readPointCloudData(pInFile);
 
 

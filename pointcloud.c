@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "util.h"
 #include "pointcloud.h"
 #include "bmp.h"
@@ -98,6 +99,7 @@ pointcloud_t* readPointCloudData(FILE* stream){
 	List* pL = &l;
 	//ListInit(pL, sizeof(pcd_t));
 	int width;
+	int* pWidth = &width;
 	fscanf(stream, "%d", width);
 
 	List tempList;
@@ -176,7 +178,8 @@ pointcloud_t* readPointCloudData(FILE* stream){
 	pc.points = pL;
 	pc.cols = width;
 	pc.rows = (pL->size / width);
-	return &pc;
+	pointcloud_t* pPC = &pc;
+	return pPC;
 }
 
 
@@ -210,7 +213,7 @@ int initializeWatershed(pointcloud_t* pc) {
 }
 
 void watershedAddUniformWater(pointcloud_t* pc, double amount) {
-	List points = pc->points;
+	List* points = pc->points;
 	for (int i = 0; i < points->size; i++) {
 		pcd_t* p = listGet(points, i);
 		p->wd = amount;
@@ -221,7 +224,7 @@ void watershedAddUniformWater(pointcloud_t* pc, double amount) {
 void watershedStep(pointcloud_t* pc) {
 	List* points = pc->points;
 	double temps[] = malloc(sizeof(double) * points->size);
-	for (int i = 0; i < points->size, i++) {
+	for (int i = 0; i < points->size; i++) {
 
 		pcd_t* p = listGet(points, i);
 		pcd_t* east = p->east;

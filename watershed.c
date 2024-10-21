@@ -12,14 +12,11 @@ int main(int argc, char* argv[]) {
 	const char* ofilebase = argv[6];
 
 	int seq = atoi(argv[7]);
-	printf("we are defineing the PC\n");
 
 pointcloud_t pc;
 pointcloud_t* pPC;
-printf("we finished defineing the PC\n");
-
 FILE* pInFile = fopen(infile,"r");
-printf("opening the file\n");
+
 
 pPC = readPointCloudData(pInFile);
 printf("read all the points\n");

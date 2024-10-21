@@ -170,13 +170,13 @@ pointcloud_t* readPointCloudData(FILE* stream){
 	printf("the relivtie points for data[0][5] is: %d and %d \n", tempp->relitiveX, tempp->relitiveY);
 	
 	printf("trying to set stats for the pL 1 \n");
-	pL->stats->minX = pTempList->stats->minX;
+	pL->stats = pTempList->stats;
 	printf("trying to set stats for the pL 2 \n");
-	pL->stats->minY = pTempList->stats->minY;
+	//pL->stats->minY = pTempList->stats->minY;
 	printf("trying to set stats for the pL 3 \n");
-	pL->stats->high = high.height;
+	//pL->stats->high = high.height;
 	printf("trying to set stats for the pL 4 \n");
-	pL->stats->low = low.height;
+	//pL->stats->low = low.height;
 	
 	printf("read all the points and defineing the returning pointcloud \n");
 	pointcloud_t pc;

@@ -25,7 +25,7 @@ printf("read all the points\n");
 pPC->wcoef = wcoef;
 pPC->ecoef = ecoef;
 printf("stats are high %lf, and low %lf\n", pPC->points->stats->high, pPC->points->stats->low);
-pcd_t* temp = listGet(pPC->points, 0);
+pcd_t* temp = listGet(pPC->points, 50);
 printf("the temp points are at x %lf, and low %lf and height %lf\n", temp->x, temp->y,temp->height);
 
 return 1;

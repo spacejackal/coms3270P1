@@ -24,7 +24,7 @@ typedef struct {
 /*
 * function to create an image
 */
-void imagePointCloud(List* l,int width, char* filename);
+void imagePointCloud(pointcloud_t* pc, char* filename);
 
 
 int initializeWatershed(pointcloud_t* pc);
@@ -38,7 +38,9 @@ void watershedAddUniformWater(pointcloud_t* pc, double amount);
 /*
 * function to read points and store them
 */
-void readPointCloudData(FILE* stream,int* rasterWidth, List* pc);
+pointcloud_t* readPointCloudData(FILE* stream);
+
+double helper(pointcloud_t* pc, double t1, double w1, double t2, double w2);
 
 void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename);
 

@@ -255,5 +255,37 @@ double helper(pointcloud_t* pc,double t1, double w1, double t2, double w2) {
 
 
 void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
+	FILE* file = fopen(filename, "w");
 
+	List* l = pc->points;
+	int width = pc->cols;
+	double min = l->stats->low;
+	double max = l->stats->high;
+	double diff = max - min;
+	pcd_t listTemp;
+	pcd_t* pListTemp = &listTemp;
+	double temp;
+	unsigned int section;
+	int height = (l->size / width) + 1;
+	Bitmap* b = bm_create(width, height);
+	int writeRow = 0;
+	int writeCol = 0;
+
+	for (int i = 0; i < l->size; i++) {
+		pListTemp = (pcd_t*)listGet(l, i);
+		temp = pListTemp->height;
+		temp -= min;
+		temp /= diff;
+		temp *= 256;
+
+		section = (unsigned int)temp;
+		section += ((unsigned int)temp << 24);
+		section += ((unsigned int)temp << 16);
+		section += ((unsigned int)temp << 8);
+
+		bm_set_color(b, section);
+		bm_putpixel(b, pListTemp->relitiveX, pListTemp->relitiveY);
+	}
+
+	bm_save(b, filename);
 }

@@ -205,6 +205,8 @@ int initializeWatershed(pointcloud_t* pc) {
 	printf("stats are high %lf, and low %lf\n", pc->points->stats->high, pc->points->stats->low);
 	List* points = pc->points;
 	int width = pc->cols;
+	int tempx;
+	int tempy;
 	for (int i = 0; i < points->size; i++) {
 		pcd_t* p =  (pcd_t*) listGet(points, i);
 		p->wd = 0;
@@ -212,17 +214,18 @@ int initializeWatershed(pointcloud_t* pc) {
 		p->east = NULL;
 		p->west = NULL;
 		p->south = NULL;
+		printf("stats are high %lf, and low %lf\n", pc->points->stats->high, pc->points->stats->low);
 		if (p->relitiveX != 0) {
-			int tempx = p->relitiveX + (p->relitiveY*width);
+			tempx = p->relitiveX + (p->relitiveY*width);
 			p->west = listGet(points, tempx - 1);
 		}if (p->relitiveX != pc->cols - 1) {
-			int tempx = p->relitiveX + (p->relitiveY*width);
+			tempx = p->relitiveX + (p->relitiveY*width);
 			p->east = listGet(points, tempx + 1);
 		}if (p->relitiveY != 0) {
-			int tempy = p->relitiveX + ((p->relitiveY-1) * width);
+			tempy = p->relitiveX + ((p->relitiveY-1) * width);
 			p->north = listGet(points, tempy);
 		}if (p->relitiveY != pc->rows - 1) {
-			int tempy = p->relitiveX + ((p->relitiveY + 1) * width);
+			tempy = p->relitiveX + ((p->relitiveY + 1) * width);
 			p->south = listGet(points, tempy + 1);
 		}
 

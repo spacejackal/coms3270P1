@@ -26,6 +26,8 @@ pPC->wcoef = wcoef;
 pPC->ecoef = ecoef;
 pcd_t* temp = listGet(pPC->points, 2205);
 
+printf("the pc stats are low:%lf and high:%lf pre watershed \n", pPC->points->stats->low, pPC->points->stats->high);
+
 initializeWatershed(pPC);
 pcd_t* east = temp->east;
 printf("the east pointt are at x %d, and low %d and height %lf\n", east->relitiveX, east->relitiveY, east->height);

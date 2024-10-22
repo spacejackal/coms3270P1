@@ -81,16 +81,17 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 
 	for (int i = 0; i < pc->points->size; i++) {
 		pListTemp = (pcd_t*)listGet(pc->points, i);
-		printf("image acting wird 6\n");
+		printf("image acting wird 7\n");
 		temp = pListTemp->height;
 		temp -= pc->points->stats->low;
 		temp /= diff;
 		temp *= 256;
-
+		printf("image acting wird 8\n");
 		section = (unsigned int)temp;
 		section += ((unsigned int)temp << 24);
 		section += ((unsigned int)temp << 16);
 		section += ((unsigned int)temp << 8);
+		printf("image acting wird 9\n");
 
 		bm_set_color(b, section);
 		bm_putpixel(b, pListTemp->relitiveX, pListTemp->relitiveY);

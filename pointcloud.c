@@ -227,6 +227,7 @@ int initializeWatershed(pointcloud_t* pc) {
 		}
 
 	}
+	printf("stats are high %lf, and low %lf\n", pc->points->stats->high, pc->points->stats->low);
 	return 0;
 
 }

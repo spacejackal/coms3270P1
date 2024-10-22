@@ -206,6 +206,7 @@ int initializeWatershed(pointcloud_t* pc) {
 	int width = pc->cols;
 	int tempx;
 	int tempy;
+	printf("pc size is : %d", pc->points->size);
 
 	for (int i = 0; i < points->size; i++) {
 		pcd_t* p =  (pcd_t*) listGet(points, i);

@@ -54,10 +54,7 @@ int stat1() {
 void imagePointCloud(pointcloud_t* pc, char* filename) {
 
 	printf("image the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
-	//FILE* file = fopen("out", "w");
-
-
-	printf("image 2 the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
+	printf("image acting wird 1");
 	List* l = pc->points;
 	int width = pc->cols;
 	double min = l->stats->low;

@@ -19,7 +19,7 @@ FILE* pInFile = fopen(infile,"r");
 
 
 pPC = readPointCloudData(pInFile);
-printf("read all the points\n");
+
 
 
 pPC->wcoef = wcoef;
@@ -29,6 +29,8 @@ pcd_t* temp = listGet(pPC->points, 50);
 printf("the temp points are at x %lf, and low %lf and height %lf\n", temp->x, temp->y,temp->height);
 
 initializeWatershed(pPC);
+printf("initailized the watershed with no issues\n");
+
 
 return 1;
 

@@ -81,6 +81,7 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 
 	for (int i = 0; i < pc->points->size; i++) {
 		pListTemp = (pcd_t*)listGet(pc->points, i);
+		printf("image acting wird 6\n");
 		temp = pListTemp->height;
 		temp -= pc->points->stats->low;
 		temp /= diff;

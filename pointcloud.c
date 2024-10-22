@@ -71,7 +71,7 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 	int writeCol = 0;
 
 	for (int i = 0; i < pc->points->size; i++) {
-		pListTemp = (pcd_t*)listGet(l, i);
+		pListTemp = (pcd_t*)listGet(pc->points, i);
 		temp = pListTemp->height;
 		temp -= min;
 		temp /= diff;

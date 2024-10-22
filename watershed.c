@@ -24,7 +24,7 @@ pPC = readPointCloudData(pInFile);
 
 pPC->wcoef = wcoef;
 pPC->ecoef = ecoef;
-pcd_t* temp = listGet(pPC->points, 10);
+pcd_t* temp = listGet(pPC->points, 2205);
 
 initializeWatershed(pPC);
 pcd_t* east = temp->east;

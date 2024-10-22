@@ -53,11 +53,11 @@ int stat1() {
 */
 void imagePointCloud(pointcloud_t* pc, char* filename) {
 
-	printf("the pc stats are low:%lf and high:%lf \n", pPC->points->stats->low, pPC->points->stats->high);
+	printf("image the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
 	FILE* file = fopen(filename, "w");
 
 
-	printf("the pc stats are low:%lf and high:%lf \n", pPC->points->stats->low, pPC->points->stats->high);
+	printf("image 2 the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
 	List* l = pc->points;
 	int width = pc->cols;
 	double min = l->stats->low;

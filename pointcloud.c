@@ -202,14 +202,12 @@ pointcloud_t* readPointCloudData(FILE* stream){
 
 
 int initializeWatershed(pointcloud_t* pc) {
-	List* points = pc->points;
 	int width = pc->cols;
 	int tempx;
 	int tempy;
 	printf("pc size is : %d\n", pc->points->size);
-	printf("pc size is : %d\n", points->size);
-	for (int i = 0; i < points->size; i++) {
-		pcd_t* p =  (pcd_t*) listGet(points, i);
+	for (int i = 0; i < pc->points->size; i++) {
+		pcd_t* p =  (pcd_t*) listGet(pc->points, i);
 		p->wd = 0;
 		p->north = NULL;
 		p->east = NULL;
@@ -220,19 +218,19 @@ int initializeWatershed(pointcloud_t* pc) {
 		if (p->relitiveX != 0) {
 			printf("it should get in here 1\n");
 			tempx = p->relitiveX + (p->relitiveY*width);
-			p->west = listGet(points, tempx - 1);
+			p->west = listGet(pc->points, tempx - 1);
 		}if (p->relitiveX != pc->rows - 1) {
 			printf("it should get in here 2\n");
 			tempx = p->relitiveX + (p->relitiveY*width);
-			p->east = listGet(points, tempx + 1);
+			p->east = listGet(pc->points, tempx + 1);
 		}if (p->relitiveY != 0) {
 			printf("it should get in here 3\n");
 			tempy = p->relitiveX + ((p->relitiveY-1) * width);
-			p->north = listGet(points, tempy);
+			p->north = listGet(pc->points, tempy);
 		}if (p->relitiveY != pc->cols - 1) {
 			printf("it should get in here 4\n");
 			tempy = p->relitiveX + ((p->relitiveY + 1) * width);
-			p->south = listGet(points, tempy);
+			p->south = listGet(pc->points, tempy);
 		}
 
 	}

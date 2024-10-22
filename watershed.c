@@ -35,9 +35,9 @@ printf("the east pointt are at x %lf, and low %lf and height %lf\n", east->x, ea
 pcd_t* west = temp->west;
 printf("the west pointt are at x %lf, and low %lf and height %lf\n", west->x, west->y, west->height);
 pcd_t* north = temp->north;
-printf("the west pointt are at x %lf, and low %lf and height %lf\n", north->x, north->y, north->height);
-pcd_t* south = temp->north;
-printf("the west pointt are at x %lf, and low %lf and height %lf\n", south->x, south->y, south->height);
+printf("the north pointt are at x %lf, and low %lf and height %lf\n", north->x, north->y, north->height);
+pcd_t* south = temp->south;
+printf("the south pointt are at x %lf, and low %lf and height %lf\n", south->x, south->y, south->height);
 
 
 return 1;

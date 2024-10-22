@@ -52,31 +52,15 @@ int stat1() {
 * lastly it savees the image to "out.gif"
 */
 void imagePointCloud(pointcloud_t* pc, char* filename) {
-	printf("got into image PointCloud\n");
 	FILE* file = fopen(filename, "w");
 
-	printf("got into image PointCloud 1\n");
 	List* l = pc->points;
-
-	printf("got into image PointCloud 2\n");
 	int width = pc->cols;
-
-	printf("got into image PointCloud 3\n");
-	double min = pc->points->stats->low;
-
-	printf("got into image PointCloud 4\n");
+	double min = l->stats->low;
 	double max = l->stats->high;
-
-	printf("got into image PointCloud 5\n");
 	double diff = max - min;
-
-	printf("got into image PointCloud 6\n");
 	pcd_t listTemp;
-
-	printf("got into image PointCloud 7\n");
 	pcd_t* pListTemp = &listTemp;
-
-	printf("got into image PointCloud 8\n");
 	double temp;
 	unsigned int section;
 	int height = (l->size / width)+1;
@@ -84,7 +68,6 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 	int writeRow = 0;
 	int writeCol = 0;
 
-	printf("got to the for loop\n");
 	for (int i = 0; i < l->size; i++) {
 		pListTemp = (pcd_t*)listGet(l, i);
 		temp = pListTemp->height;
@@ -173,8 +156,7 @@ pointcloud_t* readPointCloudData(FILE* stream){
 	for (int i = 0; i < pTempList->size; i++) {
 		pcd_t* temp = listGet(pTempList, i);
 		temp->relitiveX = (int)(temp->x - pTempList->stats->minX);
-		temp->relitiveY =  (int)(temp->y - pTempList->stats->minY);
-		temp->relitiveY = (int)((int)width - temp->relitiveY);
+		temp->relitiveY = (int)(width - (int)(temp->y - pTempList->stats->minY));
 		int realIndex = temp->relitiveX;
 		realIndex *= width;
 		realIndex += temp->relitiveY;
@@ -202,39 +184,30 @@ pointcloud_t* readPointCloudData(FILE* stream){
 
 
 int initializeWatershed(pointcloud_t* pc) {
+	List* points = pc->points;
 	int width = pc->cols;
-	int tempx;
-	int tempy;
-	printf("pc size is : %d\n", pc->points->size);
-	for (int i = 0; i < pc->points->size; i++) {
-		pcd_t* p =  (pcd_t*) listGet(pc->points, i);
+	for (int i = 0; i < points->size; i++) {
+		pcd_t* p =  (pcd_t*) listGet(points, i);
 		p->wd = 0;
 		p->north = NULL;
 		p->east = NULL;
 		p->west = NULL;
 		p->south = NULL;
-		printf("stats are high %lf, and low %lf\n", pc->points->stats->high, pc->points->stats->low);
-		printf("Points row %d, and cols %d\n", p->relitiveY, p->relitiveX);
 		if (p->relitiveX != 0) {
-			printf("it should get in here 1\n");
-			tempx = p->relitiveX + (p->relitiveY*width);
-			p->west = listGet(pc->points, tempx - 1);
-		}if (p->relitiveX != pc->rows - 1) {
-			printf("it should get in here 2\n");
-			tempx = p->relitiveX + (p->relitiveY*width);
-			p->east = listGet(pc->points, tempx + 1);
+			int tempx = p->relitiveX + (p->relitiveY*width);
+			p->west = listGet(points, tempx - 1);
+		}if (p->relitiveX != pc->cols - 1) {
+			int tempx = p->relitiveX + (p->relitiveY*width);
+			p->east = listGet(points, tempx + 1);
 		}if (p->relitiveY != 0) {
-			printf("it should get in here 3\n");
-			tempy = p->relitiveX + ((p->relitiveY-1) * width);
-			p->north = listGet(pc->points, tempy);
-		}if (p->relitiveY != pc->cols - 1) {
-			printf("it should get in here 4\n");
-			tempy = p->relitiveX + ((p->relitiveY + 1) * width);
-			p->south = listGet(pc->points, tempy);
+			int tempy = p->relitiveX + ((p->relitiveY-1) * width);
+			p->north = listGet(points, tempy);
+		}if (p->relitiveY != pc->rows - 1) {
+			int tempy = p->relitiveX + ((p->relitiveY + 1) * width);
+			p->south = listGet(points, tempy + 1);
 		}
 
 	}
-	printf("stats are high %lf, and low %lf\n", pc->points->stats->high, pc->points->stats->low);
 	return 0;
 
 }

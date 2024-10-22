@@ -231,7 +231,7 @@ int initializeWatershed(pointcloud_t* pc) {
 		}if (p->relitiveY != pc->cols - 1) {
 			printf("it should get in here 4\n");
 			tempy = p->relitiveX + ((p->relitiveY + 1) * width);
-			p->south = listGet(points, tempy + 1);
+			p->south = listGet(points, tempy);
 		}
 
 	}

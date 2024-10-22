@@ -61,6 +61,7 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 	int width = pc->cols;
 	printf("image acting wird 1\n");
 	double min = pc->points->stats->low;
+	printf("image acting wird 1\n");
 	double max = pc->points->stats->high;
 	double diff = max - min;
 	printf("image acting wird 1\n");

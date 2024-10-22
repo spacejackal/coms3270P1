@@ -52,6 +52,7 @@ int stat1() {
 * lastly it savees the image to "out.gif"
 */
 void imagePointCloud(pointcloud_t* pc, char* filename) {
+	printf("got into image PointCloud\n");
 	FILE* file = fopen(filename, "w");
 
 	List* l = pc->points;

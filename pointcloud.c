@@ -53,7 +53,7 @@ int stat1() {
 */
 void imagePointCloud(pointcloud_t* pc, char* filename) {
 
-	//printf("ssssimage the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
+	printf("ssssimage the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
 	printf("image acting wird 1\n");
 
 	//List* l = pc->points;

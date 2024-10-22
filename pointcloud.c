@@ -73,7 +73,7 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 	unsigned int section;
 	printf("image acting wird 4\n");
 	int height = (pc->points->size / width)+1;
-	printf("image acting wird 5\n");
+	printf("image acting wird 5 width%d height %d\n",width, height);
 	Bitmap* b = bm_create(width, height);
 	printf("image acting wird 6\n");
 	int writeRow = 0;

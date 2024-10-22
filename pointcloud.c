@@ -220,15 +220,19 @@ int initializeWatershed(pointcloud_t* pc) {
 		printf("stats are high %lf, and low %lf\n", pc->points->stats->high, pc->points->stats->low);
 		printf("Points row %d, and cols %d\n", p->relitiveY, p->relitiveX);
 		if (p->relitiveX != 0) {
+			printf("it should get in here 1\n");
 			tempx = p->relitiveX + (p->relitiveY*width);
 			p->west = listGet(points, tempx - 1);
 		}if (p->relitiveX != pc->cols - 1) {
+			printf("it should get in here 2\n");
 			tempx = p->relitiveX + (p->relitiveY*width);
 			p->east = listGet(points, tempx + 1);
 		}if (p->relitiveY != 0) {
+			printf("it should get in here 3\n");
 			tempy = p->relitiveX + ((p->relitiveY-1) * width);
 			p->north = listGet(points, tempy);
 		}if (p->relitiveY != pc->rows - 1) {
+			printf("it should get in here 4\n");
 			tempy = p->relitiveX + ((p->relitiveY + 1) * width);
 			p->south = listGet(points, tempy + 1);
 		}

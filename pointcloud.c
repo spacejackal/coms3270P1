@@ -202,10 +202,13 @@ pointcloud_t* readPointCloudData(FILE* stream){
 
 
 int initializeWatershed(pointcloud_t* pc) {
-	printf("got into intwater\n");
+	printf("got into intwater 1\n");
 	List* points = pc->points;
+	printf("got into intwater 2\n");
 	int width = pc->cols;
+	printf("got into intwater3\n");
 	int tempx;
+	printf("got into intwater4\n");
 	int tempy;
 	for (int i = 0; i < points->size; i++) {
 		pcd_t* p =  (pcd_t*) listGet(points, i);

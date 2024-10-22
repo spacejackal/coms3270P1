@@ -202,7 +202,7 @@ pointcloud_t* readPointCloudData(FILE* stream){
 
 
 int initializeWatershed(pointcloud_t* pc) {
-	printf("stats are high %lf, and low %lf\n", pc->points->stats->high, pc->points->stats->low);
+	printf("got into intwater\n");
 	List* points = pc->points;
 	int width = pc->cols;
 	int tempx;

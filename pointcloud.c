@@ -60,10 +60,10 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 	printf("image acting wird 1\n");
 	int width = pc->cols;
 	printf("image acting wird 1\n");
-	double min = pc->points->stats->low;
+	//double min = pc->points->stats->low;
 	printf("image acting wird 1\n");
-	double max = pc->points->stats->high;
-	double diff = max - min;
+	//double max = pc->points->stats->high;
+	double diff = pc->points->stats->high - pc->points->stats->low;
 	printf("image acting wird 1\n");
 	pcd_t listTemp;
 	pcd_t* pListTemp = &listTemp;
@@ -77,7 +77,7 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 	for (int i = 0; i < pc->points->size; i++) {
 		pListTemp = (pcd_t*)listGet(pc->points, i);
 		temp = pListTemp->height;
-		temp -= min;
+		temp -= pc->points->stats->low;
 		temp /= diff;
 		temp *= 256;
 

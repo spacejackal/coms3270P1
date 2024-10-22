@@ -218,6 +218,7 @@ int initializeWatershed(pointcloud_t* pc) {
 		p->west = NULL;
 		p->south = NULL;
 		printf("stats are high %lf, and low %lf\n", pc->points->stats->high, pc->points->stats->low);
+		printf("Points row %d, and cols %d\n", p->relitiveY, p->relitiveX);
 		if (p->relitiveX != 0) {
 			tempx = p->relitiveX + (p->relitiveY*width);
 			p->west = listGet(points, tempx - 1);

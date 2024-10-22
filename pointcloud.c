@@ -52,6 +52,8 @@ int stat1() {
 * lastly it savees the image to "out.gif"
 */
 void imagePointCloud(pointcloud_t* pc, char* filename) {
+
+	printf("the pc stats are low:%lf and high:%lf \n", pPC->points->stats->low, pPC->points->stats->high);
 	FILE* file = fopen(filename, "w");
 
 

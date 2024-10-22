@@ -202,14 +202,11 @@ pointcloud_t* readPointCloudData(FILE* stream){
 
 
 int initializeWatershed(pointcloud_t* pc) {
-	printf("got into intwater 1\n");
 	List* points = pc->points;
-	printf("got into intwater 2\n");
 	int width = pc->cols;
-	printf("got into intwater3\n");
 	int tempx;
-	printf("got into intwater4\n");
 	int tempy;
+
 	for (int i = 0; i < points->size; i++) {
 		pcd_t* p =  (pcd_t*) listGet(points, i);
 		p->wd = 0;
@@ -223,7 +220,7 @@ int initializeWatershed(pointcloud_t* pc) {
 			printf("it should get in here 1\n");
 			tempx = p->relitiveX + (p->relitiveY*width);
 			p->west = listGet(points, tempx - 1);
-		}if (p->relitiveX != pc->cols - 1) {
+		}if (p->relitiveX != pc->rows - 1) {
 			printf("it should get in here 2\n");
 			tempx = p->relitiveX + (p->relitiveY*width);
 			p->east = listGet(points, tempx + 1);
@@ -231,7 +228,7 @@ int initializeWatershed(pointcloud_t* pc) {
 			printf("it should get in here 3\n");
 			tempy = p->relitiveX + ((p->relitiveY-1) * width);
 			p->north = listGet(points, tempy);
-		}if (p->relitiveY != pc->rows - 1) {
+		}if (p->relitiveY != pc->cols - 1) {
 			printf("it should get in here 4\n");
 			tempy = p->relitiveX + ((p->relitiveY + 1) * width);
 			p->south = listGet(points, tempy + 1);

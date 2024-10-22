@@ -94,7 +94,14 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 		printf("image acting wird 9\n");
 
 		bm_set_color(b, section);
-		bm_putpixel(b, pListTemp->relitiveX, pListTemp->relitiveY);
+		printf("image acting wird 10\n");
+
+		bm_putpixel(b, writeCol, writeRow);
+		writeCol++;
+		if (writeCol == pc->cols) {
+			writeRow++;
+			writeCol = 0;
+		}
 	}
 
 	bm_save(b, filename);

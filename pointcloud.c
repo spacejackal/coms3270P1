@@ -55,13 +55,28 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 	printf("got into image PointCloud\n");
 	FILE* file = fopen(filename, "w");
 
+	printf("got into image PointCloud 1\n");
 	List* l = pc->points;
+
+	printf("got into image PointCloud 2\n");
 	int width = pc->cols;
+
+	printf("got into image PointCloud 3\n");
 	double min = l->stats->low;
+
+	printf("got into image PointCloud 4\n");
 	double max = l->stats->high;
+
+	printf("got into image PointCloud 5\n");
 	double diff = max - min;
+
+	printf("got into image PointCloud 6\n");
 	pcd_t listTemp;
+
+	printf("got into image PointCloud 7\n");
 	pcd_t* pListTemp = &listTemp;
+
+	printf("got into image PointCloud 8\n");
 	double temp;
 	unsigned int section;
 	int height = (l->size / width)+1;

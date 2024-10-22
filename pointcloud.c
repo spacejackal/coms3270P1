@@ -62,7 +62,7 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 	int width = pc->cols;
 
 	printf("got into image PointCloud 3\n");
-	double min = l->stats->low;
+	double min = pc->points->stats->low;
 
 	printf("got into image PointCloud 4\n");
 	double max = l->stats->high;

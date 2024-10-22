@@ -53,23 +53,24 @@ int stat1() {
 */
 void imagePointCloud(pointcloud_t* pc, char* filename) {
 
-	printf("ssssimage the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
-	printf("image acting wird 1");
-	List* l = pc->points;
+	//printf("ssssimage the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
+	printf("image acting wird 1\n");
+
+	//List* l = pc->points;
 	int width = pc->cols;
-	double min = l->stats->low;
-	double max = l->stats->high;
+	double min = pc->points->stats->low;
+	double max = pc->points->stats->high;
 	double diff = max - min;
 	pcd_t listTemp;
 	pcd_t* pListTemp = &listTemp;
 	double temp;
 	unsigned int section;
-	int height = (l->size / width)+1;
+	int height = (pc->points->size / width)+1;
 	Bitmap* b = bm_create(width, height);
 	int writeRow = 0;
 	int writeCol = 0;
 
-	for (int i = 0; i < l->size; i++) {
+	for (int i = 0; i < pc->points->size; i++) {
 		pListTemp = (pcd_t*)listGet(l, i);
 		temp = pListTemp->height;
 		temp -= min;

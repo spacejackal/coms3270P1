@@ -31,13 +31,13 @@ printf("the temp point are at x %lf, and y %lf and height %lf\n", temp->x, temp-
 initializeWatershed(pPC);
 printf("initailized the watershed with no issues\n");
 pcd_t* east = temp->east;
-printf("the east pointt are at x %lf, and low %lf and height %lf\n", east->x, east->y, east->height);
+printf("the east pointt are at x %d, and low %d and height %lf\n", east->relitiveX, east->relitiveY, east->height);
 pcd_t* west = temp->west;
-printf("the west pointt are at x %lf, and low %lf and height %lf\n", west->x, west->y, west->height);
+printf("the west pointt are at x %d, and low %d and height %lf\n", west->relitiveX, west->relitiveY, west->height);
 pcd_t* north = temp->north;
-printf("the north pointt are at x %lf, and low %lf and height %lf\n", north->x, north->y, north->height);
+printf("the north pointt are at x %d, and low %d and height %lf\n", north->relitiveX, north->relitiveY, north->height);
 pcd_t* south = temp->south;
-printf("the south pointt are at x %lf, and low %lf and height %lf\n", south->x, south->y, south->height);
+printf("the south pointt are at x %d, and low %d and height %lf\n", south->relitiveX, south->relitiveY, south->height);
 char* wor = "wor";
 
 imagePointCloud(pPC, wor);

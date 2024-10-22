@@ -69,6 +69,7 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 	int writeRow = 0;
 	int writeCol = 0;
 
+	printf("got to the for loop\n");
 	for (int i = 0; i < l->size; i++) {
 		pListTemp = (pcd_t*)listGet(l, i);
 		temp = pListTemp->height;

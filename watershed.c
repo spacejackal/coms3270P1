@@ -26,6 +26,8 @@ pPC->wcoef = wcoef;
 pPC->ecoef = ecoef;
 pcd_t* temp = listGet(pPC->points, 2205);
 
+double* low = pPC->points->stats->low;
+
 printf("the pc stats are low:%lf and high:%lf pre watershed \n", pPC->points->stats->low, pPC->points->stats->high);
 
 initializeWatershed(pPC);
@@ -40,6 +42,8 @@ printf("the south pointt are at x %d, and low %d and height %lf\n", south->relit
 char* wor = "wor";
 
 printf("the pc stats are low:%lf and high:%lf \n", pPC->points->stats->low, pPC->points->stats->high);
+
+pPC->points->stats->low = low;
 
 imagePointCloud(pPC, wor);
 

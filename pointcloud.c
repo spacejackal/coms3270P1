@@ -98,7 +98,7 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 
 		bm_putpixel(b, writeCol, writeRow);
 		writeCol++;
-		if (writeCol == pc->cols) {
+		if (writeCol == pc->cols -1) {
 			writeRow++;
 			writeCol = 0;
 		}

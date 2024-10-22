@@ -54,7 +54,7 @@ int stat1() {
 void imagePointCloud(pointcloud_t* pc, char* filename) {
 
 	printf("image the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
-	FILE* file = fopen(filename, "w");
+	FILE* file = fopen("out", "w");
 
 
 	printf("image 2 the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);

@@ -41,8 +41,6 @@ pcd_t* south = temp->south;
 printf("the south pointt are at x %d, and low %d and height %lf\n", south->relitiveX, south->relitiveY, south->height);
 char* wor = "wor";
 
-printf("the pc stats are low:%lf and high:%lf \n", pPC->points->stats->low, pPC->points->stats->high);
-
 pPC->points->stats->low = low;
 
 imagePointCloud(pPC, wor);

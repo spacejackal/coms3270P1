@@ -275,37 +275,53 @@ double helper(pointcloud_t* pc,double t1, double w1, double t2, double w2) {
 
 
 void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
-	FILE* file = fopen(filename, "w");
+	double min = pc->points->stats->low;
+	double max = pc->points->stats->high;
+	printf("ssssimage the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
 
-	List* l = pc->points;
 	int width = pc->cols;
-	double min = l->stats->low;
-	double max = l->stats->high;
+	printf("ssssimage the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
 	double diff = max - min;
+	printf("diff is %lf\n", diff);
 	pcd_t listTemp;
 	pcd_t* pListTemp = &listTemp;
 	double temp;
 	unsigned int section;
-	int height = (l->size / width) + 1;
+	int height = (pc->points->size / width);
+
+	printf("image acting wird 5 width%d height %d\n", width, height);
 	Bitmap* b = bm_create(width, height);
+	printf("image acting wird 6\n");
 	int writeRow = 0;
 	int writeCol = 0;
+	printf("size: %d\n", pc->points->size);
 
-	for (int i = 0; i < l->size; i++) {
-		pListTemp = (pcd_t*)listGet(l, i);
+	for (int i = 0; i < pc->points->size; i++) {
+		pListTemp = (pcd_t*)listGet(pc->points, i);
+		//printf("the point got is : x:%lf y:%lf and height:%lf\n", pListTemp->x, pListTemp->y, pListTemp->height);
+		//printf("ssssimage the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
 		temp = pListTemp->height;
 		temp -= min;
+		//printf("the height got is after sub low: %lf\n", temp);
 		temp /= diff;
 		temp *= 256;
-
 		section = (unsigned int)temp;
 		section += ((unsigned int)temp << 24);
 		section += ((unsigned int)temp << 16);
 		section += ((unsigned int)temp << 8);
 
 		bm_set_color(b, section);
-		bm_putpixel(b, pListTemp->relitiveX, pListTemp->relitiveY);
+
+		bm_putpixel(b, writeRow, writeCol);
+		if (writeRow == width - 1) {
+			writeCol++;
+			writeRow = 0;
+		}
+		else {
+			writeRow++;
+		}
 	}
 
 	bm_save(b, filename);
+
 }

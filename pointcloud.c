@@ -243,14 +243,14 @@ void watershedStep(pointcloud_t* pc) {
 	for (int i = 0; i < points->size; i++) {
 		pcd_t* p = listGet(points, i);
 		printf("NORTH info Rx:%lf Ry:%lf row:%d col:%d height:%lf \n", p->x, p->y, p->relitiveX, p->relitiveY, p->height);
-		pcd_t* east = p->east;
-		//printf(" broke 1");
+		if (p->east != NULL) {
+			pcd_t* east = p->east;
+			
+		}
+		printf("got past here");
 		pcd_t* west = p->west;
-		//printf("broke 2");
 		pcd_t* north = p->north;
-		//printf("broke 3");
 		pcd_t* south = p->south;
-		//printf("broke 4");
 		double temp = 0;
 		if (east != NULL) {
 			temp += (helper(pc, p->height, east->height, p->wd, east->wd));

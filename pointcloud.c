@@ -241,6 +241,7 @@ void watershedAddUniformWater(pointcloud_t* pc, float amount) {
 void watershedStep(pointcloud_t* pc) {
 	List* points = pc->points;
 	int size = pc->points->size;
+	printf("the eceof is: %lf and the wecof is: %lf \n", pc->ecoef, pc->wcoef);
 	double* temps[size];
 	for (int i = 0; i < points->size; i++) {
 

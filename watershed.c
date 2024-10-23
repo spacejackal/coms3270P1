@@ -36,7 +36,9 @@ pPC->points->stats->high = high;
 watershedAddUniformWater(pPC, iwater);
 pcd_t* temp = listGet(pPC->points, 693);
 printf("other info Rx:%lf Ry:%lf x:%d y:%d height:%lf \n", temp->x, temp->y, temp->relitiveX, temp->relitiveY, temp->height);
-//pcd_t* north = temp->north;
+
+
+pcd_t* north = temp->north;
 pcd_t* east = temp->east;
 pcd_t* west = temp->west;
 pcd_t* south = temp->south;

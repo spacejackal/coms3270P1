@@ -44,6 +44,10 @@ temp = listGet(pPC->points, 0);
 printf("the secod point is x:%lf y: %lf and height of %lf \n", temp->x, temp->y, temp->height);
 
 pPC->points->stats->low = low;
+
+watershedAddUniformWater(pPC, 10.9);
+
+pPC->points->stats->low = low;
 imagePointCloudWater(pPC,395.92, "out");
 
 

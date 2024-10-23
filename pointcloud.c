@@ -286,6 +286,7 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 	pcd_t listTemp;
 	pcd_t* pListTemp = &listTemp;
 	double temp;
+	double tempwater;
 	unsigned int section;
 	int height = (pc->points->size / width);
 

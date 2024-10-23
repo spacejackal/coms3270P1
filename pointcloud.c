@@ -54,12 +54,11 @@ int stat1() {
 void imagePointCloud(pointcloud_t* pc, char* filename) {
 
 	printf("ssssimage the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
+	double min = pc->points->stats->low;
+	double max = pc->points->stats->high;
 
-	List* l = pc->points;
 	int width = pc->cols;
 	printf("ssssimage the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
-	double min = l->stats->low;
-	double max = l->stats->high;
 	double diff = max - min;
 	printf("diff is %lf\n", diff);
 	pcd_t listTemp;

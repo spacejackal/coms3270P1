@@ -166,11 +166,11 @@ pointcloud_t* readPointCloudData(FILE* stream){
 
 	for (int i = 0; i < pTempList->size; i++) {
 		pcd_t* temp = listGet(pTempList, i);
-		temp->relitiveY = (int)(temp->x - pTempList->stats->minX);
-		temp->relitiveX = (int)(width - (int)(temp->y - pTempList->stats->minY));
-		int realIndex = temp->relitiveY;
+		temp->relitiveX = (int)(temp->x - pTempList->stats->minX);
+		temp->relitiveY = (int)(width - (int)(temp->y - pTempList->stats->minY));
+		int realIndex = temp->relitiveX;
 		realIndex *= width;
-		realIndex += temp->relitiveX;
+		realIndex += temp->relitiveY;
 		
 		listSet(pL, realIndex -1, temp);
 	}
@@ -209,10 +209,10 @@ int initializeWatershed(pointcloud_t* pc) {
 		p->south = NULL;
 		if (p->relitiveX != 0) {
 			int tempx = p->relitiveX + (p->relitiveY*width);
-			p->west = listGet(points, tempx  );
+			p->west = listGet(points, tempx - 1);
 		}if (p->relitiveX != pc->cols - 1) {
 			int tempx = p->relitiveX + (p->relitiveY*width);
-			p->east = listGet(points, tempx-1 );
+			p->east = listGet(points, tempx + 1);
 		}if (p->relitiveY != pc->rows) {
 			int tempy = p->relitiveX + ((p->relitiveY+1) * width);
 			p->north = listGet(points, tempy);
@@ -333,7 +333,7 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 
 		bm_set_color(b, section);
 
-		bm_putpixel(b, writeCol, writeRow);
+		bm_putpixel(b, writeRow, writeCol);
 		if (writeRow == width - 1) {
 			writeCol++;
 			writeRow = 0;

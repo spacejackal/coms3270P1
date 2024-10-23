@@ -188,7 +188,7 @@ pointcloud_t* readPointCloudData(FILE* stream){
 	pL->stats = pTempList->stats;
 	pL->stats->minY = pTempList->stats->minY;
 	pTempList->stats->high = high.height;
-	pTempList->stats->low = low.height
+	pTempList->stats->low = low.height;
 	pL->stats->high = high.height;
 	pL->stats->low = low.height;
 	

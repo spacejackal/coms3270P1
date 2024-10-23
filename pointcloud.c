@@ -291,11 +291,10 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 	unsigned int section;
 	int height = (pc->points->size / width);
 
-	printf("image acting wird 5 width%d height %d\n", width, height);
 	Bitmap* b = bm_create(width, height);
 	int writeRow = 0;
 	int writeCol = 0;
-	printf("size: %d\n", pc->points->size);
+
 
 	for (int i = 0; i < pc->points->size; i++) {
 		pListTemp = (pcd_t*)listGet(pc->points, i);

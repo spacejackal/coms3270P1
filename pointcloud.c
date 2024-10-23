@@ -116,14 +116,14 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 */
 pointcloud_t* readPointCloudData(FILE* stream){
 	List l;
-	List* pL = &l;
+	List* pL =(List*) malloc(sizeof(List));
 	ListInit(pL, sizeof(pcd_t));
 	int width;
 	int* pWidth = &width;
 	fscanf(stream, "%d", pWidth);
 
 	List tempList;
-	List* pTempList = &tempList;
+	List* pTempList = (List*)malloc(sizeof(List));
 	ListInit(pTempList, sizeof(pcd_t));
 	printf("got defined the tempList\n");
 

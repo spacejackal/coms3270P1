@@ -250,12 +250,24 @@ void watershedStep(pointcloud_t* pc) {
 		double temp = 0;
 		if (east != NULL) {
 			temp += (helper(pc, p->height, east->height, p->wd, east->wd));
+			if (p->x == 693 && p->y == 5) {
+				printf("first part%lf",temp);
+			}
 		} if (west != NULL) {
 			temp+= (helper(pc, p->height, west->height, p->wd, west->wd));
+			if (p->x == 693 && p->y == 5) {
+				printf("second part %lf",temp);
+			}
 		} if (north != NULL) {
 			temp += (helper(pc, p->height, north->height, p->wd, north->wd));
+			if (p->x == 693 && p->y == 5) {
+				printf("third part %lf",temp);
+			}
 		} if (south != NULL) {
 			temp += (helper(pc, p->height, south->height, p->wd, south->wd));
+			if (p->x == 693 && p->y == 5) {
+				printf("forth part %lf",temp);
+			}
 		}
 
 		temp -=  (p->wd * pc->ecoef);

@@ -37,14 +37,20 @@ watershedStep(pPC);
 
 pPC->points->stats->low = low;
 imagePointCloudWater(pPC,wdmax, ofilebase);
+int totalCount =0;
 int seqCount = 0;
 for (int i = 0; i < iter; i++) {
 	if (seqCount == seq) {
+		char ofile[20];
+		strcpy(ofile, ofilebase);
+		strcat(ofile, (itoa(totalCount)))
 		imagePointCouldWater(pPC, wdmax, ofilebase);
 		seqCount = 0;
+		totalCount++;
 	}
 	pPC->points->stats->low = low;
 	watershedStep(pPC);
+	seqCount++;
 }
 
 

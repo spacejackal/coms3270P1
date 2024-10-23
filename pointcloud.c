@@ -312,16 +312,15 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 		tempwater = pListTemp->wd;
 		tempwater /= maxwd;
 		tempwater *= 256;
-		waterSection = ((unsigned int)temp << 24);
-		waterSection += ((unsigned int)temp << 16);
-		waterSection += ((unsigned int)temp << 8);
+		waterSection = ((unsigned int)tempwater << 24);
+		waterSection += ((unsigned int)tempwater << 16);
+		waterSection += ((unsigned int)tempwater << 8);
 
 		section = (unsigned int)temp;
 		section += ((unsigned int)temp << 24);
 		section += ((unsigned int)temp << 16);
 		section += ((unsigned int)temp << 8);
 		section -= waterSection;
-		printf("%x\n", section);
 
 		bm_set_color(b, section);
 

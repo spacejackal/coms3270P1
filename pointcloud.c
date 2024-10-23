@@ -188,7 +188,7 @@ pointcloud_t* readPointCloudData(FILE* stream){
 	
 	pointcloud_t pc;
 	pointcloud_t* pPC = malloc(sizeof(pointcloud_t));
-	pPC->points = pTempList;
+	pPC->points = pL;
 	pPC->cols = width;
 	pPC->rows = (pL->size / width);
 	return pPC;
@@ -268,7 +268,7 @@ void watershedStep(pointcloud_t* pc) {
 				printf("forth part %lf",temp);
 			}
 		}
-		printf("temp is: %lf", temp);
+		//printf("temp is: %lf\n", temp);
 
 		temp -=  (p->wd * pc->ecoef);
 		temps[i] = &temp;

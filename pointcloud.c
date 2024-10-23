@@ -139,7 +139,7 @@ pointcloud_t* readPointCloudData(FILE* stream){
 	pcd_t* pTemp = &temp;
 	
 	
-
+	printf("got defined the tempList2\n");
 	fscanf(stream, "%lf %lf %lf", &high.x, &high.y, &high.height); 
 	low.x = high.x;		
 	low.y = high.y;

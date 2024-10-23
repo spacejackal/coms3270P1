@@ -45,10 +45,10 @@ watershedStep(pPC);
 //printf("WEST info Rx:%lf Ry:%lf x:%d y:%d height:%lf \n", west->x, west->y, west->relitiveX, west->relitiveY, west->height);
 
 pcd_t* east = temp->east;
-pcd_t* north = temp->north;
+//pcd_t* north = temp->north;
 printf("EAST info Rx:%lf Ry:%lf x:%d y:%d height:%lf \n", east->x, east->y, east->relitiveX, east->relitiveY, east->height);
 
-printf("EAST info Rx:%lf Ry:%lf x:%d y:%d height:%lf \n", north->x, north->y, north->relitiveX, north->relitiveY, north->height);
+printf("EAST info Rx:%lf Ry:%lf x:%d y:%d height:%lf \n", south->x, south->y, south->relitiveX, south->relitiveY, south->height);
 
 
 //watershedStep(pPC);

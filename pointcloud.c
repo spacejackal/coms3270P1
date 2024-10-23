@@ -82,7 +82,7 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 		temp /= diff;
 		temp *= 256;
 		section = (unsigned int)temp;
-		print("the color is %d", section);
+		printf("the color is %d", section);
 		section += ((unsigned int)temp << 24);
 		section += ((unsigned int)temp << 16);
 		section += ((unsigned int)temp << 8);

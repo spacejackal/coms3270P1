@@ -195,7 +195,7 @@ pointcloud_t* readPointCloudData(FILE* stream){
 	pL->stats->low = low.height;
 	
 	pointcloud_t pc;
-	pointcloud_t* pPC = malloc(sizeof pointcloud_t);
+	pointcloud_t* pPC = malloc(sizeof(pointcloud_t));
 	pPC->points = pL;
 	pPC->cols = width;
 	pPC->rows = (pL->size / width);

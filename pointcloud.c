@@ -268,6 +268,7 @@ void watershedStep(pointcloud_t* pc) {
 				printf("forth part %lf",temp);
 			}
 		}
+		printf("temp is: %lf", temp);
 
 		temp -=  (p->wd * pc->ecoef);
 		temps[i] = &temp;

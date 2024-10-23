@@ -57,8 +57,8 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 
 	List* l = pc->points;
 	int width = pc->cols;
-	double min = pc->points->stats->low;
-	double max = pc->points->stats->high;
+	double min = l->stats->low;
+	double max = l->stats->high;
 	double diff = max - min;
 	printf("diff is %lf\n", diff);
 	pcd_t listTemp;

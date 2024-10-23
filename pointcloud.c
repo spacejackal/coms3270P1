@@ -219,7 +219,7 @@ int initializeWatershed(pointcloud_t* pc) {
 			int tempy = p->relitiveX + ((p->relitiveY - 1) * width);
 			p->south = listGet(points, tempy);
 		} if (p->relitiveY == 1000) {
-			printf("the strange acting points are x:%lf y:%lf height:%lf", p->x, p->y, p->height);
+			//printf("the strange acting points are x:%lf y:%lf height:%lf", p->x, p->y, p->height);
 		}
 
 	}

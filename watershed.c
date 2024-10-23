@@ -34,7 +34,7 @@ pPC->points->stats->low = low;
 pPC->points->stats->high = high;
 
 watershedAddUniformWater(pPC, iwater);
-pcd_t* temp = listGet(pPC->points, 305);
+pcd_t* temp = listGet(pPC->points, 1034);
 printf("the water depth 1st is: %lf \n", temp->wd);
 
 watershedStep(pPC);

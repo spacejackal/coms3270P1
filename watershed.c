@@ -38,7 +38,7 @@ pcd_t* temp = listGet(pPC->points, 999);
 printf("other info Rx:%lf Ry:%lf x:%d y:%d height:%lf \n", temp->x, temp->y, temp->relitiveX, temp->relitiveY, temp->height);
 
 printf("other info Rx:%lf Ry:%lf x:%d y:%d height:%lf \n", temp->x, temp->y, temp->relitiveX, temp->relitiveY, temp->height);
-//watershedStep(pPC);
+watershedStep(pPC);
 printf("other info Rx:%lf Ry:%lf x:%d y:%d height:%lf \n", temp->x, temp->y, temp->relitiveX, temp->relitiveY, temp->height);
 //watershedStep(pPC);
 //printf("the water depth 3rd is: %lf \n", temp->wd);

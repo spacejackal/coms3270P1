@@ -241,6 +241,10 @@ void watershedStep(pointcloud_t* pc) {
 	printf("the eceof is: %lf and the wecof is: %lf \n", pc->ecoef, pc->wcoef);
 	double* temps[size];
 	for (int i = 0; i < points->size; i++) {
+		pcd_t* east;
+		pcd_t* north;
+		pcd_t* south;
+		pcd_t* west;
 		pcd_t* p = listGet(points, i);
 		printf("NORTH info Rx:%lf Ry:%lf row:%d col:%d height:%lf \n", p->x, p->y, p->relitiveX, p->relitiveY, p->height);
 		if (p->east != NULL) {
@@ -248,9 +252,9 @@ void watershedStep(pointcloud_t* pc) {
 			
 		}
 		printf("got past here");
-		pcd_t* west = p->west;
-		pcd_t* north = p->north;
-		pcd_t* south = p->south;
+		west = p->west;
+		north = p->north;
+		south = p->south;
 		double temp = 0;
 		if (east != NULL) {
 			temp += (helper(pc, p->height, east->height, p->wd, east->wd));

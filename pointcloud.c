@@ -52,10 +52,9 @@ int stat1() {
 * lastly it savees the image to "out.gif"
 */
 void imagePointCloud(pointcloud_t* pc, char* filename) {
-
-	printf("ssssimage the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
 	double min = pc->points->stats->low;
 	double max = pc->points->stats->high;
+	printf("ssssimage the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
 
 	int width = pc->cols;
 	printf("ssssimage the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);

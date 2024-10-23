@@ -38,11 +38,19 @@ pcd_t* temp = listGet(pPC->points, 999);
 printf("other info Rx:%lf Ry:%lf x:%d y:%d height:%lf \n", temp->x, temp->y, temp->relitiveX, temp->relitiveY, temp->height);
 //pcd_t* north = temp->north;
 //pcd_t* east = temp->east;
-pcd_t* west = temp->west;
+//pcd_t* west = temp->west;
 pcd_t* south = temp->south;
 //printf("NORTH info Rx:%lf Ry:%lf x:%d y:%d height:%lf \n", north->x, north->y, north->relitiveX, north->relitiveY, north->height);
 watershedStep(pPC);
-printf("WEST info Rx:%lf Ry:%lf x:%d y:%d height:%lf \n", west->x, west->y, west->relitiveX, west->relitiveY, west->height);
+//printf("WEST info Rx:%lf Ry:%lf x:%d y:%d height:%lf \n", west->x, west->y, west->relitiveX, west->relitiveY, west->height);
+
+pcd_t* east = temp->east;
+pcd_t* north = temp->north;
+printf("EAST info Rx:%lf Ry:%lf x:%d y:%d height:%lf \n", east->x, east->y, east->relitiveX, east->relitiveY, east->height);
+
+printf("EAST info Rx:%lf Ry:%lf x:%d y:%d height:%lf \n", north->x, north->y, north->relitiveX, north->relitiveY, north->height);
+
+
 //watershedStep(pPC);
 //printf("the water depth 3rd is: %lf \n", temp->wd);
 //watershedStep(pPC);

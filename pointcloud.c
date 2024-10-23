@@ -229,7 +229,7 @@ int initializeWatershed(pointcloud_t* pc) {
 
 }
 
-void watershedAddUniformWater(pointcloud_t* pc, double amount) {
+void watershedAddUniformWater(pointcloud_t* pc, float amount) {
 	List* points = pc->points;
 	for (int i = 0; i < points->size; i++) {
 		pcd_t* p = listGet(points, i);

@@ -32,6 +32,7 @@ int initializeWatershed(pointcloud_t* pc);
 
 void watershedAddUniformWater(pointcloud_t* pc, double amount);
 
+void watershedStep(pointcloud_t* pc);
 
 //void watershedStep(pointcloud* pc);
 

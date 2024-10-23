@@ -25,13 +25,13 @@ pPC = readPointCloudData(pInFile);
 
 pPC->wcoef = wcoef;
 pPC->ecoef = ecoef;
+pcd_t* temp =(pcd_t*) listGet(pPC->points, 2205);
 
 double low = pPC->points->stats->low;
 
 printf("the pc stats are low:%lf and high:%lf pre watershed \n", pPC->points->stats->low, pPC->points->stats->high);
 
 initializeWatershed(pPC);
-
 //pcd_t* east = temp->east;
 //printf("the east pointt are at x %d, and low %d and height %lf\n", east->relitiveX, east->relitiveY, east->height);
 //pcd_t* west = temp->west;
@@ -44,7 +44,7 @@ temp = listGet(pPC->points, 0);
 printf("the secod point is x:%lf y: %lf and height of %lf \n", temp->x, temp->y, temp->height);
 
 pPC->points->stats->low = low;
-imagePointCloudWater(pPC, 21.6, "out");
+imagePointCloudWater(pPC,395.92, "out");
 
 
 return 1;

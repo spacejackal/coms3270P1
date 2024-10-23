@@ -247,7 +247,7 @@ void watershedStep(pointcloud_t* pc) {
 		pcd_t* north = p->north;
 		pcd_t* south = p->south;
 		double temp = 0;
-		if (p->relitiveX != pc->cols-1) {
+		if (p->relitiveX != pc->cols-2) {
 			temp += (helper(pc, p->height, east->height, p->wd, east->wd));
 			if (p->x == 693 && p->y == 5) {
 				printf("first part%lf",temp);

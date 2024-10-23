@@ -54,25 +54,17 @@ int stat1() {
 void imagePointCloud(pointcloud_t* pc, char* filename) {
 
 	printf("ssssimage the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
-	printf("image acting wird 1\n");
 
 	List* l = pc->points;
-	printf("image acting wird 2\n");
 	int width = pc->cols;
-	printf("image acting wird 3\n");
 	double min = pc->points->stats->low;
-	printf("image acting wird 4\n");
 	double max = pc->points->stats->high;
 	double diff = pc->points->stats->high - pc->points->stats->low;
-	printf("image acting wird 5\n");
 	pcd_t listTemp;
-	printf("image acting wird 6\n");
 	pcd_t* pListTemp = &listTemp;
-	printf("image acting wird 3\n");
 	double temp;
 	unsigned int section;
-	printf("image acting wird 4\n");
-	int height = (pc->points->size / width)+1;
+	int height = (pc->points->size / width);
 	printf("image acting wird 5 width%d height %d\n",width, height);
 	Bitmap* b = bm_create(width, height);
 	printf("image acting wird 6\n");

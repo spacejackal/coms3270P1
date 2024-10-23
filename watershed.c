@@ -37,7 +37,7 @@ watershedAddUniformWater(pPC, iwater);
 pcd_t* temp = listGet(pPC->points, 1034);
 printf("the water depth 1st is: %lf \n", temp->wd);
 
-watershedStep(pPC);
+//watershedStep(pPC);
 printf("the water depth 2st is: %lf \n", temp->wd);
 //watershedStep(pPC);
 //printf("the water depth 3rd is: %lf \n", temp->wd);

@@ -323,8 +323,8 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 
 		section = (unsigned int)temp;
 		//section += ((unsigned int)(temp) << 24);
-		section += ((unsigned int)(overflow << 16);
-		section += ((unsigned int)(overflow) << 8);
+		section += ((unsigned int)(overflow) << 16);
+		section += ((unsigned int)(overflow) << 8));
 		//if (waterSection+temp < 256) {
 		//	section -= waterSection;
 		//}

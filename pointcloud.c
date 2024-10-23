@@ -294,6 +294,7 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 	pcd_t* pListTemp = &listTemp;
 	double temp;
 	double tempwater;
+	unsigned int overflow;
 	unsigned int waterSection;
 	unsigned int section;
 	int height = (pc->points->size / width);
@@ -316,10 +317,14 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 		waterSection += ((unsigned int)tempwater << 16);
 		waterSection += ((unsigned int)tempwater << 8);
 
+		if (temp != 256) {
+			overflow = temp - tempwater;
+		}
+
 		section = (unsigned int)temp;
-		section += ((unsigned int)(temp) << 24);
-		section += ((unsigned int)(temp - tempwater) << 16);
-		section += ((unsigned int)(temp - tempwater) << 8);
+		//section += ((unsigned int)(temp) << 24);
+		section += ((unsigned int)(overflow << 16);
+		section += ((unsigned int)(overflow) << 8);
 		//if (waterSection+temp < 256) {
 		//	section -= waterSection;
 		//}

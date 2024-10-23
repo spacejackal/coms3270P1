@@ -292,18 +292,14 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 
 	printf("image acting wird 5 width%d height %d\n", width, height);
 	Bitmap* b = bm_create(width, height);
-	printf("image acting wird 6\n");
 	int writeRow = 0;
 	int writeCol = 0;
 	printf("size: %d\n", pc->points->size);
 
 	for (int i = 0; i < pc->points->size; i++) {
 		pListTemp = (pcd_t*)listGet(pc->points, i);
-		//printf("the point got is : x:%lf y:%lf and height:%lf\n", pListTemp->x, pListTemp->y, pListTemp->height);
-		//printf("ssssimage the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
 		temp = pListTemp->height;
 		temp -= min;
-		//printf("the height got is after sub low: %lf\n", temp);
 		temp /= diff;
 		temp *= 256;
 		section = (unsigned int)temp;
@@ -323,6 +319,6 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 		}
 	}
 
-	bm_save(b, filename);
+	bm_save(b, filename+".gif");
 
 }

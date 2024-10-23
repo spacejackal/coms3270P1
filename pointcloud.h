@@ -30,7 +30,7 @@ void imagePointCloud(pointcloud_t* pc, char* filename);
 int initializeWatershed(pointcloud_t* pc);
 
 
-void watershedAddUniformWater(pointcloud_t* pc, double amount);
+void watershedAddUniformWater(pointcloud_t* pc, float amount);
 
 void watershedStep(pointcloud_t* pc);
 

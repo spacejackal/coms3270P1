@@ -12,8 +12,7 @@ int main(int argc, char* argv[]) {
 	float ecoef = atof(argv[5]);
 	float wdmax = atof(argv[6])
 	const char* ofilebase = argv[7];
-
-	int seq = atoi(argv[7]);
+	int seq = atoi(argv[8]);
 
 pointcloud_t pc;
 pointcloud_t* pPC = (pointcloud_t*)malloc(sizeof(pointcloud_t));
@@ -37,7 +36,16 @@ watershedAddUniformWater(pPC, iwater);
 watershedStep(pPC);
 
 pPC->points->stats->low = low;
-imagePointCloudWater(pPC,wdmax, "out");
+imagePointCloudWater(pPC,wdmax, ofilebase);
+int seqCount = 0;
+for (int i = 0; i < iter; i++) {
+	if (seqCount == seq) {
+		imagePointCouldWater(pPC, wdmax, ofilebase);
+		seqCount = 0;
+	}
+	pPC->points->stats->low = low;
+	watershedStep(pPC);
+}
 
 
 return 1;

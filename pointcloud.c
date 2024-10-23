@@ -177,7 +177,7 @@ pointcloud_t* readPointCloudData(FILE* stream){
 		realIndex *= width;
 		realIndex += temp->relitiveY;
 		
-		listSet(pL, realIndex, temp);
+		listSet(pL, realIndex -1, temp);
 	}
 
 	printf("High point: x = %.1f, y = %.1f, height = %.15f \n", high.x, high.y, high.height); 
@@ -187,6 +187,8 @@ pointcloud_t* readPointCloudData(FILE* stream){
 	
 	pL->stats = pTempList->stats;
 	pL->stats->minY = pTempList->stats->minY;
+	pTempList->stats->high = high.height;
+	pTempList->stats->low = low.height
 	pL->stats->high = high.height;
 	pL->stats->low = low.height;
 	

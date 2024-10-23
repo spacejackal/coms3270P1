@@ -311,6 +311,7 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 		temp /= diff;
 		temp *= 256;
 		tempwater = pListTemp->wd;
+		printf("the temp water is: %lf", pListTemp->wd);;
 		tempwater /= maxwd;
 		tempwater *= 256;
 		waterSection = ((unsigned int)temp << 24);

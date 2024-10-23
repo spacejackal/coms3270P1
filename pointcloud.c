@@ -307,8 +307,8 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 		tempwater /= maxwd;
 		tempwater *= 256;
 		waterSection = ((unsigned int)temp << 24);
-		waterSection = ((unsigned int)temp << 16);
-		waterSection = ((unsigned int)temp << 8);
+		waterSection += ((unsigned int)temp << 16);
+		waterSection += ((unsigned int)temp << 8);
 
 		section = (unsigned int)temp;
 		section += ((unsigned int)temp << 24);

@@ -276,6 +276,9 @@ void watershedStep(pointcloud_t* pc) {
 			printf("the x: %d and y:%d and the new offset is: %lf \n", p->relitiveX,p->relitiveY, temp );
 
 		}
+		if (temp > 0) {
+			printf("the x: %d and y:%d and the new offset is: %lf and water depth of: %lf \n", p->relitiveX, p->relitiveY, temp, p->wd);
+		}
 	}
 
 	for (int i = 0; i < points->size; i++) {

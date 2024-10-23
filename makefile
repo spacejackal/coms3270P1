@@ -17,7 +17,7 @@ util.o: util.c util.h
 	gcc -c util.c -lm
 	
 clean:
-	rm -f *.o stat display list a.out
+	rm -f *.o stat display watershed list a.out
 	rm -f *.gif imagePointCloud.out
 
 display:  display.o pointcloud.o util.o bmp.o

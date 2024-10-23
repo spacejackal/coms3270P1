@@ -320,7 +320,6 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 			writeRow++;
 		}
 	}
-	strcat(filename, ".gif");
 	bm_save(b, filename);
 
 }

@@ -270,7 +270,7 @@ void watershedStep(pointcloud_t* pc) {
 		}
 	
 
-		temp -=  (p->wd * pc->ecoef);
+		//temp -=  (p->wd * pc->ecoef);
 		temps[i] = &temp;
 		if (temp < -20 || temp> 20) {
 			printf("the x: %d and y:%d and the new offset is: %lf \n", p->relitiveX,p->relitiveY, temp );

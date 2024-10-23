@@ -15,7 +15,7 @@ int main(int argc, char* argv[]) {
 	int seq = atoi(argv[7]);
 
 pointcloud_t pc;
-pointcloud_t* pPC = (pointcloud_t*) malloc(sizeof(pointcloud_t));
+pointcloud_t* pPC;
 FILE* pInFile = fopen(infile,"r");
 
 

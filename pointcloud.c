@@ -208,8 +208,8 @@ int initializeWatershed(pointcloud_t* pc) {
 		p->west = NULL;
 		p->south = NULL;
 		//printf("numbers of loop id");
-		if (p->relitiveY != 0) {
-			int tempx = p->relitiveX + ((p->relitiveY)*width);
+		if (p->relitiveY > 1) {
+			int tempx = p->relitiveX + ((p->relitiveY-1)*width);
 			p->west = listGet(points, tempx - 1);
 		}if (p->relitiveX != pc->rows - 2) {
 			int tempx = p->relitiveX + ((p->relitiveY-1)*width);

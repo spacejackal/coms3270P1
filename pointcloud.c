@@ -267,7 +267,8 @@ void watershedStep(pointcloud_t* pc) {
 
 	for (int i = 0; i < points->size; i++) {
 		pcd_t* p = listGet(pc->points, i);
-		p->wd = *temps[i];
+
+		p->wd += *temps[i];
 	}
 }
 

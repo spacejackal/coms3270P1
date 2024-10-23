@@ -3,7 +3,7 @@
 #include "util.h"
 #include "pointcloud.h"
 #include "bmp.h"
-
+#include <stdlib.h>
 
 
 
@@ -196,7 +196,7 @@ pointcloud_t* readPointCloudData(FILE* stream){
 	
 	pointcloud_t pc;
 	pointcloud_t* pPC = malloc(sizeof(pointcloud_t));
-	pPC->points = pL;
+	pPC->points = pTempList;
 	pPC->cols = width;
 	pPC->rows = (pL->size / width);
 	return pPC;

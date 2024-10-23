@@ -54,10 +54,8 @@ int stat1() {
 void imagePointCloud(pointcloud_t* pc, char* filename) {
 	double min = pc->points->stats->low;
 	double max = pc->points->stats->high;
-	printf("ssssimage the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
 
 	int width = pc->cols;
-	printf("ssssimage the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
 	double diff = max - min;
 	printf("diff is %lf\n", diff);
 	pcd_t listTemp;
@@ -66,9 +64,7 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 	unsigned int section;
 	int height = (pc->points->size / width);
 
-	printf("image acting wird 5 width%d height %d\n",width, height);
 	Bitmap* b = bm_create(width, height);
-	printf("image acting wird 6\n");
 	int writeRow = 0;
 	int writeCol = 0;
 	printf("size: %d\n", pc->points->size);
@@ -222,6 +218,8 @@ int initializeWatershed(pointcloud_t* pc) {
 		}if (p->relitiveY != 0) {
 			int tempy = p->relitiveX + ((p->relitiveY - 1) * width);
 			p->south = listGet(points, tempy);
+		} if (p->relitiveY == 1000) {
+			printf("the strange acting points are x:%lf y:%lf height:%lf", p->x, p->y, p->height);
 		}
 
 	}
@@ -263,7 +261,7 @@ void watershedStep(pointcloud_t* pc) {
 		temp -=  (p->wd * pc->ecoef);
 		temps[i] = &temp;
 		if (temp < -20 || temp> 20) {
-			printf("the x: %d and y:%d and the new offset is: %lf \n", p->relitiveX,p->relitiveY, temp );
+			//printf("the x: %d and y:%d and the new offset is: %lf \n", p->relitiveX,p->relitiveY, temp );
 
 		}
 	}

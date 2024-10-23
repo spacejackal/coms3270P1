@@ -242,11 +242,11 @@ void watershedStep(pointcloud_t* pc) {
 	double* temps[size];
 	for (int i = 0; i < points->size; i++) {
 		pcd_t* p = listGet(points, i);
-		//printf("NORTH info Rx:%lf Ry:%lf row:%d col:%d height:%lf \n", p->x, p->y, p->relitiveX, p->relitiveY, p->height);
 		pcd_t* east = p->east;
 		pcd_t* west = p->west;
 		pcd_t* north = p->north;
 		pcd_t* south = p->south;
+		printf("NORTH info Rx:%lf Ry:%lf row:%d col:%d height:%lf \n", north->x, north->y, north->relitiveX, north->relitiveY, north->height);
 		double temp = 0;
 		if (east != NULL) {
 			temp += (helper(pc, p->height, east->height, p->wd, east->wd));

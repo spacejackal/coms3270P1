@@ -60,6 +60,7 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 	double min = pc->points->stats->low;
 	double max = pc->points->stats->high;
 	double diff = max - min;
+	printf("diff is %lf\n", diff);
 	pcd_t listTemp;
 	pcd_t* pListTemp = &listTemp;
 	double temp;
@@ -78,8 +79,8 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 		//printf("the point got is : x:%lf y:%lf and height:%lf\n", pListTemp->x, pListTemp->y, pListTemp->height);
 		//printf("ssssimage the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
 		temp = pListTemp->height;
-		printf("the height got is: %lf\n", temp);
 		temp -= pc->points->stats->low;
+		//printf("the height got is after sub low: %lf\n", temp);
 		temp /= diff;
 		temp *= 256;
 		section = (unsigned int)temp;

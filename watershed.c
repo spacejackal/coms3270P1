@@ -38,7 +38,6 @@ pcd_t* north = temp->north;
 printf("the north pointt are at x %d, and low %d and height %lf\n", north->relitiveX, north->relitiveY, north->height);
 pcd_t* south = temp->south;
 printf("the south pointt are at x %d, and low %d and height %lf\n", south->relitiveX, south->relitiveY, south->height);
-char* wor = "wor";
 
 imagePointCloud(pPC, wor);
 

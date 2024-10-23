@@ -171,28 +171,23 @@ pointcloud_t* readPointCloudData(FILE* stream){
 		}
 	}
 
-	int m = listInitFull( pL, sizeof(pcd_t), pTempList->size);
-
 	for (int i = 0; i < pTempList->size; i++) {
 		pcd_t* temp = listGet(pTempList, i);
 		temp->relitiveX = (int)(temp->x - pTempList->stats->minX);
 		temp->relitiveY = (int)(width - (int)(temp->y - pTempList->stats->minY));
-		int realIndex = temp->relitiveX;
-		realIndex *= width;
-		realIndex += temp->relitiveY;
-		
-		listSet(pL, realIndex, temp);
 	}
 
 	printf("High point: x = %.1f, y = %.1f, height = %.15f \n", high.x, high.y, high.height); 
 	printf("Low point: x = %.1f, y = %.1f, height = %.15f \n", low.x, low.y, low.height);
-	pcd_t* tempp = (pcd_t*)listGet(pL, 5);
+	pcd_t* tempp = (pcd_t*)listGet(pTempList, 5);
 	printf("the relivtie points for data[0][5] is: %d and %d \n", tempp->relitiveX, tempp->relitiveY);
 	
-	pL->stats = pTempList->stats;
-	pL->stats->minY = pTempList->stats->minY;
-	pL->stats->high = high.height;
-	pL->stats->low = low.height;
+	//pL->stats = pTempList->stats;
+	//pL->stats->minY = pTempList->stats->minY;
+	pTempList->stats->high = high.height;
+	//pL->stats->high = high.height;
+	pTempList->stats->low = low.height;
+	//pL->stats->low = low.height;
 	
 	pointcloud_t pc;
 	pointcloud_t* pPC = malloc(sizeof(pointcloud_t));

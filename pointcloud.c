@@ -226,6 +226,10 @@ int initializeWatershed(pointcloud_t* pc) {
 
 }
 
+
+/*
+* adds an amount of water to every point
+*/
 void watershedAddUniformWater(pointcloud_t* pc, float amount) {
 	List* points = pc->points;
 	for (int i = 0; i < points->size; i++) {
@@ -268,6 +272,7 @@ void watershedStep(pointcloud_t* pc) {
 				printf("forth part %lf",temp);
 			}
 		}
+		printf("the x: %d and y:%d and the new offset is: %lf and water depth of: %lf and height of: %lf \n", p->relitiveX, p->relitiveY, temp, p->wd, p->height);
 		//printf("temp is: %lf\n", temp);
 
 		temp -=  (p->wd * pc->ecoef);
@@ -277,7 +282,7 @@ void watershedStep(pointcloud_t* pc) {
 
 		}
 		if (temp > 0) {
-			printf("the x: %d and y:%d and the new offset is: %lf and water depth of: %lf \n", p->relitiveX, p->relitiveY, temp, p->wd);
+			printf("the x: %d and y:%d and the new offset is: %lf and water depth of: %lf and height of: %lf \n", p->relitiveX, p->relitiveY, temp, p->wd, p->height);
 		}
 	}
 

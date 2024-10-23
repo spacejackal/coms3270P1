@@ -24,18 +24,22 @@ pPC->wcoef = wcoef;
 pPC->ecoef = ecoef;
 
 double low = pPC->points->stats->low;
+double high = pPC->points->stats->high;
 
 printf("the pc stats are low:%lf and high:%lf pre watershed \n", pPC->points->stats->low, pPC->points->stats->high);
 
 initializeWatershed(pPC);
 
 pPC->points->stats->low = low;
+pPC->points->stats->high = high;
 
 watershedAddUniformWater(pPC, iwater);
 
 watershedStep(pPC);
 
 pPC->points->stats->low = low;
+pPC->points->stats->high = high;
+
 imagePointCloudWater(pPC,wdmax, ofilebase);
 int totalCount =0;
 int seqCount = 0;

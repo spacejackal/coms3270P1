@@ -207,7 +207,7 @@ int initializeWatershed(pointcloud_t* pc) {
 		p->east = NULL;
 		p->west = NULL;
 		p->south = NULL;
-		printf("numbers of loop id");
+		//printf("numbers of loop id");
 		if (p->relitiveX != 0) {
 			int tempx = p->relitiveY + (p->relitiveX*width);
 			p->north = listGet(points, tempx - 1);
@@ -241,7 +241,7 @@ void watershedStep(pointcloud_t* pc) {
 	printf("the eceof is: %lf and the wecof is: %lf \n", pc->ecoef, pc->wcoef);
 	double* temps[size];
 	for (int i = 0; i < points->size; i++) {
-
+		printf("numbers of loop id\n");
 		pcd_t* p = listGet(points, i);
 		pcd_t* east = p->east;
 		pcd_t* west = p->west;

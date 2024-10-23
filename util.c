@@ -30,6 +30,7 @@ int listInitFull(List* l, int max_elmt_size, int size) {
 	l->max_element_size = max_elmt_size;
 	l->max_size = size;
 	l->size = size;
+	l->stats = malloc(sizeof(Stats));
 	return 0;
 }
 

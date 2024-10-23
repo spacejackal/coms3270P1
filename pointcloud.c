@@ -251,6 +251,7 @@ void watershedStep(pointcloud_t* pc) {
 		pcd_t* north = p->north;
 		printf("numbers of loop id 5\n");
 		pcd_t* south = p->south;
+		printf("numbers of loop id 6\n");
 		double temp = 0;
 		if (east != NULL) {
 			temp += (helper(pc, p->height, east->height, p->wd, east->wd));

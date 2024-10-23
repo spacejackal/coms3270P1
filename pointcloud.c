@@ -287,6 +287,7 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 	pcd_t* pListTemp = &listTemp;
 	double temp;
 	double tempwater;
+	unsigned int waterSection;
 	unsigned int section;
 	int height = (pc->points->size / width);
 
@@ -303,11 +304,17 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 		temp /= diff;
 		temp *= 256;
 		tempwater = pListTemp->wd;
+		tempwater /= maxwd;
+		tempwater *= 256;
+		waterSection = ((unsigned int)temp << 24);
+		waterSection = ((unsigned int)temp << 16);
+		waterSection = ((unsigned int)temp << 8);
 
 		section = (unsigned int)temp;
 		section += ((unsigned int)temp << 24);
 		section += ((unsigned int)temp << 16);
 		section += ((unsigned int)temp << 8);
+		section -= waterSection;
 
 		bm_set_color(b, section);
 

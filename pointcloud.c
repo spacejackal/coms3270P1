@@ -315,7 +315,7 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 		waterSection = ((unsigned int)temp << 24);
 		waterSection += ((unsigned int)temp << 16);
 		waterSection += ((unsigned int)temp << 8);
-		printf("%x",waterSection);
+		printf("%x\n",waterSection);
 
 		section = (unsigned int)temp;
 		section += ((unsigned int)temp << 24);

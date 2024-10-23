@@ -76,12 +76,13 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 	for (int i = 0; i < pc->points->size; i++) {
 		pListTemp = (pcd_t*)listGet(pc->points, i);
 		//printf("the point got is : x:%lf y:%lf and height:%lf\n", pListTemp->x, pListTemp->y, pListTemp->height);
-		printf("ssssimage the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
+		//printf("ssssimage the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
 		temp = pListTemp->height;
 		temp -= pc->points->stats->low;
 		temp /= diff;
 		temp *= 256;
 		section = (unsigned int)temp;
+		print("the color is %d", section);
 		section += ((unsigned int)temp << 24);
 		section += ((unsigned int)temp << 16);
 		section += ((unsigned int)temp << 8);

@@ -48,7 +48,7 @@ printf("other info Rx:%lf Ry:%lf row:%d col:%d height:%lf water:%lf \n", temp->x
 
 
 watershedStep(pPC);
-
+printf("other info Rx:%lf Ry:%lf row:%d col:%d height:%lf water:%lf \n", temp->x, temp->y, temp->relitiveX, temp->relitiveY, temp->height, temp->wd);
 //pcd_t* north = temp->north;
 
 

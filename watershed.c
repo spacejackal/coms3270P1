@@ -40,7 +40,7 @@ initializeWatershed(pPC);
 //printf("the north pointt are at x %d, and low %d and height %lf\n", north->relitiveX, north->relitiveY, north->height);
 //pcd_t* south = temp->south;
 //printf("the south pointt are at x %d, and low %d and height %lf\n", south->relitiveX, south->relitiveY, south->height);
-temp = listGet(pPC->points, 1);
+temp = listGet(pPC->points, 0);
 printf("the secod point is x:%lf y: %lf and height of %lf \n", temp->x, temp->y, temp->height);
 
 pPC->points->stats->low = low;

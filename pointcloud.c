@@ -217,7 +217,7 @@ int initializeWatershed(pointcloud_t* pc) {
 		}if (p->relitiveX != pc->cols-2) {
 			int tempy = p->relitiveX + (p->relitiveY * width);
 			p->south = listGet(points, tempy);
-		}if (p->relitiveY != 0) {
+		}if (p->relitiveY > 1) {
 			int tempy = p->relitiveX + ((p->relitiveY-2) * width);
 			p->north = listGet(points, tempy);
 		}

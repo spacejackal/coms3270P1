@@ -89,13 +89,13 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 
 		bm_set_color(b, section);
 
-		bm_putpixel(b, writeRow, wirteCol);
+		bm_putpixel(b, writeRow, writeCol);
 		if (wirteRow == width - 1) {
 			wirteCol++;
 			wirteRow = 0;
 		}
 		else {
-			writeRow++
+			writeRow++;
 		}
 	}
 

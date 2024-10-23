@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
 	int seq = atoi(argv[7]);
 
 pointcloud_t pc;
-pointcloud_t* pPC;
+pointcloud_t* pPC = malloc(sizeof(pointcloud_t));
 FILE* pInFile = fopen(infile,"r");
 
 
@@ -26,7 +26,6 @@ pPC->wcoef = wcoef;
 pPC->ecoef = ecoef;
 pcd_t* temp = listGet(pPC->points, 2205);
 
-double low = pPC->points->stats->low;
 
 printf("the pc stats are low:%lf and high:%lf pre watershed \n", pPC->points->stats->low, pPC->points->stats->high);
 
@@ -40,8 +39,6 @@ printf("the north pointt are at x %d, and low %d and height %lf\n", north->relit
 pcd_t* south = temp->south;
 printf("the south pointt are at x %d, and low %d and height %lf\n", south->relitiveX, south->relitiveY, south->height);
 char* wor = "wor";
-
-pPC->points->stats->low = low;
 
 imagePointCloud(pPC, wor);
 

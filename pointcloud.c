@@ -57,25 +57,25 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 	printf("image acting wird 1\n");
 
 	//List* l = pc->points;
-	printf("image acting wird 1\n");
+	printf("image acting wird 2\n");
 	int width = pc->cols;
-	printf("image acting wird 1\n");
+	printf("image acting wird 3\n");
 	//double min = pc->points->stats->low;
-	printf("image acting wird 1\n");
+	printf("image acting wird 4\n");
 	//double max = pc->points->stats->high;
 	double diff = pc->points->stats->high - pc->points->stats->low;
-	printf("image acting wird 1\n");
+	printf("image acting wird 5\n");
 	pcd_t listTemp;
-	printf("image acting wird 2\n");
+	printf("image acting wird 6\n");
 	pcd_t* pListTemp = &listTemp;
-	printf("image acting wird 3\n");
+	printf("image acting wird 7\n");
 	double temp;
 	unsigned int section;
-	printf("image acting wird 4\n");
+	printf("image acting wird 8\n");
 	int height = (pc->points->size / width)+1;
-	printf("image acting wird 5 width%d height %d\n",width, height);
+	printf("image acting wird 9 width%d height %d\n",width, height);
 	Bitmap* b = bm_create(width, height);
-	printf("image acting wird 6\n");
+	printf("image acting wird 10\n");
 	int writeRow = 0;
 	int writeCol = 0;
 

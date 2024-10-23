@@ -207,6 +207,7 @@ int initializeWatershed(pointcloud_t* pc) {
 		p->east = NULL;
 		p->west = NULL;
 		p->south = NULL;
+		printf("numbers of loop id");
 		if (p->relitiveX != 0) {
 			int tempx = p->relitiveY + (p->relitiveX*width);
 			p->north = listGet(points, tempx - 1);
@@ -219,9 +220,6 @@ int initializeWatershed(pointcloud_t* pc) {
 		}if (p->relitiveY != 0) {
 			int tempy = p->relitiveY + ((p->relitiveX - 1) * width);
 			p->west = listGet(points, tempy);
-		} if (p->relitiveY == 1000) {
-			//printf("the strange acting points are x:%lf y:%lf height:%lf", p->x, p->y, p->height);
-		}
 
 	}
 	return 0;

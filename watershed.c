@@ -2,6 +2,7 @@
 #include <string.h>
 #include "util.h"
 #include "pointcloud.h"
+#include <stdlib.h>
 
 int main(int argc, char* argv[]) {
 	const char* __restrict infile = argv[1];

@@ -243,6 +243,7 @@ void watershedStep(pointcloud_t* pc) {
 	for (int i = 0; i < points->size; i++) {
 		printf("the eceof is: %lf and the wecof is: %lf \n", pc->ecoef, pc->wcoef);
 		pcd_t* p = listGet(points, i);
+		printf("the eceof is: %lf and the wecof is: %lf \n", pc->ecoef, pc->wcoef);
 		pcd_t* east = p->east;
 		printf(" broke 1");
 		pcd_t* west = p->west;

@@ -240,17 +240,19 @@ void watershedStep(pointcloud_t* pc) {
 	int size = pc->points->size;
 	printf("the eceof is: %lf and the wecof is: %lf \n", pc->ecoef, pc->wcoef);
 	double* temps[size];
-	for (int i = 1; i < points->size; i++) {
+	for (int i = 0; i < points->size; i++) {
 		pcd_t* p = listGet(points, i);
+		//printf("NORTH info Rx:%lf Ry:%lf row:%d col:%d height:%lf \n", p->x, p->y, p->relitiveX, p->relitiveY, p->height);
 		pcd_t* east = p->east;
 		pcd_t* west = p->west;
 		pcd_t* north = p->north;
 		pcd_t* south = p->south;
-		//printf("NORTH info Rx:%lf Ry:%lf row:%d col:%d height:%lf \n", north->x, north->y, north->relitiveX, north->relitiveY, north->height);
 		double temp = 0;
 		if (east != NULL) {
 			temp += (helper(pc, p->height, east->height, p->wd, east->wd));
-
+			if (p->x == 693 && p->y == 5) {
+				printf("first part%lf",temp);
+			}
 		} if (west != NULL) {
 			temp+= (helper(pc, p->height, west->height, p->wd, west->wd));
 			if (p->x == 693 && p->y == 5) {
@@ -264,12 +266,11 @@ void watershedStep(pointcloud_t* pc) {
 		} if (south != NULL) {
 			temp += (helper(pc, p->height, south->height, p->wd, south->wd));
 			if (p->x == 693 && p->y == 5) {
-				printf("forth part %lf",temp);
+				printf("forth part %lf"temp);
 			}
 		}
-	
 
-		//temp -=  (p->wd * pc->ecoef);
+		temp -=  (p->wd * pc->ecoef);
 		temps[i] = &temp;
 		if (temp < -20 || temp> 20) {
 			printf("the x: %d and y:%d and the new offset is: %lf \n", p->relitiveX,p->relitiveY, temp );

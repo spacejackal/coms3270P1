@@ -188,7 +188,7 @@ pointcloud_t* readPointCloudData(FILE* stream){
 	
 	pointcloud_t pc;
 	pointcloud_t* pPC = malloc(sizeof(pointcloud_t));
-	pPC->points = pL;
+	pPC->points = pTempList;
 	pPC->cols = width;
 	pPC->rows = (pL->size / width);
 	return pPC;
@@ -247,7 +247,7 @@ void watershedStep(pointcloud_t* pc) {
 		pcd_t* north = p->north;
 		pcd_t* south = p->south;
 		double temp = 0;
-		if (east != NULL) {
+		if (p->relitiveX != pc->cols-1) {
 			temp += (helper(pc, p->height, east->height, p->wd, east->wd));
 			if (p->x == 693 && p->y == 5) {
 				printf("first part%lf",temp);

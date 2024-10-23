@@ -260,7 +260,7 @@ void watershedStep(pointcloud_t* pc) {
 			temp += (helper(pc, p->height, south->height, p->wd, south->wd));
 		}
 		temp -=  (p->wd * pc->ecoef);
-		temps[i] = temp;
+		temps[i] = &temp;
 	}
 
 	for (int i = 0; i < points->size; i++) {

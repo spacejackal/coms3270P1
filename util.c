@@ -16,7 +16,6 @@ void *allocateArray(int rows, int columns) {
 * inichalizes a list based on the size of each element
 */
 int ListInit(List* l, int max_elmt_size){
-	l = (List*)malloc(sizeof(List));
 	l->data = calloc(10, max_elmt_size);
 	l->max_element_size = max_elmt_size;
 	l->max_size = 10;

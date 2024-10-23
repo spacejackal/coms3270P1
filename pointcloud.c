@@ -153,6 +153,7 @@ pointcloud_t* readPointCloudData(FILE* stream){
 	printf("got defined the tempList4\n");
 	while (fscanf(stream,"%lf %lf %lf", &temp.x, &temp.y, &temp.height) != EOF) { 
 		listAddEnd(pTempList,  pTemp);
+		printf("got defined the tempList4\n");
 		if (temp.height > high.height) {  
 			high.x = temp.x;
 			high.y = temp.y;

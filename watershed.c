@@ -10,8 +10,8 @@ int main(int argc, char* argv[]) {
 	float iwater = atof(argv[3]);
 	float wcoef = atof(argv[4]);
 	float ecoef = atof(argv[5]);
-	float wdmax = atof(argv[6])
-	const char* ofilebase = argv[7];
+	const char* ofilebase = argv[6];
+	float wdmax = atof(argv[7])
 	int seq = atoi(argv[8]);
 
 pointcloud_t pc;

@@ -83,18 +83,19 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 		temp /= diff;
 		temp *= 256;
 		section = (unsigned int)temp;
-		//printf("the color is %d", section);
 		section += ((unsigned int)temp << 24);
 		section += ((unsigned int)temp << 16);
 		section += ((unsigned int)temp << 8);
 
 		bm_set_color(b, section);
 
-		bm_putpixel(b, pListTemp->relitiveX, pListTemp->relitiveY);
-		writeCol++;
-		if (writeCol == pc->cols -1) {
-			writeRow++;
-			writeCol = 0;
+		bm_putpixel(b, writeRow, wirteCol);
+		if (wirteRow == width - 1) {
+			wirteCol++;
+			wirteRow = 0;
+		}
+		else {
+			writeRow++
 		}
 	}
 

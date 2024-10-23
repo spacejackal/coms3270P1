@@ -271,7 +271,7 @@ void watershedStep(pointcloud_t* pc) {
 
 double helper(pointcloud_t* pc,double t1, double w1, double t2, double w2) {
 	
-	return ((t2 + w2) - (t1 - w1) * pc->wcoef);
+	return (((t2 + w2) - (t1 - w1)) * pc->wcoef);
 }
 
 

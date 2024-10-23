@@ -298,7 +298,7 @@ double helper(pointcloud_t* pc,double t1, double w1, double t2, double w2) {
 	double temp;
 	temp = (t2 + w2);
 	temp -= (t1 + w1);
-	temp *= wcoef;
+	temp *= pc->wcoef;
 	printf("wcoef = %lf", pc->wcoef);
 	
 	return temp;

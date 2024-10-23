@@ -178,7 +178,6 @@ pointcloud_t* readPointCloudData(FILE* stream){
 	printf("High point: x = %.1f, y = %.1f, height = %.15f \n", high.x, high.y, high.height); 
 	printf("Low point: x = %.1f, y = %.1f, height = %.15f \n", low.x, low.y, low.height);
 	pcd_t* tempp = (pcd_t*)listGet(pL, 5);
-	printf("the relivtie points for data[0][5] is: %d and %d \n", tempp->relitiveX, tempp->relitiveY);
 	
 	pL->stats = pTempList->stats;
 	pL->stats->minY = pTempList->stats->minY;
@@ -195,7 +194,9 @@ pointcloud_t* readPointCloudData(FILE* stream){
 	return pPC;
 }
 
-
+/*
+* this initializes the water shed sim by getting all the points to point to eachother;
+*/
 int initializeWatershed(pointcloud_t* pc) {
 	List* points = pc->points;
 	int width = pc->cols;

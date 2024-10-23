@@ -34,11 +34,12 @@ pPC->points->stats->low = low;
 pPC->points->stats->high = high;
 
 watershedAddUniformWater(pPC, iwater);
-pcd_t* temp = listGet(pPC->points, 1034);
-printf("the water depth 1st is: %lf \n", temp->wd);
+pcd_t* temp = listGet(pPC->points, 9034);
+printf("other info Rx:%lf Ry:%lf x:%d y:%d height:%lf \n", temp->x, temp->y, temp->relitiveX, temp->relitiveY, temp->height);
 
+printf("other info Rx:%lf Ry:%lf x:%d y:%d height:%lf \n", temp->x, temp->y, temp->relitiveX, temp->relitiveY, temp->height);
 //watershedStep(pPC);
-printf("the water depth 2st is: %lf \n", temp->wd);
+printf("other info Rx:%lf Ry:%lf x:%d y:%d height:%lf \n", temp->x, temp->y, temp->relitiveX, temp->relitiveY, temp->height);
 //watershedStep(pPC);
 //printf("the water depth 3rd is: %lf \n", temp->wd);
 //watershedStep(pPC);

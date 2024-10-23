@@ -73,6 +73,7 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 
 	for (int i = 0; i < pc->points->size; i++) {
 		pListTemp = (pcd_t*)listGet(pc->points, i);
+		printf("the point got is : x:%lf y:%lf and height:%lf", pListTemp->x, pListTemp->y, pListTemp->height);
 		temp = pListTemp->height;
 		temp -= pc->points->stats->low;
 		temp /= diff;
@@ -84,7 +85,7 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 
 		bm_set_color(b, section);
 
-		bm_putpixel(b, writeCol, writeRow);
+		bm_putpixel(b, pListTemp->relitiveX, pListTemp->relitiveY);
 		writeCol++;
 		if (writeCol == pc->cols -1) {
 			writeRow++;

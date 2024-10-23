@@ -166,8 +166,8 @@ pointcloud_t* readPointCloudData(FILE* stream){
 
 	for (int i = 0; i < pTempList->size; i++) {
 		pcd_t* temp = listGet(pTempList, i);
-		temp->relitiveX = (int)(temp->x - pTempList->stats->minX);
-		temp->relitiveY = (int)(width - (int)(temp->y - pTempList->stats->minY));
+		temp->relitiveY = (int)(temp->x - pTempList->stats->minX);
+		temp->relitiveX = (int)(width - (int)(temp->y - pTempList->stats->minY));
 		int realIndex = temp->relitiveY;
 		realIndex *= width;
 		realIndex += temp->relitiveX;

@@ -65,11 +65,13 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 	double temp;
 	unsigned int section;
 	int height = (pc->points->size / width);
+
 	printf("image acting wird 5 width%d height %d\n",width, height);
 	Bitmap* b = bm_create(width, height);
 	printf("image acting wird 6\n");
 	int writeRow = 0;
 	int writeCol = 0;
+	printf("size: %d\n", pc->points->size);
 
 	for (int i = 0; i < pc->points->size; i++) {
 		pListTemp = (pcd_t*)listGet(pc->points, i);

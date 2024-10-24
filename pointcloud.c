@@ -212,7 +212,7 @@ int initializeWatershed(pointcloud_t* pc) {
 			p->east = listGet(points, temp);
 		}
 		col++;
-		if (col == (pc->cols - 1)) {
+		if (col == (pc->cols)) {
 			row++;
 			col = 0;
 		}

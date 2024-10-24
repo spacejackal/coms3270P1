@@ -200,6 +200,8 @@ pointcloud_t* readPointCloudData(FILE* stream){
 int initializeWatershed(pointcloud_t* pc) {
 	List* points = pc->points;
 	int width = pc->cols;
+	int row = 0; 
+	int col = 0;
 	for (int i = 0; i < points->size; i++) {
 		pcd_t* p =  (pcd_t*) listGet(points, i);
 		p->wd = 0;
@@ -208,19 +210,25 @@ int initializeWatershed(pointcloud_t* pc) {
 		p->west = NULL;
 		p->south = NULL;
 		//printf("numbers of loop id");
-		if (p->relitiveY > 1) {
-			int tempx = p->relitiveX + ((p->relitiveY-1)*width);
-			p->west = listGet(points, tempx - 1);
-		}if (p->relitiveX != pc->rows - 2) {
-			int tempx = p->relitiveX + ((p->relitiveY-1)*width);
-			p->east = listGet(points, tempx+1 );
-		}if (p->relitiveX != pc->cols-2) {
-			int tempy = p->relitiveX + (p->relitiveY * width);
-			p->south = listGet(points, tempy);
-		}if (p->relitiveY > 1) {
-			int tempy = p->relitiveX + ((p->relitiveY-2) * width);
-			p->north = listGet(points, tempy);
+		if (row != 0) {
+			int temp = ((row - 1) * width) + col;
+			p->north = listGet(pc, temp);
+		}if (row != pc->rows-1) {
+			int temp = ((row + 1) * width) + col;
+			p->south = listGet(pc, temp);
+		} if (col != 0) {
+			int temp = ((row) * width) + (col-1);
+			p->east = listGet(pc, temp);
+		} if (col != pc->cols-1) {
+			int temp = ((row)*width) + (col + 1);
+			p->west = listGet(pc, temp);
 		}
+		col++;
+		if (col == (pc->cols - 1)) {
+			row++;
+			col = 0;
+		}
+
 	}
 	return 0;
 

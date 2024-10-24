@@ -251,23 +251,24 @@ void watershedStep(pointcloud_t* pc) {
 		double temp = 0;
 		
 		//printf("Fialing row: %d Col: %d \n", p->row, p->col);
-		//printf("cheaking east");
+		printf("cheaking east\n");
 		if (p->col != pc->cols-1) {
 			temp += (helper(wcoef, p->height, east->height, p->wd, east->wd));
 		}
 		//printf("Big no no 1\n");
-		//printf("cheaking west");
+		printf("cheaking north\n");
 		if (p->row !=pc->rows-1) {
 			//printf("Big no no 2\n");
 			temp+= (helper(wcoef, p->height, north->height, p->wd, north->wd));
 
 		}
-		//printf("cheaking north");
+		printf("cheaking west\n");
 		//printf("Big no no 3\n");
 		if (p->col != 0) {
 			temp += (helper(wcoef, p->height, west->height, p->wd, west->wd));
 
 		}
+		printf("cheaking south\n");
 		//printf("Big no no 4\n");
 		if (p->row != 0) {
 			temp += (helper(wcoef, p->height, south->height, p->wd, south->wd));

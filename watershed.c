@@ -16,12 +16,14 @@ int main(int argc, char* argv[]) {
 
 pointcloud_t pc;
 pointcloud_t* pPC = (pointcloud_t*)malloc(sizeof(pointcloud_t));
+
 FILE* pInFile = fopen(infile,"r");
 
 
 pPC = readPointCloudData(pInFile);
 double twcoef = (double)wcoef;
 double tecoef = (double)ecoef;
+
 pPC->wcoef = twcoef;
 pPC->ecoef = tecoef;
 
@@ -37,7 +39,9 @@ pPC->points->stats->low = low;
 pPC->points->stats->high = high;
 
 watershedAddUniformWater(pPC, iwater);
+
 pcd_t* temp = listGet(pPC->points, 0);
+
 printf("other info Rx:%lf Ry:%lf col:%d row:%d height:%lf water:%lf \n", temp->x, temp->y, temp->relitiveX, temp->relitiveY, temp->height,temp->wd);
 //imagePointCloudWater(pPC, wdmax, "outWater");
 pcd_t* north = temp->north;
@@ -50,24 +54,9 @@ printf("EAST info Rx:%lf Ry:%lf col:%d row:%d height:%lf \n", east->x, east->y, 
 //printf("WEST info Rx:%lf Ry:%lf col:%d row:%d height:%lf \n", west->x, west->y, west->relitiveX, west->relitiveY, west->height);
 
 
-//watershedStep(pPC);
-
-//pcd_t* north = temp->north;
-
 
 
 watershedStep(pPC);
-//printf("the water depth 3rd is: %lf \n", temp->wd);
-//watershedStep(pPC);
-//printf("the water depth 4th is: %lf \n", temp->wd);
-//watershedStep(pPC);
-//printf("the water depth 5th is: %lf \n", temp->wd);
-//watershedStep(pPC);
-//printf("the water depth 6th is: %lf \n", temp->wd);
-//watershedStep(pPC);
-//printf("the water depth 7th is: %lf \n", temp->wd);
-//watershedStep(pPC);
-//printf("the water depth 8th is: %lf \n", temp->wd);
 
 pPC->points->stats->low = low;
 pPC->points->stats->high = high;

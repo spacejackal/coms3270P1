@@ -106,9 +106,6 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 * then that new list is returned
 */
 pointcloud_t* readPointCloudData(FILE* stream){
-	List l;
-	List* pL =(List*) malloc(sizeof(List));
-	ListInit(pL, sizeof(pcd_t));
 	int width;
 	int* pWidth = &width;
 	fscanf(stream, "%d", pWidth);
@@ -116,11 +113,11 @@ pointcloud_t* readPointCloudData(FILE* stream){
 	List tempList;
 	List* pTempList = (List*)malloc(sizeof(List));
 	ListInit(pTempList, sizeof(pcd_t));
-	printf("got defined the tempList\n");
 
 	pcd_t high; 
 	pcd_t* pHigh = &high;
-	pcd_t low;  
+	pcd_t low;
+	pcd_t* pLow = &low;
 
 	Stats s;
 	Stats* pS = &s;
@@ -162,29 +159,15 @@ pointcloud_t* readPointCloudData(FILE* stream){
 		}
 	}
 
-	int m = listInitFull( pL, sizeof(pcd_t), pTempList->size);
 
-	for (int i = 0; i < pTempList->size; i++) {
-		pcd_t* temp = listGet(pTempList, i);
-		temp->relitiveX = (int)(temp->x - pTempList->stats->minX);
-		temp->relitiveY = (int)(width - (int)(temp->y - pTempList->stats->minY));
-		int realIndex = temp->relitiveX;
-		realIndex *= width;
-		realIndex += temp->relitiveY;
-		
-		listSet(pL, realIndex , temp);
-	}
 
 	printf("High point: x = %.1f, y = %.1f, height = %.15f \n", high.x, high.y, high.height); 
 	printf("Low point: x = %.1f, y = %.1f, height = %.15f \n", low.x, low.y, low.height);
-	pcd_t* tempp = (pcd_t*)listGet(pL, 5);
 	
-	pL->stats = pTempList->stats;
-	pL->stats->minY = pTempList->stats->minY;
+
 	pTempList->stats->high = high.height;
 	pTempList->stats->low = low.height;
-	pL->stats->high = high.height;
-	pL->stats->low = low.height;
+
 	
 	pointcloud_t pc;
 	pointcloud_t* pPC = malloc(sizeof(pointcloud_t));

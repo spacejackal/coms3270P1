@@ -300,7 +300,7 @@ double helper(double wcoef,double t1, double w1, double t2, double w2) {
 	temp = (t2 + w2);
 	temp -= (t1 + w1);
 	temp *= wcoef;
-	printf("wcoef = %lf\n", wcoef);
+	//printf("wcoef = %lf\n", wcoef);
 	
 	return temp;
 }

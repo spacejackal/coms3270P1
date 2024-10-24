@@ -254,30 +254,26 @@ void watershedStep(pointcloud_t* pc) {
 		double temp = 0;
 		if (east != NULL) {
 			temp += (helper(wcoef, p->height, east->height, p->wd, east->wd));
-			if (p->x == 693 && p->y == 5) {
-			}
+
 		} if (north!= NULL) {
 			temp+= (helper(wcoef, p->height, west->height, p->wd, west->wd));
-			if (p->x == 693 && p->y == 5) {
-			}
+
 		} if (west != NULL) {
 			temp += (helper(wcoef, p->height, north->height, p->wd, north->wd));
-			if (p->x == 693 && p->y == 5) {
-			}
+
 		} if (south != NULL) {
 			temp += (helper(wcoef, p->height, south->height, p->wd, south->wd));
-			if (p->x == 693 && p->y == 5) {
-			}
+
 		}
 
 		temp -=  (p->wd * pc->ecoef);
 		temps[i] = temp;
+		printf("the new water depth is: %lf \n", temp);
 
 	}
 
 	for (int i = 0; i < points->size; i++) {
 		pcd_t* p = listGet(pc->points, i);
-
 			p->wd = temps[i];
 	}
 }
@@ -318,7 +314,7 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 	for (int i = 0; i < pc->points->size; i++) {
 		pListTemp = (pcd_t*)listGet(pc->points, i);
 		temp = pListTemp->height;
-		printf("water depth is: %lf", pListTemp->wd);
+		//printf("water depth is: %lf\n", pListTemp->wd);
 		temp -= min;
 		temp /= diff;
 		temp *= 256;

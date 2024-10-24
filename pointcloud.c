@@ -201,7 +201,7 @@ int initializeWatershed(pointcloud_t* pc) {
 		if (row != 0) {
 			int temp = ((row - 1) * width) + col;
 			p->north = listGet(points, temp);
-		}if (row != pc->rows-1) {
+		}if (row != pc->rows) {
 			int temp = ((row + 1) * width) + col;
 			p->south = listGet(points, temp);
 		} if (col != 0) {
@@ -253,8 +253,6 @@ void watershedStep(pointcloud_t* pc) {
 		//printf("cheaking east");
 		if (east != NULL) {
 			temp += (helper(wcoef, p->height, east->height, p->wd, east->wd));
-
-
 		}
 		//printf("Big no no 1\n");
 		//printf("cheaking west");

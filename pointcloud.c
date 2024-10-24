@@ -272,9 +272,7 @@ void watershedStep(pointcloud_t* pc) {
 
 		temp -=  (p->wd * pc->ecoef);
 		temps[i] = temp;
-		if (temp > 0) {
-			printf("the x: %d and y:%d and the new offset is: %lf and water depth of: %lf and height of: %lf \n", p->relitiveX, p->relitiveY, temp, p->wd, p->height);
-		}
+
 	}
 
 	for (int i = 0; i < points->size; i++) {

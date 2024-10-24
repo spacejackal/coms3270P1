@@ -28,3 +28,9 @@ display.o: display.c pointcloud.h util.h bmp.h
 
 bmp.o: bmp.c bmp.h
 	gcc -c bmp.c -lm
+
+remake:
+	git pull
+	make clean
+	make watershed
+	./watershed test2.xyz 1 10.2 1.0 0.0 out 10.5 1

@@ -296,11 +296,10 @@ double helper(double wcoef,double t1, double t2, double w1, double w2) {
 void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 	double min = pc->points->stats->low;
 	double max = pc->points->stats->high;
-	printf("%lf",maxwd);
 
 	int width = pc->cols;
 	double diff = max - min;
-	printf("diff is %lf\n", diff);
+	//printf("diff is %lf\n", diff);
 	pcd_t listTemp;
 	pcd_t* pListTemp = &listTemp;
 	double temp;
@@ -321,21 +320,22 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 		temp -= min;
 		temp /= diff;
 		temp *= 256;
+
 		tempwater = pListTemp->wd;
 		tempwater /= maxwd;
 		tempwater *= 256;
+		tempwater /= temp;
+
 		waterSection = ((unsigned int)tempwater << 24);
 		waterSection += ((unsigned int)tempwater << 16);
 		waterSection += ((unsigned int)tempwater << 8);
 
-		if (temp != 256) {
-			overflow = temp - tempwater;
-		}
+		
 
 		section = (unsigned int)temp;
-		//section += ((unsigned int)(temp) << 24);
-		section += ((unsigned int)(overflow) << 16);
-		section += ((unsigned int)(overflow) << 8);
+		section += ((unsigned int)(temp - tempwater) << 24);
+		section += ((unsigned int)(temp - tempwater) << 16);
+		section += ((unsigned int)(temp - tempwater) << 8);
 		//if (waterSection+temp < 256) {
 		//	section -= waterSection;
 		//}

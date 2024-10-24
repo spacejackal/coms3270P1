@@ -159,7 +159,7 @@ pointcloud_t* readPointCloudData(FILE* stream){
 		}
 	}
 
-	for (int i = 0; i < pTempList; i++) {
+	for (int i = 0; i < pTempList->size; i++) {
 		pcd_t* setter = (pcd_t*)listGet(pTempList, i);
 		setter->col = (int)(setter->x - pTempList->stats->minX);
 		setter->row = (int)(setter->y - pTempList->stats->minY);

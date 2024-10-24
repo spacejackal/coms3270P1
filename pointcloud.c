@@ -260,7 +260,7 @@ void watershedStep(pointcloud_t* pc) {
 			temp+= (helper(wcoef, p->height, west->height, p->wd, west->wd));
 			if (p->x == 693 && p->y == 5) {
 			}
-		} if (north != NULL) {
+		} if (west != NULL) {
 			temp += (helper(wcoef, p->height, north->height, p->wd, north->wd));
 			if (p->x == 693 && p->y == 5) {
 			}
@@ -271,11 +271,7 @@ void watershedStep(pointcloud_t* pc) {
 		}
 
 		temp -=  (p->wd * pc->ecoef);
-		temps[i] = &temp;
-		if (temp < -20 || temp> 20) {
-			printf("the x: %d and y:%d and the new offset is: %lf \n", p->relitiveX,p->relitiveY, temp );
-
-		}
+		temps[i] = temp;
 		if (temp > 0) {
 			printf("the x: %d and y:%d and the new offset is: %lf and water depth of: %lf and height of: %lf \n", p->relitiveX, p->relitiveY, temp, p->wd, p->height);
 		}
@@ -284,7 +280,7 @@ void watershedStep(pointcloud_t* pc) {
 	for (int i = 0; i < points->size; i++) {
 		pcd_t* p = listGet(pc->points, i);
 
-			p->wd += *temps[i];
+			p->wd = temps[i];
 	}
 }
 

@@ -38,7 +38,7 @@ pPC->points->stats->high = high;
 watershedAddUniformWater(pPC, iwater);
 pcd_t* temp = listGet(pPC->points, 4693);
 printf("other info Rx:%lf Ry:%lf row:%d col:%d height:%lf water:%lf \n", temp->x, temp->y, temp->relitiveX, temp->relitiveY, temp->height,temp->wd);
-
+imagePointCloudWater(pPC, wdmax, "outWater");
 //pcd_t* north = temp->north;
 //pcd_t* east = temp->east;
 //pcd_t* west = temp->west;

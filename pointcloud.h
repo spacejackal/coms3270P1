@@ -41,7 +41,7 @@ void watershedStep(pointcloud_t* pc);
 */
 pointcloud_t* readPointCloudData(FILE* stream);
 
-double helper(pointcloud_t* pc, double t1, double w1, double t2, double w2);
+double helper(double wecof, double t1, double w1, double t2, double w2);
 
 void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename);
 

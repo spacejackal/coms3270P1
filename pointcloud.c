@@ -358,7 +358,7 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 
 		bm_set_color(b, section);
 
-		bm_putpixel(b, writeCol, writeRow);
+		bm_putpixel(b, writeRow, writeCol);
 		if (writeRow == width - 1) {
 			writeCol++;
 			writeRow = 0;

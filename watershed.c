@@ -22,6 +22,7 @@ FILE* pInFile = fopen(infile,"r");
 pPC = readPointCloudData(pInFile);
 double twcoef = (double)wcoef;
 double tecoef = (double)ecoef;
+printf( wceof =)
 pPC->wcoef = twcoef;
 pPC->ecoef = tecoef;
 
@@ -49,7 +50,7 @@ printf("other info Rx:%lf Ry:%lf row:%d col:%d height:%lf water:%lf \n", temp->x
 //printf("WEST info Rx:%lf Ry:%lf row:%d col:%d height:%lf \n", west->x, west->y, west->relitiveX, west->relitiveY, west->height);
 
 
-watershedStep(pPC);
+//watershedStep(pPC);
 printf("other info Rx:%lf Ry:%lf row:%d col:%d height:%lf water:%lf \n", temp->x, temp->y, temp->relitiveX, temp->relitiveY, temp->height, temp->wd);
 //pcd_t* north = temp->north;
 

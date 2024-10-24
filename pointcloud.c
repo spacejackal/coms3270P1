@@ -159,6 +159,11 @@ pointcloud_t* readPointCloudData(FILE* stream){
 		}
 	}
 
+	for (int i = 0; i < pTempList; i++) {
+		pcd_t* setter = (pcd_t*)listGet(pTempList, i);
+		setter->col = (int)(setter->x - pTempList->stats->minX);
+		setter->row = (int)(setter->y - pTempList->stats->minY);
+	}
 
 
 	printf("High point: x = %.1f, y = %.1f, height = %.15f \n", high.x, high.y, high.height); 

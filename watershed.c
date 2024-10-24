@@ -20,8 +20,10 @@ FILE* pInFile = fopen(infile,"r");
 
 
 pPC = readPointCloudData(pInFile);
-pPC->wcoef = wcoef;
-pPC->ecoef = ecoef;
+double twcoef = (double)wcoef;
+double tecoef = (double)ecoef;
+pPC->wcoef = twcoef;
+pPC->ecoef = tecoef;
 
 double low = pPC->points->stats->low;
 double high = pPC->points->stats->high;

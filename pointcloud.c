@@ -248,6 +248,7 @@ void watershedStep(pointcloud_t* pc) {
 		pcd_t* north = p->north;
 		pcd_t* south = p->south;
 		double temp = 0;
+		printf("Fialing row: %d Col: %d \n", p->row, p->col);
 		if (east != NULL) {
 			temp += (helper(wcoef, p->height, east->height, p->wd, east->wd));
 

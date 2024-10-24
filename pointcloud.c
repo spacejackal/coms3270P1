@@ -275,7 +275,7 @@ void watershedStep(pointcloud_t* pc) {
 
 		}
 
-		//printf("the new water depth is: %lf \n", temp);
+		printf("the new water depth is: %lf \n", temp);
 		temp -=  (p->wd * pc->ecoef);
 		temps[i] = temp;
 

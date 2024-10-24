@@ -266,7 +266,9 @@ void watershedStep(pointcloud_t* pc) {
 		if (west != NULL) {
 			temp += (helper(wcoef, p->height, north->height, p->wd, north->wd));
 
-		} if (south != NULL) {
+		}
+		printf("Big no no 4\n");
+		if (south != NULL) {
 			temp += (helper(wcoef, p->height, south->height, p->wd, south->wd));
 
 		}

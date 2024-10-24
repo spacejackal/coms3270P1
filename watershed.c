@@ -55,7 +55,7 @@ printf("other info Rx:%lf Ry:%lf row:%d col:%d height:%lf water:%lf \n", temp->x
 
 
 
-//watershedStep(pPC);
+watershedStep(pPC);
 //printf("the water depth 3rd is: %lf \n", temp->wd);
 //watershedStep(pPC);
 //printf("the water depth 4th is: %lf \n", temp->wd);

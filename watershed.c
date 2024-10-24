@@ -38,7 +38,7 @@ pPC->points->stats->high = high;
 
 watershedAddUniformWater(pPC, iwater);
 pcd_t* temp = listGet(pPC->points, 0);
-printf("other info Rx:%lf Ry:%lf row:%d col:%d height:%lf water:%lf \n", temp->x, temp->y, temp->relitiveX, temp->relitiveY, temp->height,temp->wd);
+printf("other info Rx:%lf Ry:%lf col:%d row:%d height:%lf water:%lf \n", temp->x, temp->y, temp->relitiveX, temp->relitiveY, temp->height,temp->wd);
 //imagePointCloudWater(pPC, wdmax, "outWater");
 pcd_t* north = temp->north;
 pcd_t* east = temp->east;
@@ -47,7 +47,7 @@ pcd_t* south = temp->south;
 //printf("NORTH info Rx:%lf Ry:%lf row:%d col:%d height:%lf \n", north->x, north->y, north->relitiveX, north->relitiveY, north->height);
 printf("SOUTH info Rx:%lf Ry:%lf col:%d row:%d height:%lf \n", south->x, south->y, south->relitiveX, south->relitiveY, south->height);
 //printf("EAST info Rx:%lf Ry:%lf row:%d col:%d height:%lf \n", east->x, east->y, east->relitiveX, east->relitiveY, east->height);
-printf("WEST info Rx:%lf Ry:%lf row:%d col:%d height:%lf \n", west->x, west->y, west->relitiveX, west->relitiveY, west->height);
+printf("WEST info Rx:%lf Ry:%lf col:%d row:%d height:%lf \n", west->x, west->y, west->relitiveX, west->relitiveY, west->height);
 
 
 //watershedStep(pPC);

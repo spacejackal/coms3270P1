@@ -22,7 +22,6 @@ FILE* pInFile = fopen(infile,"r");
 pPC = readPointCloudData(pInFile);
 double twcoef = (double)wcoef;
 double tecoef = (double)ecoef;
-printf( wceof =)
 pPC->wcoef = twcoef;
 pPC->ecoef = tecoef;
 

@@ -240,6 +240,7 @@ void watershedStep(pointcloud_t* pc) {
 	List* points = pc->points;
 	int size = pc->points->size;
 	printf("the eceof is: %lf and the wecof is: %lf \n", pc->ecoef, pc->wcoef);
+	printf("total rows:%d , total cols: %d \n", pc->rows, pc->cols);
 	double temps[size];
 	for (int i = 0; i < size; i++) {
 		pcd_t* p = listGet(pc->points, i);
@@ -249,7 +250,7 @@ void watershedStep(pointcloud_t* pc) {
 		pcd_t* south = p->south;
 		double temp = 0;
 		
-		printf("Fialing row: %d Col: %d \n", p->row, p->col);
+		//printf("Fialing row: %d Col: %d \n", p->row, p->col);
 		//printf("cheaking east");
 		if (p->col != pc->cols-1) {
 			temp += (helper(wcoef, p->height, east->height, p->wd, east->wd));

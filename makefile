@@ -33,4 +33,4 @@ remake:
 	git pull
 	make clean
 	make watershed
-	./watershed test2.xyz 5 10.2 1.0 0.0 out 50 1
+	./watershed test2.xyz 10 10.2 1.0 0.0 out 50 1

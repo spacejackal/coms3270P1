@@ -69,7 +69,7 @@ for (int i = 0; i < iter; i++) {
 	if (seqCount == seq) {
 		char ofile[20];
 		strcpy(ofile, ofilebase);
-		//strcat(ofile, (itoa(ofiletotalCount)))
+		
 		strcat(ofile, ".gif");
 		imagePointCloudWater(pPC, wdmax, ofilebase);
 		seqCount = 0;

@@ -318,7 +318,7 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 	Bitmap* b = bm_create(width, height);
 	int writeRow = 0;
 	int writeCol = 0;
-	//printf("the maxWD is: %lf", maxwd);
+	printf("the maxWD is: %lf\n", maxwd);
 
 
 	for (int i = 0; i < pc->points->size; i++) {

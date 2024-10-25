@@ -305,7 +305,7 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 
 	int width = pc->cols;
 	double diff = max - min;
-	//printf("diff is %lf\n", diff);
+	printf("diff is %lf\n", diff);
 	pcd_t listTemp;
 	pcd_t* pListTemp = &listTemp;
 	double temp;

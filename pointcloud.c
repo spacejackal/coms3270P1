@@ -303,12 +303,13 @@ double helper(double wcoef,double t1, double t2, double w1, double w2) {
 * however repeted seem to take longer to compute then expected
 */
 void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
+	//gets and keeps the high and low points
 	double min = pc->points->stats->low;
 	double max = pc->points->stats->high;
-	printf("max is %lf the min:%lf\n", pc->points->stats->high, pc->points->stats->low);
+	
+	//inishilising used variables
 	int width = pc->cols;
 	double diff = max - min;
-	printf("diff is %lf\n", diff);
 	pcd_t listTemp;
 	pcd_t* pListTemp = &listTemp;
 	double temp;
@@ -318,12 +319,12 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 	unsigned int section;
 	int height = (pc->points->size / width);
 
+	//opening a bitmap of correct size so it can be colored
 	Bitmap* b = bm_create(width, height);
 	int writeRow = 0;
 	int writeCol = 0;
-	printf("the maxWD is: %lf\n", maxwd);
 
-
+	//for loop to find the correct color and shadeing it blue based on how deep the water at each point
 	for (int i = 0; i < pc->points->size; i++) {
 		pListTemp = (pcd_t*)listGet(pc->points, i);
 		temp = pListTemp->height;
@@ -357,14 +358,6 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 			section += ((unsigned int)((1 - tempwater)*temp) << 8);
 
 		}
-
-
-		//waterSection = ((unsigned int)tempwater << 24);
-		//waterSection += ((unsigned int)tempwater << 16);
-		//waterSection += ((unsigned int)tempwater << 8);
-
-		
-
 
 		bm_set_color(b, section);
 

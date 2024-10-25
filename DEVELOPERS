@@ -7,9 +7,20 @@ stat1() then takes the first value and sets it as the high point and low point, 
 if it finds a point higher then the current high point that new point becomes the new high point. the same thing happens with the low point if the new point is lower.
 
 pointcloud.c
-	readPointCloudData(FILE* stream, int* rasterWidth, List* pL) works similer to stat1 but all the points are saved into a List struct
 
 	imagePointCloud(List* l,int width, char* filename) reads a list of points then prints out a gif file according to the height of the points
+
+	pointcloud_t* readPointCloudData(FILE* stream) reads the points from a file and sets them into a list
+
+	int initializeWatershed(pointcloud_t* pc)  sets up the pointers for each point so it can move water correctly
+
+	void watershedAddUniformWater(pointcloud_t* pc, float amount)  adds the same amount of water for each point
+
+	void watershedStep(pointcloud_t* pc) calculates and sets the new water value at any given point
+
+	double helper(double wcoef,double t1, double t2, double w1, double w2) this is used by watershepStep to make calulations easier to change and to read
+
+	void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) simper to imagePointCloud but this shades the map blue based on how deep the water is at that location
 
 Util.h
 	Stats struct: keeps tract of the height of the highest point and the height of the lowest point, works similer to java ArrayList
@@ -20,5 +31,6 @@ Util.c
 	ListInit(List* l, int max_elmt_size) inichalizes a new list with some Max_elmt_size
 	listAddEnd(List* l, void* elmt) adds a new element to the end of a List and if the List runs out of size, the size doubles.
 	listGet(List* l, int index) returns a pointer to the data at some arbitrary point
+
 
 

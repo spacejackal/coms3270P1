@@ -64,11 +64,13 @@ pPC->points->stats->high = high;
 //imagePointCloudWater(pPC,wdmax, ofilebase);
 int totalCount =0;
 int seqCount = 1;
-char num[5];
+char num[64];
 for (int i = 0; i < iter; i++) {
 	if (seqCount == seq) {
-		char ofile[20];
+		char ofile[64];
+		itoa(totalCount, num, 10);
 		strcpy(ofile, ofilebase);
+		strcat(ofile, num);
 		
 		strcat(ofile, ".gif");
 		imagePointCloudWater(pPC, wdmax, ofilebase);

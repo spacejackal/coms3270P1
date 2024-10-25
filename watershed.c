@@ -67,7 +67,7 @@ int seqCount = 1;
 char num[64];
 char ofile[64];
 for (int i = 0; i < iter; i++) {
-	if (seqCount == seq) {
+	if (i % seq == 0) {
 		sprintf(num, "%d", i);
 		strcpy(ofile, ofilebase);
 		strcat(ofile, num);

@@ -299,7 +299,8 @@ double helper(double wcoef,double t1, double t2, double w1, double w2) {
 }
 
 /*
-* creates an image based on the water depth at each location however an repeted calls it seems to take longer to compute then expected
+* creates an image based on the map given and shades the map blue based on the water at each point
+* however repeted seem to take longer to compute then expected
 */
 void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 	double min = pc->points->stats->low;
@@ -332,7 +333,7 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 
 		
 		if (pListTemp->wd >= maxwd) {
-			section =(unsigned int) 255;
+			section =(unsigned int)255;
 			//section = (unsigned int)255 << 24;
 		}
 		else if(pListTemp->wd <= 0) {

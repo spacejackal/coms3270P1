@@ -50,7 +50,7 @@ for (int i = 0; i < iter; i++) {
 		strcpy(ofile, ofilebase);
 		strcat(ofile, (itoa(totalCount)));
 		strcat(ofile, ".gif");
-		imagePointCouldWater(pPC, wdmax, ofilebase);
+		imagePointCloudWater(pPC, wdmax, ofile);
 		seqCount = 1;
 		totalCount++;
 	}

@@ -285,6 +285,9 @@ void watershedStep(pointcloud_t* pc) {
 	}
 }
 
+/*
+* helper funciton that is used to keep help simplify code.
+*/
 double helper(double wcoef,double t1, double t2, double w1, double w2) {
 	double temp;
 	//printf("t1:%lf, t2:%lf, w1:%lf, w2:%lf \n", t1, t2, w1, w2);
@@ -347,11 +350,11 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 				section = (unsigned int)255;
 			}
 			else {
-			section = (unsigned int)(tempwater*255);
+			section = (unsigned int)255;
 		}
-			section += ((unsigned int)((0.5*tempwater)*temp) << 24);
-			section += ((unsigned int)((0.5* tempwater) *temp) << 16);
-			section += ((unsigned int)((0.5* tempwater)*temp) << 8);
+			section += ((unsigned int)(( 1 -tempwater)*temp) << 24);
+			section += ((unsigned int)((1 - tempwater) *temp) << 16);
+			section += ((unsigned int)((1 - tempwater)*temp) << 8);
 
 		}
 

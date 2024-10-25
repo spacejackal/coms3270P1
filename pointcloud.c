@@ -57,7 +57,6 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 
 	int width = pc->cols;
 	double diff = max - min;
-	printf("diff is %lf\n", diff);
 	pcd_t listTemp;
 	pcd_t* pListTemp = &listTemp;
 	double temp;
@@ -67,15 +66,11 @@ void imagePointCloud(pointcloud_t* pc, char* filename) {
 	Bitmap* b = bm_create(width, height);
 	int writeRow = 0;
 	int writeCol = 0;
-	printf("size: %d\n", pc->points->size);
 
 	for (int i = 0; i < pc->points->size; i++) {
 		pListTemp = (pcd_t*)listGet(pc->points, i);
-		//printf("the point got is : x:%lf y:%lf and height:%lf\n", pListTemp->x, pListTemp->y, pListTemp->height);
-		//printf("ssssimage the pc stats are low:%lf and high:%lf \n", pc->points->stats->low, pc->points->stats->high);
 		temp = pListTemp->height;
 		temp -= min;
-		//printf("the height got is after sub low: %lf\n", temp);
 		temp /= diff;
 		temp *= 256;
 		section = (unsigned int)temp;
@@ -165,11 +160,6 @@ pointcloud_t* readPointCloudData(FILE* stream){
 		setter->row = (int)(setter->y - pTempList->stats->minY);
 	}
 
-
-	printf("High point: x = %.1f, y = %.1f, height = %.15f \n", high.x, high.y, high.height); 
-	printf("Low point: x = %.1f, y = %.1f, height = %.15f \n", low.x, low.y, low.height);
-	
-
 	pTempList->stats->high = high.height;
 	pTempList->stats->low = low.height;
 
@@ -197,7 +187,6 @@ int initializeWatershed(pointcloud_t* pc) {
 		p->east = NULL;
 		p->west = NULL;
 		p->south = NULL;
-		//printf("numbers of loop id");
 		if (row != 0) {
 			int temp = ((row - 1) * width) + col;
 			p->north = listGet(points, temp);
@@ -242,8 +231,7 @@ void watershedStep(pointcloud_t* pc) {
 	double wcoef = pc->wcoef;
 	List* points = pc->points;
 	int size = pc->points->size;
-	printf("the eceof is: %lf and the wecof is: %lf \n", pc->ecoef, pc->wcoef);
-	printf("total rows:%d , total cols: %d \n", pc->rows, pc->cols);
+
 	double temps[size];
 	for (int i = 0; i < size; i++) {
 		pcd_t* p = listGet(pc->points, i);
@@ -267,7 +255,6 @@ void watershedStep(pointcloud_t* pc) {
 			temp += (helper(wcoef, p->height, south->height, p->wd, south->wd));
 		}
 
-		//printf("the new water depth is: %lf \n", temp);
 		temp -=  (p->wd * pc->ecoef);
 		temps[i] = temp;
 
@@ -289,11 +276,9 @@ void watershedStep(pointcloud_t* pc) {
 */
 double helper(double wcoef,double t1, double t2, double w1, double w2) {
 	double temp;
-	//printf("t1:%lf, t2:%lf, w1:%lf, w2:%lf \n", t1, t2, w1, w2);
 	temp = (t2 + w2);
 	temp -= (t1 + w1);
 	temp *= wcoef;
-	//printf("wcoef = %lf\n", wcoef);
 	
 	return temp;
 }
@@ -335,7 +320,6 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 		
 		if (pListTemp->wd >= maxwd) {
 			section =(unsigned int)255;
-			//section = (unsigned int)255 << 24;
 		}
 		else if(pListTemp->wd <= 0) {
 			section = (unsigned int)temp;
@@ -346,7 +330,6 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 		else {
 			tempwater = pListTemp->wd;
 			tempwater /= maxwd;
-			//tempwater *= 255;
 			if (temp + tempwater >= 255) {
 				section = (unsigned int)255;
 			}

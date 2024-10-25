@@ -43,24 +43,23 @@ int main(int argc, char* argv[]) {
 	//adding water to each point
 	watershedAddUniformWater(pPC, iwater);
 	
-	
-	
-	
-	
-	
+	//simulateing water based one step of time
 	watershedStep(pPC);
 	
 	
 	pPC->points->stats->low = low;
 	pPC->points->stats->high = high;
-	imagePointCloudWater(pPC, wdmax, ofilebase);
 	
+	//getting for loop ready so .gif images are made correctly
 	int totalCount =0;
 	int seqCount = 1;
 	char num[64];
 	char ofile[64];
+
+	//using a loop so based on the number inputs creates the correct amout of .gif images
 	for (int i = 0; i < iter; i++) {
 		if (i % seq == 0) {
+			//the below code is computeing the correct name for the out file
 			sprintf(num, "%d", i);
 			strcpy(ofile, ofilebase);
 			strcat(ofile, num);
@@ -73,7 +72,6 @@ int main(int argc, char* argv[]) {
 			seqCount = 0;
 			totalCount++;
 		}
-		//pPC->points->stats->low = low;
 		watershedStep(pPC);
 		seqCount++;
 	}

@@ -302,7 +302,7 @@ double helper(double wcoef,double t1, double t2, double w1, double w2) {
 void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 	double min = pc->points->stats->low;
 	double max = pc->points->stats->high;
-
+	printf("max is %lf the min:%lf\n", pc->points->stats->high, pc->points->stats->low);
 	int width = pc->cols;
 	double diff = max - min;
 	printf("diff is %lf\n", diff);

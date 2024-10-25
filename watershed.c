@@ -17,6 +17,7 @@ int main(int argc, char* argv[]) {
 pointcloud_t pc;
 pointcloud_t* pPC = (pointcloud_t*)malloc(sizeof(pointcloud_t));
 
+
 FILE* pInFile = fopen(infile,"r");
 
 

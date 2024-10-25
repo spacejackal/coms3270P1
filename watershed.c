@@ -60,7 +60,7 @@ watershedStep(pPC);
 
 pPC->points->stats->low = low;
 pPC->points->stats->high = high;
-imagePointCloudWater(pPC, wdmax, ofilebase);
+//imagePointCloudWater(pPC, wdmax, ofilebase);
 
 int totalCount =0;
 int seqCount = 1;
@@ -74,7 +74,7 @@ for (int i = 0; i < iter; i++) {
 		strcat(ofile, ".gif");
 		
 
-		//imagePointCloudWater(pPC, wdmax, ofile);
+		imagePointCloudWater(pPC, wdmax, ofilebase);
 		seqCount = 0;
 		totalCount++;
 	}

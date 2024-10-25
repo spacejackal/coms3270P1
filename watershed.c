@@ -59,6 +59,7 @@ pcd_t* south = temp->south;
 
 watershedStep(pPC);
 
+
 pPC->points->stats->low = low;
 pPC->points->stats->high = high;
 imagePointCloudWater(pPC, wdmax, ofilebase);

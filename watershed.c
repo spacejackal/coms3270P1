@@ -68,7 +68,7 @@ char num[64];
 for (int i = 0; i < iter; i++) {
 	if (seqCount == seq) {
 		char ofile[64];
-		itoa(totalCount, num, 10);
+		sprintf(num, "%d", totalCount);
 		strcpy(ofile, ofilebase);
 		strcat(ofile, num);
 		

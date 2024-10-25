@@ -68,6 +68,7 @@ char num[64];
 for (int i = 0; i < iter; i++) {
 	if (seqCount == seq) {
 		char ofile[64];
+		printf("the pc stats are low:%lf and high:%lf pre watershed \n", pPC->points->stats->low, pPC->points->stats->high);
 		sprintf(num, "%d", totalCount);
 		strcpy(ofile, ofilebase);
 		strcat(ofile, num);

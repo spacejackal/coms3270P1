@@ -63,7 +63,7 @@ pPC->points->stats->high = high;
 
 //imagePointCloudWater(pPC,wdmax, ofilebase);
 int totalCount =0;
-int seqCount = 0;
+int seqCount = 1;
 for (int i = 0; i < iter; i++) {
 	if (seqCount == seq) {
 		char ofile[20];

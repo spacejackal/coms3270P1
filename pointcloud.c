@@ -324,7 +324,6 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 	for (int i = 0; i < pc->points->size; i++) {
 		pListTemp = (pcd_t*)listGet(pc->points, i);
 		temp = pListTemp->height;
-		//printf("water depth is: %lf\n", pListTemp->wd);
 		temp -= min;
 		temp /= diff;
 		temp *= 256;

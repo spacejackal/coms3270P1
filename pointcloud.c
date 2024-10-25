@@ -318,16 +318,16 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 		temp *= 255;
 
 		
-		if (pListTemp->wd >= maxwd) {
-			section =(unsigned int)255;
-		}
-		else if(pListTemp->wd <= 0) {
-			section = (unsigned int)temp;
-			section += ((unsigned int)(temp) << 24);
-			section += ((unsigned int)(temp) << 16);
-			section += ((unsigned int)(temp) << 8);
-		}
-		else {
+		//if (pListTemp->wd >= maxwd) {
+		//	section =(unsigned int)255;
+		//}
+		//else if(pListTemp->wd <= 0) {
+		//	section = (unsigned int)temp;
+		//	section += ((unsigned int)(temp) << 24);
+		//	section += ((unsigned int)(temp) << 16);
+		//	section += ((unsigned int)(temp) << 8);
+		//}
+		//else {
 			tempwater = pListTemp->wd;
 			tempwater /= maxwd;
 			if (temp + tempwater >= 255) {
@@ -340,7 +340,7 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 			section += ((unsigned int)((tempwater) *temp) << 16);
 			section += ((unsigned int)((tempwater)*temp) << 8);
 
-		}
+		//}
 
 		bm_set_color(b, section);
 

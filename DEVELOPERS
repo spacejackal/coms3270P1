@@ -32,5 +32,7 @@ Util.c
 	listAddEnd(List* l, void* elmt) adds a new element to the end of a List and if the List runs out of size, the size doubles.
 	listGet(List* l, int index) returns a pointer to the data at some arbitrary point
 
+watershed.c
+	the main method takes in a set of arguments after the file has been made so it ceates a set of .gif images that show the water at each point
 
 

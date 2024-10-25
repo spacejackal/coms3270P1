@@ -46,6 +46,7 @@ int totalCount =0;
 int seqCount = 1;
 char num[5];
 for (int i = 0; i < iter; i++) {
+	watershedStep(pPC);
 	if (seqCount == seq) {
 		sprintf(num, "%d", totalCount);
 		char ofile[20];
@@ -58,7 +59,6 @@ for (int i = 0; i < iter; i++) {
 		*num = "";
 	}
 	pPC->points->stats->low = low;
-	watershedStep(pPC);
 	seqCount++;
 }
 

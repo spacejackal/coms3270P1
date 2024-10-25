@@ -72,6 +72,8 @@ for (int i = 0; i < iter; i++) {
 		strcpy(ofile, ofilebase);
 		strcat(ofile, num);
 		strcat(ofile, ".gif");
+		pPC->points->stats->low = low;
+		pPC->points->stats->high = high;
 		
 
 		imagePointCloudWater(pPC, wdmax, ofile);

@@ -55,7 +55,7 @@ for (int i = 0; i < iter; i++) {
 		imagePointCloudWater(pPC, wdmax, ofile);
 		seqCount = 0;
 		totalCount++;
-		num[] = "";
+		*num = "";
 	}
 	pPC->points->stats->low = low;
 	watershedStep(pPC);

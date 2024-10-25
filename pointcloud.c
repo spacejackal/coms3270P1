@@ -234,7 +234,10 @@ void watershedAddUniformWater(pointcloud_t* pc, float amount) {
 	}
 }
 
-
+/*
+* calculates the water for each step of time,
+* finds the water at each point and the naighboring points then calculates the change of water.
+*/
 void watershedStep(pointcloud_t* pc) {
 	double wcoef = pc->wcoef;
 	List* points = pc->points;
@@ -254,18 +257,14 @@ void watershedStep(pointcloud_t* pc) {
 		if (p->col != pc->cols-1) {
 			temp += (helper(wcoef, p->height, east->height, p->wd, east->wd));
 		}
-
 		if (p->row !=pc->rows-1) {
 			temp+= (helper(wcoef, p->height, north->height, p->wd, north->wd));
-
 		}
 		if (p->col != 0) {
 			temp += (helper(wcoef, p->height, west->height, p->wd, west->wd));
-
 		}
 		if (p->row != 0) {
 			temp += (helper(wcoef, p->height, south->height, p->wd, south->wd));
-
 		}
 
 		//printf("the new water depth is: %lf \n", temp);

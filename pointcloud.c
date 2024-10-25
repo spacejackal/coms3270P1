@@ -296,7 +296,9 @@ double helper(double wcoef,double t1, double t2, double w1, double w2) {
 	return temp;
 }
 
-
+/*
+* creates an image based on the water depth at each location
+*/
 void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 	double min = pc->points->stats->low;
 	double max = pc->points->stats->high;

@@ -68,9 +68,9 @@ char num[64];
 char ofile[64];
 for (int i = 0; i < iter; i++) {
 	if (seqCount == seq) {
-		//sprintf(num, "%d", totalCount);
+		sprintf(num, "%d", i);
 		strcpy(ofile, ofilebase);
-		//strcat(ofile, num);
+		strcat(ofile, num);
 		strcat(ofile, ".gif");
 
 		imagePointCloudWater(pPC, wdmax, ofile);

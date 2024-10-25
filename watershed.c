@@ -44,15 +44,18 @@ pPC->points->stats->high = high;
 
 int totalCount =0;
 int seqCount = 1;
+char num[5];
 for (int i = 0; i < iter; i++) {
 	if (seqCount == seq) {
+		sprintf(num, "%d", totalCount);
 		char ofile[20];
 		strcpy(ofile, ofilebase);
-		strcat(ofile, (itoa(totalCount)));
+		strcat(ofile, num);
 		strcat(ofile, ".gif");
 		imagePointCloudWater(pPC, wdmax, ofile);
-		seqCount = 1;
+		seqCount = 0;
 		totalCount++;
+		num = "";
 	}
 	pPC->points->stats->low = low;
 	watershedStep(pPC);

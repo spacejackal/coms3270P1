@@ -297,7 +297,7 @@ double helper(double wcoef,double t1, double t2, double w1, double w2) {
 }
 
 /*
-* creates an image based on the water depth at each location
+* creates an image based on the water depth at each location however an repeted calls it seems to take longer to compute then expected
 */
 void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 	double min = pc->points->stats->low;
@@ -349,9 +349,9 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 			else {
 			section = (unsigned int)(tempwater*255);
 		}
-			section += ((unsigned int)((1 -tempwater)*temp) << 24);
-			section += ((unsigned int)((1- tempwater) *temp) << 16);
-			section += ((unsigned int)((1 - tempwater)*temp) << 8);
+			section += ((unsigned int)((0.5*tempwater)*temp) << 24);
+			section += ((unsigned int)((0.5* tempwater) *temp) << 16);
+			section += ((unsigned int)((0.5* tempwater)*temp) << 8);
 
 		}
 

@@ -73,7 +73,7 @@ for (int i = 0; i < iter; i++) {
 		//strcat(ofile, num);
 		strcat(ofile, ".gif");
 
-		imagePointCloudWater(pPC, wdmax, ofilebase);
+		imagePointCloudWater(pPC, wdmax, ofile);
 		seqCount = 0;
 		totalCount++;
 	}

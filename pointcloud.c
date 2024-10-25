@@ -344,7 +344,7 @@ void imagePointCloudWater(pointcloud_t* pc, double maxwd, char* filename) {
 		}
 		else {
 			section = (unsigned int)temp;
-			section += ((unsigned int)(temp - tempwater) << 24);
+			//section += ((unsigned int)(temp - tempwater) << 24);
 			section += ((unsigned int)(temp - tempwater) << 16);
 			section += ((unsigned int)(temp - tempwater) << 8);
 
